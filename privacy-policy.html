@@ -32,7 +32,7 @@ code { background: #161B22; padding: 2px 6px; border-radius: 4px; font-size: 14p
 <body>
 <a class="back" href="./">← Back to apps</a>
 <h1>Privacy Policy</h1>
-<p class="muted">Last updated: August 10, 2026</p>
+<p class="muted">Last updated: October 21, 2026</p>
 
 <p>This privacy policy covers all iOS applications published under the developer name <strong>Tabish Hassan</strong> on the Apple App Store. It applies collectively to every app in the portfolio unless a specific app ships its own supplemental policy inside the app.</p>
 
@@ -49,7 +49,7 @@ the “Cloud-Connected Apps” section below, which governs them where it differ
   <li><strong>Cloud-connected apps</strong> (e.g. Project Hub) require sign-in and store your account and messages on <strong>Google Firebase</strong> servers — see the dedicated section below.</li>
   <li>Some offline-first apps use a small number of network services for <strong>crash reporting</strong> and an optional <strong>invite/referral</strong> feature. These never receive the content you create in the app. See “Services Used by Offline-First Apps”.</li>
   <li>We do <strong>not</strong> sell your personal content, and we do <strong>not</strong> track you across other apps or websites.</li>
-  <li>Some offline-first apps display third-party ads (<strong>InMobi</strong>) in the free tier. Premium subscribers see no ads. Cloud-connected apps like Project Hub contain <strong>no ads</strong>.</li>
+  <li>Some offline-first apps display third-party ads (<strong>Liftoff Monetize</strong>, and <strong>Meta Audience Network</strong> through the <strong>Admost</strong> mediation service) in the free tier. Premium subscribers see no ads. Cloud-connected apps like Project Hub contain <strong>no ads</strong>.</li>
 </ul>
 
 <h2>Data We Access (Offline-First Apps)</h2>
@@ -78,7 +78,7 @@ never your notes, entries, photos, health data, or other app content.</p>
       login: it has no name, no email, and no password, and it exists solely to attach an invite code to a device.
       We store the invite code, how many invites have been redeemed, and whether a reward has been granted.
       No personal information and no app content is stored.</li>
-  <li><strong>InMobi</strong> — advertising in ad-supported apps. See “Advertising” below.</li>
+  <li><strong>Liftoff Monetize, Admost and Meta Audience Network</strong> — advertising in ad-supported apps. See “Advertising” below.</li>
   <li><strong>Open Library API</strong> — ReadingLog sends book search queries to openlibrary.org over HTTPS. No personal identifiers are transmitted.</li>
 </ul>
 
@@ -102,12 +102,16 @@ content, and the developer can block users and remove content that violates the 
 
 <h2>Third-Party Services</h2>
 <ul>
-  <li><strong>InMobi</strong> — <em>in apps that display ads</em>, the InMobi SDK may access the Advertising
-      Identifier (IDFA), coarse device and connection information, and ad-interaction events in order to serve
-      and measure advertising. On iOS, the IDFA is only accessed if you grant permission through Apple's
-      App Tracking Transparency prompt; if you decline, ads are still shown but are non-personalised. You can
-      change this at any time in iOS Settings → Privacy &amp; Security → Tracking. See
-      <a href="https://www.inmobi.com/privacy-policy" rel="noopener">InMobi's privacy policy</a>.</li>
+  <li><strong>Liftoff Monetize</strong> (the Vungle SDK, operated by Liftoff Mobile, Inc.), <strong>Admost</strong>
+      (an ad-mediation service operated by Admost Bilisim A.S.) and the <strong>Meta Audience Network</strong>
+      (operated by Meta Platforms, Inc., reached through Admost) — <em>in apps that display ads</em>, these SDKs may
+      access the Advertising Identifier (IDFA), coarse device and connection information, approximate IP address,
+      and ad-interaction events in order to serve and measure advertising. On iOS, the IDFA is only accessed if you
+      grant permission through Apple's App Tracking Transparency prompt; if you decline, ads are still shown but
+      are non-personalised. You can change this at any time in iOS Settings → Privacy &amp; Security → Tracking. See
+      <a href="https://liftoff.ai/privacy-policy/" rel="noopener">Liftoff's privacy policy</a>,
+      <a href="https://admost.com/privacy-policy/" rel="noopener">Admost's privacy policy</a> and
+      <a href="https://www.facebook.com/about/privacy/" rel="noopener">Meta's privacy policy</a>.</li>
   <li><strong>Google Firebase</strong> (Crashlytics, Authentication, Cloud Firestore, Cloud Functions, Cloud Storage, Cloud Messaging) —
       used for crash reporting and the optional invite feature in offline-first apps, and to store your account,
       messages, and attachments in cloud-connected apps such as Project Hub. Firebase processes this data on
@@ -121,8 +125,12 @@ content, and the developer can block users and remove content that violates the 
 </ul>
 
 <h2>Advertising (Ad-Supported Apps Only)</h2>
-<p>Apps marked "Free with In-App Purchases" may show banner, interstitial, and rewarded advertisements from
-<strong>InMobi</strong>. Purchasing the premium subscription removes all ads immediately. Ads are never shown in:</p>
+<p>Apps marked "Free with In-App Purchases" may show banner, interstitial, and rewarded advertisements. Each ad
+request goes first to <strong>Liftoff Monetize</strong>; if Liftoff has no ad, it passes to <strong>Admost</strong>,
+which runs its own auction with the <strong>Meta Audience Network</strong>. When neither has an ad, the app may
+promote another of our own apps instead — for those promotions we count only totals (how many times each is shown
+and tapped, and how many devices saw or tapped it), with no identifier or personal data. Purchasing the premium
+subscription removes all ads immediately. Ads are never shown in:</p>
 <ul>
   <li>Any app listed in the Apple App Store <strong>Kids</strong> category.</li>
   <li>Any app targeted at children under 13.</li>
