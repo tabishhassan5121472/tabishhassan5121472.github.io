@@ -1,0 +1,584 @@
+[
+ {
+  "name": "ClinArbor",
+  "kind": "Clinic Management",
+  "tagline": "Multi-clinic system for US outpatient clinics: patient records, appointments, charting and billing.",
+  "url": "https://careloop-demo.onrender.com",
+  "identity": "Clinic: riverbend",
+  "accounts": [
+   {
+    "user": "front@example.test",
+    "password": "CareLoopDemo!2026",
+    "role": "Receptionist"
+   },
+   {
+    "user": "nurse@example.test",
+    "password": "CareLoopDemo!2026",
+    "role": "Nurse / medical assistant"
+   },
+   {
+    "user": "billing@example.test",
+    "password": "CareLoopDemo!2026",
+    "role": "Biller"
+   }
+  ],
+  "features": [
+   "Patient records with field-level encryption of sensitive data",
+   "Appointment scheduling and provider availability",
+   "Clinical charting (visit notes)",
+   "Billing, invoices and payments",
+   "Patient portal"
+  ],
+  "pricing": "Per staff seat per month (sample prices): Starter $49 (1 location, up to 5 seats), Practice $89 (up to 3 locations, adds prescribing, superbills, reports and the staff app), Group $129 (everything, including the patient portal and API). 14-day free trial (30 days on Group). Shown at https://careloop-demo.onrender.com/pricing once deployed.",
+  "notes": "Synthetic patients only. The free hosting has no HIPAA agreement, so real patient data must never go on the demo."
+ },
+ {
+  "name": "StaffCairn",
+  "kind": "HR Management",
+  "tagline": "HR system for 20–500 person companies (renamed from PeopleDesk, which is another company's product). One employment record drives the org chart, time, leave and pay.",
+  "url": "https://peopledesk-demo.onrender.com",
+  "identity": "Tenant ID: 6ac14f605eb8af1e915560a1",
+  "accounts": [
+   {
+    "user": "priya.nair@acme-demo.test",
+    "password": "peopledesk-demo",
+    "role": "Employee view"
+   },
+   {
+    "user": "alex.morgan@acme-demo.test",
+    "password": "peopledesk-demo",
+    "role": "Team lead: approvals inbox, team goals, 1:1s"
+   }
+  ],
+  "features": [
+   "Departments, positions, reporting lines and headcount plan",
+   "Employee records with full history, documents and dependants",
+   "Time & attendance: shifts, clock in/out, overtime rules",
+   "Leave: accrual policies, balances, holiday calendars, approvals",
+   "Multi-step approval engine reused by every workflow",
+   "Salary history, pay runs (gross pay) and payroll CSV export",
+   "Employee phone app (Expo): clock in/out, leave requests and approvals, payslips, directory",
+   "Expense claims and reimbursement",
+   "Onboarding / offboarding checklists",
+   "Performance: goals, review cycles with calibration, 1:1 notes",
+   "Users, roles and permissions, CSV import, audit log"
+  ],
+  "pricing": "Per employee per month: Starter $3, Growth $6 (adds Performance), 20-employee minimum. Shown at https://peopledesk-demo.onrender.com/pricing.",
+  "notes": ""
+ },
+ {
+  "name": "GymWren",
+  "kind": "Gym & Fitness Studio Management",
+  "tagline": "Memberships, recurring billing and class scheduling for independent gyms and boutique studios.",
+  "url": "https://irondesk-demo-w8fd.onrender.com",
+  "identity": "Gym address: demo-gym",
+  "accounts": [
+   {
+    "user": "manager@example.test",
+    "password": "correct-horse-battery-staple",
+    "role": "Manager"
+   },
+   {
+    "user": "front_desk@example.test",
+    "password": "correct-horse-battery-staple",
+    "role": "Front desk"
+   },
+   {
+    "user": "trainer@example.test",
+    "password": "correct-horse-battery-staple",
+    "role": "Trainer"
+   },
+   {
+    "user": "member@example.test",
+    "password": "correct-horse-battery-staple",
+    "role": "Member view"
+   }
+  ],
+  "features": [
+   "Membership plans, trials, freezes and cancellations",
+   "Recurring billing with retries, grace periods and proration",
+   "Point of sale for drop-ins, merchandise, supplements and day passes",
+   "Class timetable with capacity and waitlists",
+   "QR / PIN check-in and attendance tracking",
+   "Personal-trainer booking and session packs",
+   "Lead capture and trial-to-member pipeline",
+   "Retention analytics: at-risk members by attendance drop"
+  ],
+  "pricing": "- Starter (up to 300 members): $99/month - Growth (up to 1,000 members): $199/month - Pro (unlimited members): $349/month - Optional payment-processing margin. Multi-site is the upgrade trigger.",
+  "notes": ""
+ },
+ {
+  "name": "SlateOne",
+  "kind": "School Management",
+  "tagline": "Admissions, attendance, exams and fee collection for K–12 private schools.",
+  "url": "https://slateone-demo.onrender.com",
+  "identity": "School: slateone-demo",
+  "accounts": [
+   {
+    "user": "registrar@slateone-demo.example",
+    "password": "RegistrarPass123!",
+    "role": "Registrar"
+   },
+   {
+    "user": "teacher@slateone-demo.example",
+    "password": "TeacherPass123!",
+    "role": "Teacher"
+   }
+  ],
+  "features": [
+   "Admissions: enquiries, applications, entrance tests, enrolment",
+   "Student records, guardians, documents and transfers",
+   "Classes, sections, subjects and teacher allocation",
+   "Daily and period-wise attendance with parent alerts",
+   "Timetable with conflict detection",
+   "Fees: schedules, invoices, receipts, discounts, arrears",
+   "Exams, grading and report cards",
+   "Announcements by section"
+  ],
+  "pricing": "Per student per year, banded, billed annually in advance.",
+  "notes": ""
+ },
+ {
+  "name": "LessonMoor",
+  "kind": "E-Learning / LMS",
+  "tagline": "Course delivery, quizzes and certificates for training companies and independent educators (renamed from CourseKit, which collides with Google's Course Kit; the demo address and logins keep `coursekit`).",
+  "url": "https://coursekit-demo.onrender.com",
+  "identity": "Organisation: coursekit-demo",
+  "accounts": [
+   {
+    "user": "instructor@coursekit.app",
+    "password": "coursekit-demo",
+    "role": "Instructor: builder, quizzes, cohorts, analytics"
+   },
+   {
+    "user": "learner@coursekit.app",
+    "password": "coursekit-demo",
+    "role": "Learner"
+   },
+   {
+    "user": "learner login above",
+    "password": "coursekit-demo",
+    "role": "Learner app"
+   }
+  ],
+  "features": [
+   "Public landing and pricing pages, school signup, learner self-registration, invites, password reset",
+   "Course builder: every lesson type (text, PDF, link, video with captions), reorder, prerequisites, drip release",
+   "Video upload with resume position and signed playback",
+   "Manual, self-serve and bulk enrolment with progress tracking",
+   "Quizzes, question bank, grading and pass marks",
+   "Certificates with a public verification page and printable certificate",
+   "Cohorts with deadlines and a compliance report",
+   "Discussions with moderation, notifications",
+   "Checkout, coupons, bundles, subscriptions, invoices and credit notes",
+   "Course analytics: funnel, drop-off, quiz item analysis",
+   "Learner phone app (Expo): courses, lessons, quizzes, certificates",
+   "Corporate seat pools and manager reporting"
+  ],
+  "pricing": "",
+  "notes": "The demo uses text-and-link lessons only (no video on free hosting)."
+ },
+ {
+  "name": "Binwright",
+  "kind": "Inventory & Warehouse Management",
+  "tagline": "Multi-warehouse stock control on a tamper-proof movement ledger, with offline barcode scanning.",
+  "url": "https://stockpath-demo.onrender.com",
+  "identity": "Company: demo-distributor",
+  "accounts": [
+   {
+    "user": "ops@brackenfield.example",
+    "password": "Demo!2026",
+    "role": "Manager, MFA code 987654"
+   },
+   {
+    "user": "finance@brackenfield.example",
+    "password": "Demo!2026",
+    "role": "Controller, MFA code 987654"
+   },
+   {
+    "user": "buyer@brackenfield.example",
+    "password": "Demo!2026",
+    "role": "Purchasing, MFA code 987654"
+   },
+   {
+    "user": "picker@brackenfield.example",
+    "password": "Demo!2026",
+    "role": "Operator, no MFA"
+   }
+  ],
+  "features": [
+   "Items, variants, units of measure and barcodes",
+   "Warehouses, zones and bins",
+   "Stock movement ledger: receipts, issues, transfers, adjustments",
+   "Suppliers and purchase orders",
+   "Goods receiving with partials and discrepancies",
+   "Sales orders, picking, packing and dispatch",
+   "Cycle counts and full stocktake",
+   "Reorder points and suggested purchase orders",
+   "FIFO / average costing and stock ageing reports"
+  ],
+  "pricing": "Tiered by SKU count and warehouse count, plus per-scanner-device seats.",
+  "notes": ""
+ },
+ {
+  "name": "Passwell",
+  "kind": "Restaurant POS",
+  "tagline": "Point of sale, kitchen display and recipe-level stock for independent restaurants and small chains.",
+  "url": "https://platerun-demo.onrender.com",
+  "identity": "Restaurant ID: 660000000000000000000007",
+  "accounts": [
+   {
+    "user": "manager@platerun.app",
+    "password": "platerun-demo",
+    "role": "Manager"
+   },
+   {
+    "user": "cashier@platerun.app",
+    "password": "platerun-demo",
+    "role": "Cashier"
+   },
+   {
+    "user": "waiter@platerun.app",
+    "password": "platerun-demo",
+    "role": "Waiter"
+   },
+   {
+    "user": "kitchen@platerun.app",
+    "password": "platerun-demo",
+    "role": "Kitchen"
+   }
+  ],
+  "features": [
+   "Menu, modifiers, combos and day-part pricing",
+   "Table ordering with courses, holds, transfers and voids",
+   "Kitchen display with station routing",
+   "Split bills, tips, cash and card payments",
+   "Shift close, cash counts and Z-report",
+   "Recipe cards with per-sale stock depletion",
+   "Sales reporting by hour, item and server"
+  ],
+  "pricing": "Per outlet per month with device bands, plus optional payment-processing margin.",
+  "notes": ""
+ },
+ {
+  "name": "Keyfold",
+  "kind": "Hotel Management (PMS)",
+  "tagline": "Reservations, folios, housekeeping and night audit for independent hotels, with availability that cannot oversell.",
+  "url": "https://stayledger-demo.onrender.com",
+  "identity": "Sign in by email only",
+  "accounts": [
+   {
+    "user": "frontdesk@stayledger.app",
+    "password": "stayledger-demo",
+    "role": "Front desk"
+   },
+   {
+    "user": "auditor@stayledger.app",
+    "password": "stayledger-demo",
+    "role": "Night auditor"
+   },
+   {
+    "user": "housekeeping@stayledger.app",
+    "password": "stayledger-demo",
+    "role": "Housekeeping"
+   }
+  ],
+  "features": [
+   "Room types, rate plans and seasons",
+   "Date-range availability, holds and group blocks",
+   "Reservations, deposits and cancellation policies",
+   "Check-in, room assignment, walk-ins and check-out",
+   "Guest folios, taxes, splits and invoices",
+   "Night audit and daily reports",
+   "Housekeeping room status and assignments",
+   "Occupancy, ADR and RevPAR reporting"
+  ],
+  "pricing": "Per room per month, banded.",
+  "notes": ""
+ },
+ {
+  "name": "PipeCore",
+  "kind": "CRM & Sales",
+  "tagline": "Pipeline, activities and deal history for small sales teams.",
+  "url": "https://pipecore-demo.onrender.com",
+  "identity": "Tenant: pipecore-demo",
+  "accounts": [
+   {
+    "user": "demo@pipecore.app",
+    "password": "pipecore-demo",
+    "role": "Sales manager"
+   },
+   {
+    "user": "rep@pipecore.app",
+    "password": "pipecore-demo",
+    "role": "Sales rep"
+   }
+  ],
+  "features": [
+   "Contacts and companies with custom fields and merge",
+   "Multiple pipelines, stages, deal values and probabilities",
+   "Calls, meetings, tasks, notes and timeline",
+   "CSV import with dedupe",
+   "Quotes with line items and discount rules",
+   "Forecasting against targets",
+   "Web forms and lead routing",
+   "Conversion and activity reporting"
+  ],
+  "pricing": "Per seat per month ($12–$30 per seat).",
+  "notes": ""
+ },
+ {
+  "name": "Sumwright",
+  "kind": "Accounting & Invoicing",
+  "tagline": "Double-entry accounting with invoicing, bank reconciliation and tax rules for small businesses and their accountants.",
+  "url": "https://ledgerlite-demo.onrender.com",
+  "identity": "",
+  "accounts": [
+   {
+    "user": "demo@ledgerlite.app",
+    "password": "ledgerlite-demo",
+    "role": "Bookkeeper: entries, invoices, bills, reports"
+   }
+  ],
+  "features": [
+   "Chart of accounts, periods and lock dates",
+   "Journal entries, reversals and period close",
+   "Quotes, invoices, recurring invoices, credit notes",
+   "Receipts and payment allocation",
+   "Bills, expenses and payment runs",
+   "Tax rulepacks and returns",
+   "Bank statement import and reconciliation",
+   "Trial balance, P&L, balance sheet, cash flow, ageing",
+   "Multi-currency"
+  ],
+  "pricing": "Tiered by transaction volume and users, plus a discounted accountant partner tier (multi-client).",
+  "notes": ""
+ },
+ {
+  "name": "Lettrove",
+  "kind": "Real Estate & Rental Management",
+  "tagline": "Leases, rent roll, arrears and maintenance for landlords and property managers.",
+  "url": "https://keyledger-demo.onrender.com",
+  "identity": "Agency code harrowgate-demo or ID 000000000000000000005eed",
+  "accounts": [
+   {
+    "user": "j.abernathy@harrowgate-synthetic.invalid",
+    "password": "keyledger-demo-2026",
+    "role": "Bookkeeper"
+   },
+   {
+    "user": "d.halvorsen@harrowgate-synthetic.invalid",
+    "password": "keyledger-demo-2026",
+    "role": "Property manager (HQ)"
+   },
+   {
+    "user": "p.marchetti@harrowgate-synthetic.invalid",
+    "password": "keyledger-demo-2026",
+    "role": "Property manager (branch)"
+   },
+   {
+    "user": "t.ferreira@harrowgate-synthetic.invalid",
+    "password": "keyledger-demo-2026",
+    "role": "Leasing agent"
+   }
+  ],
+  "features": [
+   "Properties, units, owners and ownership splits",
+   "Leases, rent schedules, renewals and deposits",
+   "Rent invoicing, receipts and late fees",
+   "Arrears reminders, notices and payment plans",
+   "Maintenance requests, work orders and vendors",
+   "Owner statements and disbursements",
+   "Inspections with condition reports",
+   "Vacancy tracking"
+  ],
+  "pricing": "Per unit per month ($1–$3 per unit), banded; flat-price tier for small landlords.",
+  "notes": "On the demo, browsing works; sending email/SMS, payments and the bank feed are switched off."
+ },
+ {
+  "name": "ChairTime",
+  "kind": "Salon & Spa",
+  "tagline": "Online booking, staff rosters and no-show protection for salons, barbers and spas.",
+  "url": "https://chairtime-demo.onrender.com",
+  "identity": "Salon: sample-salon",
+  "accounts": [
+   {
+    "user": "manager@example.test",
+    "password": "sample-passphrase-not-a-secret",
+    "role": "Manager"
+   },
+   {
+    "user": "frontdesk@example.test",
+    "password": "sample-passphrase-not-a-secret",
+    "role": "Front desk"
+   },
+   {
+    "user": "stylistone@example.test",
+    "password": "sample-passphrase-not-a-secret",
+    "role": "Stylist"
+   }
+  ],
+  "features": [
+   "Services with durations, buffers and add-ons",
+   "Staff rosters, shifts and skills",
+   "Appointments with multi-service visits",
+   "Public online booking with deposits",
+   "Card on file, cancellation windows and no-show fees",
+   "Client history, notes, allergies and consent forms",
+   "Retail checkout, tips, gift cards and packages",
+   "Staff commission reports"
+  ],
+  "pricing": "Per staff seat per month, with an owner-only starter tier, plus optional payments margin. SMS sold as credits.",
+  "notes": ""
+ },
+ {
+  "name": "RouteBase",
+  "kind": "Fleet & Logistics",
+  "tagline": "Trips, maintenance and proof of delivery for fleets that need a real cost per kilometre.",
+  "url": "https://routebase-demo.onrender.com",
+  "identity": "Tenant: routebase-demo",
+  "accounts": [
+   {
+    "user": "demo@routebase.app",
+    "password": "routebase-demo",
+    "role": "Dispatcher"
+   },
+   {
+    "user": "driver@routebase.app",
+    "password": "routebase-demo",
+    "role": "Driver"
+   }
+  ],
+  "features": [
+   "Vehicles, drivers, documents and licence expiries",
+   "Trip dispatch board",
+   "Consignments, stops and delivery windows",
+   "Proof of delivery",
+   "Live map positions",
+   "Fuel logs, tolls and expenses",
+   "Maintenance schedules and defects",
+   "Cost per km, per trip and per customer"
+  ],
+  "pricing": "Per vehicle per month; lower rate for vehicles without GPS tracking.",
+  "notes": ""
+ },
+ {
+  "name": "DispatchDesk",
+  "kind": "Field Service",
+  "tagline": "Work orders, technician scheduling and on-site invoicing for HVAC, electrical, plumbing and equipment service companies.",
+  "url": "https://dispatchdesk-demo.onrender.com",
+  "identity": "Sign in by email only",
+  "accounts": [
+   {
+    "user": "demo@dispatchdesk.app",
+    "password": "dispatchdesk-demo",
+    "role": "Dispatcher"
+   },
+   {
+    "user": "tech@dispatchdesk.app",
+    "password": "dispatchdesk-demo",
+    "role": "Technician"
+   }
+  ],
+  "features": [
+   "Customers, sites and contacts",
+   "Equipment with serials, warranty and service history",
+   "Work orders with priorities and SLA targets",
+   "Dispatch board with conflict warnings",
+   "Job forms and checklists",
+   "Parts and van stock",
+   "On-site quotes, invoices and payment",
+   "Planned-maintenance contracts"
+  ],
+  "pricing": "Per technician seat per month; office / dispatcher seats free.",
+  "notes": ""
+ },
+ {
+  "name": "GatherOps",
+  "kind": "Event & Ticketing",
+  "tagline": "Ticketing, registration and on-site check-in for conferences, workshops and community events.",
+  "url": "https://gatherops-demo.onrender.com",
+  "identity": "",
+  "accounts": [
+   {
+    "user": "demo@gatherops-demo.test",
+    "password": "gatherops-demo",
+    "role": "Programme coordinator + finance view"
+   }
+  ],
+  "features": [
+   "Events, agenda, tracks, rooms and capacity",
+   "Ticket tiers, early bird, group and comp tickets",
+   "Checkout, attendee details and invoices",
+   "Promo codes and referral tracking",
+   "Transfers, upgrades, refunds and waitlists",
+   "QR check-in and badge printing",
+   "Per-session capacity",
+   "Speaker profiles and schedule"
+  ],
+  "pricing": "Per-ticket fee (absorbed or passed to the attendee), plus an optional flat subscription for frequent organisers. Free events are free.",
+  "notes": ""
+ },
+ {
+  "name": "ShelfMark",
+  "kind": "Library Management",
+  "tagline": "Catalogue, circulation and a phone-friendly public catalogue for school, college and community libraries.",
+  "url": "https://shelfmark-demo.onrender.com",
+  "identity": "Library: riverside-demo",
+  "accounts": [
+   {
+    "user": "librarian@riverside-demo.shelfmark.app",
+    "password": "shelfmark-demo",
+    "role": "Librarian"
+   },
+   {
+    "user": "assistant@riverside-demo.shelfmark.app",
+    "password": "shelfmark-demo",
+    "role": "Assistant"
+   }
+  ],
+  "features": [
+   "Catalogue with ISBN lookup and MARC import/export",
+   "Copies, barcodes and locations",
+   "Members, limits and expiry",
+   "Issue, return and renew with policy rules",
+   "Holds and reservations",
+   "Fines, waivers or fine-free mode",
+   "Public catalogue with member self-service",
+   "Stocktake and acquisitions"
+  ],
+  "pricing": "Annual per institution, by collection size. Deliberately modest pricing.",
+  "notes": ""
+ },
+ {
+  "name": "BillPath",
+  "kind": "Retail & Wholesale Billing",
+  "tagline": "Counter billing for retail and wholesale shops.",
+  "url": "https://billpath-demo.onrender.com",
+  "identity": "Company: zarlink-demo",
+  "accounts": [
+   {
+    "user": "manager@zarlink.pk",
+    "password": "Demo@12345",
+    "role": "Manager"
+   },
+   {
+    "user": "cashier@zarlink.pk",
+    "password": "Demo@12345",
+    "role": "Cashier"
+   }
+  ],
+  "features": [
+   "Sale at the counter with item search, discounts and GST",
+   "Cash, bank split or credit sales with credit limits",
+   "Returns",
+   "Purchases",
+   "Cash in / cash out",
+   "End of day",
+   "Party (customer / supplier) balances",
+   "Reports and printing"
+  ],
+  "pricing": "Price to be set.",
+  "notes": ""
+ }
+]
