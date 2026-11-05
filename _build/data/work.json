@@ -1,0 +1,145 @@
+{
+ "systems": {
+  "ClinArbor": "assets/work/systems/clinarbor.jpg",
+  "StaffCairn": "assets/work/systems/staffcairn.jpg",
+  "GymWren": "assets/work/systems/gymwren.jpg",
+  "SlateOne": "assets/work/systems/slateone.jpg",
+  "LessonMoor": "assets/work/systems/lessonmoor.jpg",
+  "Binwright": "assets/work/systems/binwright.jpg",
+  "Passwell": "assets/work/systems/passwell.jpg",
+  "Keyfold": "assets/work/systems/keyfold.jpg",
+  "PipeCore": "assets/work/systems/pipecore.jpg",
+  "Sumwright": "assets/work/systems/sumwright.jpg",
+  "Lettrove": "assets/work/systems/lettrove.jpg",
+  "ChairTime": "assets/work/systems/chairtime.jpg",
+  "RouteBase": "assets/work/systems/routebase.jpg",
+  "DispatchDesk": "assets/work/systems/dispatchdesk.jpg",
+  "GatherOps": "assets/work/systems/gatherops.jpg",
+  "ShelfMark": "assets/work/systems/shelfmark.jpg",
+  "BillPath": "assets/work/systems/billpath.jpg"
+ },
+ "templates": [
+  {
+   "slug": "address-real-estate",
+   "name": "Real Estate Agency Website Template \u2014 ADDRESS (Next.js)",
+   "img": "assets/work/templates/address-real-estate.jpg",
+   "url": "https://sassproducthub.gumroad.com/l/address-real-estate",
+   "price": "29.99"
+  },
+  {
+   "slug": "amina-doctor-clinic",
+   "name": "DR. AMINA RAHMAN \u2014 Doctor & Clinic Website Template (Next.js)",
+   "img": "assets/work/templates/amina-doctor-clinic.jpg",
+   "url": "https://sassproducthub.gumroad.com/l/amina-doctor-clinic",
+   "price": "29.99"
+  },
+  {
+   "slug": "cafe-slow-hours",
+   "name": "SLOW HOURS \u2014 Cafe & Coffee Shop Website Template (Next.js)",
+   "img": "assets/work/templates/cafe-slow-hours.jpg",
+   "url": "https://sassproducthub.gumroad.com/l/slow-hours-cafe",
+   "price": "29.99"
+  },
+  {
+   "slug": "cedar-school",
+   "name": "CEDAR SCHOOL \u2014 School Website Template (Next.js)",
+   "img": "assets/work/templates/cedar-school.jpg",
+   "url": "https://sassproducthub.gumroad.com/l/cedar-school",
+   "price": "29.99"
+  },
+  {
+   "slug": "clearpath-consultant",
+   "name": "Consultant Website Template \u2014 CLEARPATH (Next.js)",
+   "img": "assets/work/templates/clearpath-consultant.jpg",
+   "url": "https://sassproducthub.gumroad.com/l/clearpath-consultant",
+   "price": "29.99"
+  },
+  {
+   "slug": "dastarkhwan-desi",
+   "name": "Pakistani & Desi Restaurant Website Template (Next.js) \u2014 DASTARKHWAN",
+   "img": "assets/work/templates/dastarkhwan-desi.jpg",
+   "url": "https://sassproducthub.gumroad.com/l/dastarkhwan-desi",
+   "price": "29.99"
+  },
+  {
+   "slug": "forgeworks-manufacturing",
+   "name": "Manufacturing Company Website Template \u2014 FORGEWORKS (Next.js)",
+   "img": "assets/work/templates/forgeworks-manufacturing.jpg",
+   "url": "https://sassproducthub.gumroad.com/l/forgeworks-manufacturing",
+   "price": "29.99"
+  },
+  {
+   "slug": "form-field-architecture",
+   "name": "FORM / FIELD \u2014 Architecture Studio Website Template (Next.js)",
+   "img": "assets/work/templates/form-field-architecture.jpg",
+   "url": "https://sassproducthub.gumroad.com/l/form-field-architecture",
+   "price": "29.99"
+  },
+  {
+   "slug": "mira-words-writer",
+   "name": "MIRA / WORDS \u2014 Writer Portfolio Website Template (Next.js)",
+   "img": "assets/work/templates/mira-words-writer.jpg",
+   "url": "https://sassproducthub.gumroad.com/l/mira-words-writer",
+   "price": "29.99"
+  },
+  {
+   "slug": "petal-atelier-flowers",
+   "name": "PETAL ATELIER \u2014 Florist & Event Decor Website Template (Next.js)",
+   "img": "assets/work/templates/petal-atelier-flowers.jpg",
+   "url": "https://sassproducthub.gumroad.com/l/petal-atelier-flowers",
+   "price": "29.99"
+  },
+  {
+   "slug": "pulp-juice-bar",
+   "name": "PULP \u2014 Juice Bar Website Template (Next.js)",
+   "img": "assets/work/templates/pulp-juice-bar.jpg",
+   "url": "https://sassproducthub.gumroad.com/l/pulp-juice-bar",
+   "price": "29.99"
+  },
+  {
+   "slug": "red-lantern-chinese",
+   "name": "Chinese Restaurant Website Template (Next.js) \u2014 RED LANTERN",
+   "img": "assets/work/templates/red-lantern-chinese.jpg",
+   "url": "https://sassproducthub.gumroad.com/l/red-lantern-chinese",
+   "price": "29.99"
+  },
+  {
+   "slug": "rep-reset-gym",
+   "name": "REP / RESET \u2014 Gym & Personal Training Website Template (Next.js)",
+   "img": "assets/work/templates/rep-reset-gym.jpg",
+   "url": "https://sassproducthub.gumroad.com/l/rep-reset-gym",
+   "price": "29.99"
+  },
+  {
+   "slug": "scoop-society-icecream",
+   "name": "SCOOP SOCIETY \u2014 Ice Cream Shop Website Template (Next.js)",
+   "img": "assets/work/templates/scoop-society-icecream.jpg",
+   "url": "https://sassproducthub.gumroad.com/l/scoop-society-icecream",
+   "price": "29.99"
+  },
+  {
+   "slug": "stacked-fastfood",
+   "name": "Burger & Fast Food Website Template (Next.js) \u2014 STACKED",
+   "img": "assets/work/templates/stacked-fastfood.jpg",
+   "url": "https://sassproducthub.gumroad.com/l/stacked-fastfood",
+   "price": "29.99"
+  },
+  {
+   "slug": "subah-nashta",
+   "name": "Breakfast & Nashta Cafe Website Template (Next.js) \u2014 SUBAH",
+   "img": "assets/work/templates/subah-nashta.jpg",
+   "url": "https://sassproducthub.gumroad.com/l/subah-nashta",
+   "price": "29.99"
+  },
+  {
+   "slug": "thread-form-clothing",
+   "name": "THREAD & FORM \u2014 Fashion & Clothing Website Template (Next.js)",
+   "img": "assets/work/templates/thread-form-clothing.jpg",
+   "url": "https://sassproducthub.gumroad.com/l/thread-form-clothing",
+   "price": "29.99"
+  }
+ ],
+ "aurelo": {
+  "url": "https://sassproducthub.gumroad.com/l/aurelo"
+ }
+}
