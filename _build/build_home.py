@@ -52,7 +52,7 @@ index_rows = [
     ("client:Manufacturing ERP + company website", "Manufacturing ERP + company website", "Client · AC-parts manufacturer, Pakistan", "Next.js · Express · MongoDB", "type:Private client system"),
     ("client:Sales & distribution management", "Sales & distribution management", "Client · distribution business, Pakistan", "React · Node.js · PWA", "type:Private client system"),
     ("client:Volunteer matchmaking platform", "Volunteer matchmaking platform", "Client · non-profit, United States", "React · Express · Render", "type:Private client system"),
-    ("product:mlx-caption", "MLX Caption", "Mac app · AI subtitles in 100 languages", "Swift · MLX · Whisper", "sass-products-hub/images/mlx-caption.jpg"),
+    ("product:mlx-caption", "MLX Caption", "Mac app · AI subtitles in 100 languages", "Python · MLX · Whisper", "sass-products-hub/images/mlx-caption.jpg"),
     ("#systems", "17 business management systems", "Multi-tenant SaaS with live demos", "MERN · Expo", WORK["systems"]["GymWren"]),
     ("#templates", "Website templates", "18 animated Next.js sites", "Next.js · GSAP · Lenis", "assets/work/templates/aurelo.jpg"),
     ("#apps", "71 iOS apps", "Live on the App Store", "SwiftUI · StoreKit 2", "type:71 apps · 15 categories"),

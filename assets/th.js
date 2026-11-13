@@ -99,7 +99,7 @@
       ${d.facts?.length ? `<dl>${d.facts.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>` : ""}
       ${d.accounts?.length ? `<p class="mono muted">Demo logins</p><dl>${d.accounts.map((a) => `<dt>${esc(a.role || "")}</dt><dd>${esc(a.user)} · ${esc(a.password)}</dd>`).join("")}</dl>` : ""}
       ${d.note ? `<p class="note">${esc(d.note)}</p>` : ""}
-      ${d.actions?.length ? `<div class="acts">${d.actions.map(([t, u, k]) => `<a class="btn ${k === "primary" ? "primary" : ""}" href="${esc(u)}" ${/^http/.test(u) ? 'target="_blank" rel="noopener"' : ""}>${esc(t)} <span class="arr">↗</span></a>`).join("")}</div>` : ""}`;
+      ${d.actions?.length ? `<div class="acts">${d.actions.map(([t, u, k]) => `<a class="btn ${k === "primary" ? "primary" : ""}" href="${esc(u)}" ${/^http/.test(u) ? 'target="_blank" rel="noopener"' : ""}>${esc(t.replace(/\s*↗$/, ""))} <span class="arr">↗</span></a>`).join("")}</div>` : ""}`;
     modal.classList.add("open");
     modal.setAttribute("aria-hidden", "false");
     document.documentElement.style.overflow = "hidden";
