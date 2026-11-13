@@ -85,8 +85,16 @@ def templates_html():
     out = [f'''<a class="tpl featured" href="{E(WORK["aurelo"]["url"])}" target="_blank" rel="noopener"><div class="img"><img src="assets/work/templates/aurelo.jpg" alt="Aurelo AI SaaS landing page" loading="lazy"><span class="badge">NEW · PREMIUM</span></div>
 <div class="row"><h3>Aurelo — AI SaaS landing page with a live agent console</h3><span class="price">$49</span></div></a>''']
     for x in t:
-        out.append(f'''<a class="tpl" href="{E(x["url"])}" target="_blank" rel="noopener"><div class="img"><img src="{E(x["img"])}" alt="{E(x["name"])}" loading="lazy"></div>
-<div class="row"><h3>{E(x["name"].replace(" (Next.js)", ""))}</h3><span class="price">${E(x["price"])}</span></div></a>''')
+        name = E(x["name"].replace(" (Next.js)", ""))
+        img = f'<img src="{E(x["img"])}" alt="{E(x["name"])}" loading="lazy">'
+        row = f'<div class="row"><h3>{name}</h3><span class="price">${E(x["price"])}</span></div>'
+        if x.get("demo"):   # built by _build/build_template_demos.sh
+            out.append(f'''<article class="tpl"><a class="img" href="{E(x["demo"])}" target="_blank" rel="noopener" aria-label="Open the live demo: {name}">{img}</a>
+{row}
+<div class="tpl-acts"><a href="{E(x["demo"])}" target="_blank" rel="noopener">Live demo ↗</a><a href="{E(x["url"])}" target="_blank" rel="noopener">Buy on Gumroad ↗</a></div></article>''')
+        else:
+            out.append(f'''<a class="tpl" href="{E(x["url"])}" target="_blank" rel="noopener"><div class="img">{img}</div>
+{row}</a>''')
     return "\n".join(out)
 
 
@@ -185,7 +193,7 @@ page = f'''<!doctype html>
 
 <section class="block" id="templates"><div class="wrap">
   <div class="head"><div><p class="eyebrow mono">Website templates</p><h2 class="title" data-split>Sites that move, <em>ready to make yours.</em></h2></div>
-  <p class="lead reveal">Next.js templates with cinematic photo motion, built for real businesses: cafes, clinics, schools, gyms, restaurants and more. Every one is editable from a single content file.</p></div>
+  <p class="lead reveal">Next.js templates with cinematic photo motion, built for real businesses: cafes, clinics, schools, gyms, restaurants and more. Every one is editable from a single content file, and every one has a live demo you can open.</p></div>
   <div class="tpl-grid">
 {templates_html()}
   </div>

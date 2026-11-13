@@ -164,6 +164,10 @@ section.block { padding: 130px 0; }
 .tpl .row { display: flex; justify-content: space-between; gap: 12px; margin-top: 14px; }
 .tpl h3 { margin: 0; font: 600 18px/1.25 var(--display); letter-spacing: -0.02em; }
 .tpl .price { white-space: nowrap; font: 500 13px/1.6 var(--mono); color: var(--muted); }
+.tpl a.img { display: block; }
+.tpl-acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.tpl-acts a { padding: 8px 13px; border-radius: 999px; font-size: 13px; font-weight: 600; border: 1px solid var(--line); }
+.tpl-acts a:hover { background: var(--ink); color: var(--bone); border-color: var(--ink); }
 .tpl.featured { grid-column: span 2; grid-row: span 2; }
 .tpl.featured h3 { font-size: 26px; }
 

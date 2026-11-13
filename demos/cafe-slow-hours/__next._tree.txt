@@ -1,0 +1,4 @@
+:HL["/demos/cafe-slow-hours/_next/static/css/4f90db82b7cdd69a.css","style"]
+:HL["/demos/cafe-slow-hours/_next/static/css/65aa3619a1925c9d.css","style"]
+1:[["children",{"s":"__PAGE__","h":160}]]
+0:{"b":"ICZ2QZoZzg2mPoOpvixUR","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

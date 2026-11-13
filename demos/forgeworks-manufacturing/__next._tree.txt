@@ -1,0 +1,6 @@
+:HL["/demos/forgeworks-manufacturing/_next/static/css/7721e39a86b617ba.css","style"]
+:HL["/demos/forgeworks-manufacturing/_next/static/css/65aa3619a1925c9d.css","style"]
+:HL["/demos/forgeworks-manufacturing/_next/static/css/7cb427025293b22c.css","style"]
+:HL["/demos/forgeworks-manufacturing/_next/static/css/7f0a4537345d1831.css","style"]
+1:[["children",{"s":"__PAGE__","h":160}]]
+0:{"b":"0LLai7WJDhabgnNCSl0PE","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

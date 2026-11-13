@@ -1,0 +1,6 @@
+:HL["/demos/stacked-fastfood/_next/static/css/a99cf08355a43ae2.css","style"]
+:HL["/demos/stacked-fastfood/_next/static/css/65aa3619a1925c9d.css","style"]
+:HL["/demos/stacked-fastfood/_next/static/css/b0bfa760679e9a3d.css","style"]
+:HL["/demos/stacked-fastfood/_next/static/css/7f0a4537345d1831.css","style"]
+1:[["children",{"s":"__PAGE__","h":160}]]
+0:{"b":"MwLt0wMPCKcvE9w5TYgfW","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

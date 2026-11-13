@@ -1,0 +1,22 @@
+1:"$Sreact.fragment"
+2:I[4362,[],""]
+3:I[3896,[],""]
+7:I[3747,[],"OutletBoundary"]
+8:"$Sreact.suspense"
+a:"ViewportBoundary"
+b:I[3747,[],"$a"]
+d:"MetadataBoundary"
+e:I[3747,[],"$d"]
+10:I[5426,[],"default",1]
+:HL["/demos/stacked-fastfood/_next/static/css/a99cf08355a43ae2.css","style"]
+:HL["/demos/stacked-fastfood/_next/static/css/65aa3619a1925c9d.css","style"]
+:HL["/demos/stacked-fastfood/_next/static/css/b0bfa760679e9a3d.css","style"]
+5:X
+6:[["children",{"s":"__PAGE__","h":512,"d":{"r":["$","$1","c",{"children":[["$","main",null,{"style":{"padding":"10%","fontFamily":"sans-serif"},"children":[["$","h1",null,{"children":"This page has moved."}],["$","p",null,{"children":"Return to the home page to keep exploring."}],["$","a",null,{"href":"./","children":"Back to home"}]]}],null,["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]]}],"p":false,"v":null}}]]
+4:[["children",{"s":"_not-found","h":512,"d":{"r":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],"p":false,"v":"$5"},"c":"$Q6"}]]
+0:{"P":null,"c":["","_not-found",""],"q":"","i":false,"t":{"t":{"s":"","h":528,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/demos/stacked-fastfood/_next/static/css/a99cf08355a43ae2.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/demos/stacked-fastfood/_next/static/css/65aa3619a1925c9d.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","2",{"rel":"stylesheet","href":"/demos/stacked-fastfood/_next/static/css/b0bfa760679e9a3d.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":["$","script",null,{"dangerouslySetInnerHTML":{"__html":"try{if(matchMedia('(prefers-reduced-motion: no-preference)').matches&&!sessionStorage.getItem('pm-seen')){document.documentElement.classList.add('pm-loading');sessionStorage.setItem('pm-seen','1');setTimeout(function(){/*pm-failsafe-unlock*/document.documentElement.classList.remove('pm-loading')},6000)}}catch(e){}"}}]}],["$","body",null,{"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","main",null,{"style":{"padding":"10%","fontFamily":"sans-serif"},"children":[["$","h1",null,{"children":"This page has moved."}],["$","p",null,{"children":"Return to the home page to keep exploring."}],["$","a",null,{"href":"./","children":"Back to home"}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],"p":false,"v":null},"c":"$Q4"},"h":{"r":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$Lb",null,{"children":"$Lc"}],["$","$Le",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$8",null,{"name":"Next.Metadata","children":"$Lf"}]}],null]}],null]}],"p":false,"v":null}},"m":"$undefined","G":["$10",[]],"S":true,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"MwLt0wMPCKcvE9w5TYgfW"}
+5:C
+c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+11:I[9210,[],"IconMark"]
+9:null
+f:[["$","title","0",{"children":"STACKED | Fast food restaurant"}],["$","meta","1",{"name":"description","content":"Smashed burgers, crispy chicken, proper fries. Pick it fast, build it your way, order for delivery or pickup."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}],["$","link","3",{"rel":"icon","href":"/demos/stacked-fastfood/favicon.svg"}],["$","$L11","4",{}]]

@@ -1,0 +1,5 @@
+:HL["/demos/amina-doctor-clinic/_next/static/css/dc41822594a64c56.css","style"]
+:HL["/demos/amina-doctor-clinic/_next/static/css/65aa3619a1925c9d.css","style"]
+2:[["children",{"s":"__PAGE__","h":160}]]
+1:[["children",{"s":"_not-found","h":96,"c":"$Q2"}]]
+0:{"b":"1KVYUiRYiZSJucF1L9k-3","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

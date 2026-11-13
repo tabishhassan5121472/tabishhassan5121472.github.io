@@ -1,0 +1,5 @@
+:HL["/demos/red-lantern-chinese/_next/static/css/d43be472ac1a8e95.css","style"]
+:HL["/demos/red-lantern-chinese/_next/static/css/65aa3619a1925c9d.css","style"]
+2:[["children",{"s":"__PAGE__","h":160}]]
+1:[["children",{"s":"_not-found","h":96,"c":"$Q2"}]]
+0:{"b":"df25rrLISmu3uKAqtAnae","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

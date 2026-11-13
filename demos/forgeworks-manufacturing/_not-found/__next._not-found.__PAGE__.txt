@@ -1,0 +1,27 @@
+1:"$Sreact.fragment"
+2:I[4362,[],""]
+3:I[3896,[],""]
+a:I[3747,[],"OutletBoundary"]
+b:"$Sreact.suspense"
+e:"ViewportBoundary"
+f:I[3747,[],"$e"]
+10:"MetadataBoundary"
+11:I[3747,[],"$10"]
+:HL["/demos/forgeworks-manufacturing/_next/static/css/7721e39a86b617ba.css","style"]
+:HL["/demos/forgeworks-manufacturing/_next/static/css/65aa3619a1925c9d.css","style"]
+:HL["/demos/forgeworks-manufacturing/_next/static/css/7cb427025293b22c.css","style"]
+5:X
+8:X
+8:C
+9:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[["$","main",null,{"style":{"padding":"10%","fontFamily":"sans-serif"},"children":[["$","h1",null,{"children":"This page has moved."}],["$","p",null,{"children":"Return to the home page to keep exploring."}],["$","a",null,{"href":"./","children":"Back to home"}]]}],null,["$","$La",null,{"children":["$","$b",null,{"name":"Next.MetadataOutlet","children":"$@c"}]}]]}],"p":"$@d","v":null,"s":"$5"}}]]
+6:[["children",{"s":"_not-found","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"p":"$@7","v":"$8","s":"$5"},"c":"$Q9"}]]
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/demos/forgeworks-manufacturing/_next/static/css/7721e39a86b617ba.css","precedence":"next"}],["$","link","1",{"rel":"stylesheet","href":"/demos/forgeworks-manufacturing/_next/static/css/65aa3619a1925c9d.css","precedence":"next"}],["$","link","2",{"rel":"stylesheet","href":"/demos/forgeworks-manufacturing/_next/static/css/7cb427025293b22c.css","precedence":"next"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":["$","script",null,{"dangerouslySetInnerHTML":{"__html":"try{if(matchMedia('(prefers-reduced-motion: no-preference)').matches&&!sessionStorage.getItem('pm-seen')){document.documentElement.classList.add('pm-loading');sessionStorage.setItem('pm-seen','1');setTimeout(function(){/*pm-failsafe-unlock*/document.documentElement.classList.remove('pm-loading')},6000)}}catch(e){}"}}]}],["$","body",null,{"children":["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}],"notFound":[["$","main",null,{"style":{"padding":"10%","fontFamily":"sans-serif"},"children":[["$","h1",null,{"children":"This page has moved."}],["$","p",null,{"children":"Return to the home page to keep exploring."}],["$","a",null,{"href":"./","children":"Back to home"}]]}],[]]}]}]]}]]}],"p":"$@4","v":null,"s":"$5"},"c":"$Q6"},"h":{"r":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$Lf",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","$L11",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$b",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"FORGEWORKS | Built to meet the specification"}],["$","meta","1",{"name":"description","content":"Contract machining, sheet-metal and fabrication work quoted from your drawing. Explore the process index and send a structured request for quotation."}],["$","meta","2",{"name":"robots","content":"noindex, nofollow"}]]}]}],null]}],null]}],"p":"$@12","v":null,"s":"$5"}},"a":"$@13","u":"$@14","b":"0LLai7WJDhabgnNCSl0PE"}
+c:null
+5:300
+14:true
+5:C
+13:0
+7:"$undefined"
+4:"$undefined"
+12:"$undefined"
+d:"$undefined"

@@ -1,0 +1,5 @@
+:HL["/demos/scoop-society-icecream/_next/static/css/4c1bb11e108ebd8e.css","style"]
+:HL["/demos/scoop-society-icecream/_next/static/css/65aa3619a1925c9d.css","style"]
+2:[["children",{"s":"__PAGE__","h":160}]]
+1:[["children",{"s":"_not-found","h":96,"c":"$Q2"}]]
+0:{"b":"WFEK3Rtt5KqBk_s2FnDyO","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
