@@ -29,7 +29,7 @@ for name in SYS_ORDER:
 
 
 def demo(name):
-    acts = DETAILS[f"system:{name}"].get("actions") or []
+    acts = [a for a in DETAILS[f"system:{name}"].get("actions") or [] if "demo" in a[0].lower()]
     return acts[0][1] if acts else None
 
 
@@ -76,7 +76,7 @@ def systems_html():
         link = demo(name)
         out.append(f'''<article class="sys"><div class="shot"><img src="{E(WORK["systems"][name])}" alt="{E(name)} dashboard" loading="lazy"></div>
 <div class="body"><span class="cat mono">{E(SYS_CAT[name])}</span><h3>{E(name)}</h3><p>{E(d["subtitle"])}</p>
-<div class="acts"><button type="button" data-detail="system:{E(name)}">Details &amp; demo logins</button>{f'<a href="{E(link)}" target="_blank" rel="noopener">Live demo ↗</a>' if link else ""}</div></div></article>''')
+<div class="acts"><button type="button" data-detail="system:{E(name)}">Details &amp; demo logins</button>{f'<a href="{E(link)}" target="_blank" rel="noopener">Live demo ↗</a>' if link else ""}{f'<a class="buy" href="{E(d["buy"])}" target="_blank" rel="noopener">Buy · $99 ↗</a>' if d.get("buy") else ""}</div></div></article>''')
     return "\n".join(out)
 
 
@@ -183,7 +183,7 @@ page = f'''<!doctype html>
 
 <section class="block dark" id="systems"><div class="wrap">
   <div class="head"><div><p class="eyebrow mono">Business management systems</p><h2 class="title" data-split>17 complete platforms, <em>each with a live demo.</em></h2></div>
-  <p class="lead reveal">Multi-tenant SaaS with sign-in, two-factor, roles, billing plans and audit logs. Many come with phone apps for staff or customers. Open any one and click around with the demo logins.</p></div>
+  <p class="lead reveal">Multi-tenant SaaS with sign-in, two-factor, roles, billing plans and audit logs. Many come with phone apps for staff or customers. Open any one and click around with the demo logins. Each is sold as full source code for $99, paid once.</p></div>
 </div>
 <div class="sys-wrap"><div class="sys-track">
 {systems_html()}
