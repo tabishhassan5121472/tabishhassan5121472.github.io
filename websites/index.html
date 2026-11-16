@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Websites for local businesses — Tabish Hassan</title>
+<meta name="description" content="A modern website for your restaurant, clinic, gym or shop. See a free preview with your own name and photos before you decide. $499, one payment.">
+<meta name="theme-color" content="#f5f4ef">
+<meta property="og:title" content="Websites for local businesses — Tabish Hassan">
+<meta property="og:description" content="See a free preview of your new website before you pay anything. Built for phones, secure, and ready for Google. $499, one payment.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://tabishapps.com/assets/work/templates/red-lantern-chinese.jpg">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/th.css">
+<style>
+  .nav .bar { background: rgba(251, 250, 247, 0.86); border-color: var(--line); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+  .w-hero { padding: 150px 0 70px; }
+  .w-hero .eyebrow { margin-bottom: 22px; }
+  .w-hero h1 { margin: 0; max-width: 15ch; font: 700 clamp(46px, 7.6vw, 112px)/0.92 var(--display); letter-spacing: -0.05em; }
+  .w-hero h1 em { font-style: normal; color: var(--cobalt); }
+  .w-hero .sub { max-width: 620px; margin: 30px 0 0; font-size: 20px; color: var(--ink-2); }
+  .w-hero .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 70px; border-top: 1px solid var(--ink); }
+  .facts div { padding: 20px 20px 0 0; }
+  .facts div + div { padding-left: 20px; border-left: 1px solid var(--line); }
+  .facts b { display: block; font: 600 20px/1.2 var(--display); letter-spacing: -0.02em; }
+  .facts span { display: block; margin-top: 6px; font-size: 15px; color: var(--muted); }
+  section.block { padding: 110px 0; }
+  .tpl .tag { font: 500 12px/1.6 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin: 0; padding: 0; list-style: none; counter-reset: step; }
+  .steps li { padding: 26px; border-radius: var(--r); background: var(--card); border: 1px solid var(--line); counter-increment: step; }
+  .steps li::before { content: "0" counter(step); display: block; margin-bottom: 40px; font: 500 13px/1 var(--mono); color: var(--cobalt); }
+  .steps h3 { margin: 0 0 10px; font: 600 22px/1.15 var(--display); letter-spacing: -0.02em; }
+  .steps p { margin: 0; font-size: 16px; color: var(--ink-2); }
+  .price-card { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; padding: 50px; border-radius: 28px; background: var(--card); border: 1px solid var(--line); }
+  .price-card .amount { margin: 14px 0 0; font: 700 clamp(64px, 9vw, 120px)/0.9 var(--display); letter-spacing: -0.05em; }
+  .price-card .amount small { display: block; margin-top: 12px; font-size: 0.24em; letter-spacing: -0.01em; color: var(--muted); font-weight: 500; }
+  .price-card .note { margin: 18px 0 28px; color: var(--ink-2); }
+  .price-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+  .price-card li { position: relative; padding-left: 30px; font-size: 17px; }
+  .price-card li::before { content: ""; position: absolute; left: 0; top: 0.42em; width: 16px; height: 9px; border-left: 2.5px solid var(--cobalt); border-bottom: 2.5px solid var(--cobalt); transform: rotate(-45deg); }
+  .faq { max-width: 860px; }
+  .faq details { border-top: 1px solid var(--line); }
+  .faq details:last-child { border-bottom: 1px solid var(--line); }
+  .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 20px; padding: 24px 0; font: 600 21px/1.3 var(--display); letter-spacing: -0.02em; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--cobalt); font-weight: 500; }
+  .faq details[open] summary::after { content: "–"; }
+  .faq p { margin: 0 0 24px; max-width: 720px; color: var(--ink-2); }
+  .faq a { color: var(--cobalt); text-decoration: underline; text-underline-offset: 3px; }
+  .w-foot { padding: 28px 0 40px; background: var(--night); color: rgba(245, 244, 239, 0.55); font-size: 14px; }
+  .w-foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 24px; }
+  .w-foot a:hover { color: var(--bone); }
+  @media (max-width: 1080px) {
+    .steps { grid-template-columns: 1fr 1fr; }
+    .price-card { grid-template-columns: 1fr; gap: 30px; padding: 36px; }
+  }
+  @media (max-width: 640px) {
+    .w-hero { padding: 120px 0 50px; }
+    .w-hero .sub { font-size: 18px; }
+    .facts { grid-template-columns: 1fr 1fr; }
+    .facts div:nth-child(3) { padding-left: 0; border-left: 0; }
+    .facts div:nth-child(n + 3) { margin-top: 20px; }
+    .steps { grid-template-columns: 1fr; }
+    .price-card { padding: 26px; }
+    .nav .bar .btn { padding: 10px 14px; font-size: 13px; }
+    .logo .full { display: none; }
+  }
+</style>
+</head>
+<body>
+<header class="nav"><div class="bar">
+  <a class="logo" href="../" aria-label="Tabish Hassan, home"><span class="mark">TH</span><span class="full">Tabish Hassan</span></a>
+  <ul>
+    <li><a href="#examples">Examples</a></li><li><a href="#how">How it works</a></li><li><a href="#price">Price</a></li><li><a href="#questions">Questions</a></li>
+  </ul>
+  <div class="right"><a class="btn primary" href="mailto:hello@tabishapps.com?subject=Free%20website%20preview">Get a free preview <span class="arr">↗</span></a></div>
+</div></header>
+
+<main id="top">
+<section class="w-hero"><div class="wrap">
+  <p class="eyebrow mono">Websites for local businesses</p>
+  <h1>A new website for your business, <em>seen before you pay.</em></h1>
+  <p class="sub">I build modern websites for restaurants, clinics, gyms, shops and studios. Tell me about your business and I will make a free preview with your own name, services and photos. If you like it, we finish it. If not, you owe nothing.</p>
+  <div class="cta">
+    <a class="btn primary" href="mailto:hello@tabishapps.com?subject=Free%20website%20preview">Ask for a free preview <span class="arr">↗</span></a>
+    <a class="btn" href="#examples">See example sites</a>
+  </div>
+  <div class="facts">
+    <div><b>Built for phones</b><span>Most of your visitors are on a phone. Every page fits the screen.</span></div>
+    <div><b>Secure</b><span>HTTPS on your own domain, so browsers never show a warning.</span></div>
+    <div><b>Ready for Google</b><span>Titles, descriptions and your map location, set up properly.</span></div>
+    <div><b>$499, one payment</b><span>No monthly fee to me. The site is yours.</span></div>
+  </div>
+</div></section>
+
+<section class="block" id="examples" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div><p class="eyebrow mono">Example sites</p><h2 class="title">Pick a style. <em>I make it yours.</em></h2></div>
+  <p class="lead">Each of these is a live site you can open and try on your phone. Your preview starts from the one closest to your business, with your name, menu or services, opening hours and photos.</p></div>
+  <div class="tpl-grid">
+<article class="tpl"><a class="img" href="../demos/red-lantern-chinese/" target="_blank" rel="noopener" aria-label="Open the Chinese restaurant example"><img src="../assets/work/templates/red-lantern-chinese.jpg" alt="Red Lantern, a Chinese restaurant website" loading="lazy"></a><div class="row"><h3>Red Lantern</h3><span class="tag">Chinese restaurant</span></div></article>
+<article class="tpl"><a class="img" href="../demos/dastarkhwan-desi/" target="_blank" rel="noopener" aria-label="Open the Indian and Pakistani restaurant example"><img src="../assets/work/templates/dastarkhwan-desi.jpg" alt="Dastarkhwan, a Pakistani restaurant website" loading="lazy"></a><div class="row"><h3>Dastarkhwan</h3><span class="tag">Indian &amp; Pakistani</span></div></article>
+<article class="tpl"><a class="img" href="../demos/amina-doctor-clinic/" target="_blank" rel="noopener" aria-label="Open the clinic example"><img src="../assets/work/templates/amina-doctor-clinic.jpg" alt="Dr. Amina Rahman, a clinic website" loading="lazy"></a><div class="row"><h3>Dr. Amina Rahman</h3><span class="tag">Clinic &amp; dentist</span></div></article>
+<article class="tpl"><a class="img" href="../demos/rep-reset-gym/" target="_blank" rel="noopener" aria-label="Open the gym example"><img src="../assets/work/templates/rep-reset-gym.jpg" alt="Rep / Reset, a gym website" loading="lazy"></a><div class="row"><h3>Rep / Reset</h3><span class="tag">Gym &amp; fitness</span></div></article>
+<article class="tpl"><a class="img" href="../demos/cafe-slow-hours/" target="_blank" rel="noopener" aria-label="Open the cafe example"><img src="../assets/work/templates/cafe-slow-hours.jpg" alt="Slow Hours, a cafe website" loading="lazy"></a><div class="row"><h3>Slow Hours</h3><span class="tag">Cafe</span></div></article>
+<article class="tpl"><a class="img" href="../demos/petal-atelier-flowers/" target="_blank" rel="noopener" aria-label="Open the florist example"><img src="../assets/work/templates/petal-atelier-flowers.jpg" alt="Petal Atelier, a florist website" loading="lazy"></a><div class="row"><h3>Petal Atelier</h3><span class="tag">Florist &amp; events</span></div></article>
+<article class="tpl"><a class="img" href="../demos/stacked-fastfood/" target="_blank" rel="noopener" aria-label="Open the fast food example"><img src="../assets/work/templates/stacked-fastfood.jpg" alt="Stacked, a fast food restaurant website" loading="lazy"></a><div class="row"><h3>Stacked</h3><span class="tag">Fast food</span></div></article>
+<article class="tpl"><a class="img" href="../demos/scoop-society-icecream/" target="_blank" rel="noopener" aria-label="Open the ice cream shop example"><img src="../assets/work/templates/scoop-society-icecream.jpg" alt="Scoop Society, an ice cream shop website" loading="lazy"></a><div class="row"><h3>Scoop Society</h3><span class="tag">Ice cream &amp; desserts</span></div></article>
+<article class="tpl"><a class="img" href="../demos/pulp-juice-bar/" target="_blank" rel="noopener" aria-label="Open the juice bar example"><img src="../assets/work/templates/pulp-juice-bar.jpg" alt="Pulp, a juice bar website" loading="lazy"></a><div class="row"><h3>Pulp</h3><span class="tag">Juice bar</span></div></article>
+<article class="tpl"><a class="img" href="../demos/subah-nashta/" target="_blank" rel="noopener" aria-label="Open the breakfast restaurant example"><img src="../assets/work/templates/subah-nashta.jpg" alt="Subah, a breakfast restaurant website" loading="lazy"></a><div class="row"><h3>Subah</h3><span class="tag">Breakfast</span></div></article>
+<article class="tpl"><a class="img" href="../demos/address-real-estate/" target="_blank" rel="noopener" aria-label="Open the real estate example"><img src="../assets/work/templates/address-real-estate.jpg" alt="Address, a real estate agency website" loading="lazy"></a><div class="row"><h3>Address</h3><span class="tag">Real estate</span></div></article>
+<article class="tpl"><a class="img" href="../demos/thread-form-clothing/" target="_blank" rel="noopener" aria-label="Open the clothing store example"><img src="../assets/work/templates/thread-form-clothing.jpg" alt="Thread &amp; Form, a clothing store website" loading="lazy"></a><div class="row"><h3>Thread &amp; Form</h3><span class="tag">Clothing</span></div></article>
+<article class="tpl"><a class="img" href="../demos/form-field-architecture/" target="_blank" rel="noopener" aria-label="Open the architecture studio example"><img src="../assets/work/templates/form-field-architecture.jpg" alt="Form / Field, an architecture studio website" loading="lazy"></a><div class="row"><h3>Form / Field</h3><span class="tag">Architect</span></div></article>
+<article class="tpl"><a class="img" href="../demos/clearpath-consultant/" target="_blank" rel="noopener" aria-label="Open the consultancy example"><img src="../assets/work/templates/clearpath-consultant.jpg" alt="Clearpath, a consultancy website" loading="lazy"></a><div class="row"><h3>Clearpath</h3><span class="tag">Consultant</span></div></article>
+<article class="tpl"><a class="img" href="../demos/cedar-school/" target="_blank" rel="noopener" aria-label="Open the school example"><img src="../assets/work/templates/cedar-school.jpg" alt="Cedar School, a school website" loading="lazy"></a><div class="row"><h3>Cedar School</h3><span class="tag">School</span></div></article>
+<article class="tpl"><a class="img" href="../demos/forgeworks-manufacturing/" target="_blank" rel="noopener" aria-label="Open the manufacturing company example"><img src="../assets/work/templates/forgeworks-manufacturing.jpg" alt="Forgeworks, a manufacturing company website" loading="lazy"></a><div class="row"><h3>Forgeworks</h3><span class="tag">Manufacturing</span></div></article>
+<article class="tpl"><a class="img" href="../demos/mira-words-writer/" target="_blank" rel="noopener" aria-label="Open the writer example"><img src="../assets/work/templates/mira-words-writer.jpg" alt="Mira / Words, a writer and editor website" loading="lazy"></a><div class="row"><h3>Mira / Words</h3><span class="tag">Freelancer</span></div></article>
+  </div>
+</div></section>
+
+<section class="block" id="how" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div><p class="eyebrow mono">How it works</p><h2 class="title">Four steps, <em>about a week.</em></h2></div>
+  <p class="lead">Everything happens by email. You never need to install anything or learn a website builder.</p></div>
+  <ol class="steps">
+    <li><h3>Free preview</h3><p>Send me your business name and website or Google listing. Within two or three days you get a link to a preview built with your own details.</p></li>
+    <li><h3>You decide</h3><p>Tell me what to change, or say no thanks. You pay nothing for the preview.</p></li>
+    <li><h3>I finish it</h3><p>Half the price to start. I add your pages, photos, menu or services, contact details and map, and you check every page.</p></li>
+    <li><h3>It goes live</h3><p>I put it on your own domain with HTTPS. You pay the second half when you are happy, and the site is yours.</p></li>
+  </ol>
+</div></section>
+
+<section class="block" id="price" style="padding-top:40px"><div class="wrap">
+  <div class="price-card">
+    <div>
+      <p class="eyebrow mono">Price</p>
+      <p class="amount">$499 <small>USD, one payment</small></p>
+      <p class="note">Half to start, half when the site goes live. No monthly fee to me.</p>
+      <a class="btn primary" href="mailto:hello@tabishapps.com?subject=Free%20website%20preview">Ask for a free preview <span class="arr">↗</span></a>
+    </div>
+    <ul>
+      <li>A complete website based on the design you choose, up to five pages or sections</li>
+      <li>Your name, logo, photos, menu or services, prices and opening hours</li>
+      <li>Works on every phone, tablet and computer</li>
+      <li>Click-to-call, email, booking or order buttons and your Google Maps location</li>
+      <li>Set up for Google search: page titles, descriptions and a sitemap</li>
+      <li>Connected to your own domain with HTTPS</li>
+      <li>Two rounds of changes before launch</li>
+      <li>Help choosing low-cost hosting, then a full handover. You own the site and its files.</li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="block" id="questions" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div><p class="eyebrow mono">Questions</p><h2 class="title">Good to <em>know.</em></h2></div></div>
+  <div class="faq">
+    <details><summary>Is the preview really free?</summary><p>Yes. I build it before you pay anything, so you can see exactly what you would get. If it is not right for you, just say no thanks and that is the end of it.</p></details>
+    <details><summary>Where are you based?</summary><p>I am Tabish Hassan, a software developer in Rawalpindi, Pakistan. I work remotely with businesses in Australia, the United States and elsewhere, and reply to email within one working day.</p></details>
+    <details><summary>I already have a website and a domain. Can I keep them?</summary><p>Yes. The new site goes on your existing domain, and your email addresses keep working. If you do not have a domain yet, I help you buy one in your own name.</p></details>
+    <details><summary>What does hosting cost after launch?</summary><p>These sites are fast, simple pages, so they can run on free or very low-cost hosting. I help you set it up in your own account, so you are never tied to me.</p></details>
+    <details><summary>How do I pay?</summary><p>By international bank transfer or another method we agree by email. Half before I start the full build, and half when the site is live and you are happy with it.</p></details>
+    <details><summary>Can you build something bigger, like online ordering, bookings or an app?</summary><p>Yes. I am a software developer and also build business systems, web apps and iOS apps. You can see that work on <a href="../">my main site</a>. Tell me what you need and I will quote it separately.</p></details>
+  </div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+  <p class="eyebrow mono" style="color:var(--lime)">Free preview</p>
+  <h2 class="big">See your business <em>on one of these.</em></h2>
+  <div class="row">
+    <p>Email me your business name and your current website or Google listing. I will reply with a preview link, usually within two or three days.</p>
+    <div>
+      <a class="btn primary" href="mailto:hello@tabishapps.com?subject=Free%20website%20preview">Email hello@tabishapps.com <span class="arr">↗</span></a><br>
+      <span class="mail">Tabish Hassan · Software developer</span>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer class="w-foot"><div class="wrap">
+  <span>© 2026 Tabish Hassan · tabishapps.com</span>
+  <span><a href="../">Main site</a> · <a href="../privacy-policy.html">Privacy</a> · <a href="mailto:hello@tabishapps.com">hello@tabishapps.com</a></span>
+</div></footer>
+</body>
+</html>
