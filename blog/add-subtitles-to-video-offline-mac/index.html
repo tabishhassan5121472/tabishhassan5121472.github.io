@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to add subtitles to a video on your Mac, offline, in 100 languages</title>
+<meta name="description" content="A step-by-step guide to transcribing a video, translating its subtitles into up to 100 languages and exporting SRT files on an Apple silicon Mac, with nothing uploaded.">
+<link rel="canonical" href="https://tabishapps.com/blog/add-subtitles-to-video-offline-mac/">
+<meta name="theme-color" content="#f5f4ef">
+<meta property="og:title" content="How to add subtitles to a video on your Mac, offline, in 100 languages">
+<meta property="og:description" content="Transcribe, translate and export subtitles on your own Mac. No uploads, no per-minute fees.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://tabishapps.com/blog/add-subtitles-to-video-offline-mac/">
+<meta property="og:image" content="https://tabishapps.com/mlx-caption/subtitles.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../../assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/th.css">
+<link rel="stylesheet" href="../blog.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"How to add subtitles to a video on your Mac, offline, in 100 languages","datePublished":"2026-11-16","author":{"@type":"Person","name":"Tabish Hassan","url":"https://tabishapps.com/"},"image":"https://tabishapps.com/mlx-caption/subtitles.jpg","mainEntityOfPage":"https://tabishapps.com/blog/add-subtitles-to-video-offline-mac/"}
+</script>
+</head>
+<body>
+<header class="nav"><div class="bar">
+  <a class="logo" href="../../" aria-label="Tabish Hassan, home"><span class="mark">TH</span>Tabish Hassan</a>
+  <ul><li><a href="../">Blog</a></li><li><a href="../../websites/">Websites</a></li><li><a href="../../mlx-caption/">MLX Caption</a></li></ul>
+  <div class="right"><a class="btn primary" href="mailto:hello@tabishapps.com">Email me <span class="arr">↗</span></a></div>
+</div></header>
+
+<main class="article"><div class="wrap">
+  <div class="meta mono"><span>Guide</span><span>16 November 2026</span><span>8 min read</span></div>
+  <h1>How to add subtitles to a video on your Mac, offline, in 100 languages</h1>
+  <p class="lede">Most subtitle tools upload your video to a server and charge by the minute. If you have an Apple silicon Mac, you can do the whole job on your own machine instead: transcribe the speech, split it into readable subtitles, translate them, and export files that YouTube and every major editor accept.</p>
+
+  <p>This guide walks through that process with <a href="../../mlx-caption/">MLX Caption</a>, a Mac app I built for exactly this job. The first five videos are free, so you can follow along without paying. Near the end I also explain what happens under the hood, for anyone curious about running AI models locally.</p>
+
+  <h2>Why do it offline?</h2>
+  <ul>
+    <li><b>Privacy.</b> Client footage, unreleased videos and internal recordings never leave your Mac.</li>
+    <li><b>Cost.</b> Online services usually charge per minute of video, and translation into extra languages costs more again. A local tool costs the same whether you caption one video or a thousand.</li>
+    <li><b>No waiting on uploads.</b> Large video files don't need to travel anywhere.</li>
+  </ul>
+
+  <h2>What you need</h2>
+  <div class="table-scroll"><table>
+    <tr><th>Mac</th><td>Apple silicon: M1, M2, M3, M4 or newer. Intel Macs can't run it.</td></tr>
+    <tr><th>macOS</th><td>14 Sonoma or newer</td></tr>
+    <tr><th>Memory</th><td>16 GB recommended. 8 GB works with smaller models, chosen automatically.</td></tr>
+    <tr><th>Disk</th><td>8 to 15 GB free for the AI models, downloaded once</td></tr>
+    <tr><th>Video</th><td>MP4, MOV, MKV, WebM, AVI, or an audio file</td></tr>
+  </table></div>
+
+  <h2>Step 1: Download and open the app</h2>
+  <p>Download the free trial from the <a href="../../mlx-caption/">MLX Caption page</a> and unzip it. No account, email address or card is needed.</p>
+  <p>Because the app is sold outside the Mac App Store, macOS asks you to confirm the first time you open it. Open <b>System Settings → Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b>. You only do this once, and the download includes a short guide with the exact steps.</p>
+
+  <h2>Step 2: Let it download the models</h2>
+  <p>On first launch the app installs its components and downloads the AI models: about 6.5 GB on Macs with 8 to 16 GB of memory, and about 13 GB on Macs with 24 GB or more. This is the only step that needs the internet. After that, everything works offline.</p>
+
+  <h2>Step 3: Drop in a video and choose languages</h2>
+  <figure><img src="../../mlx-caption/upload.jpg" alt="The upload screen with a drop area and a language picker" loading="lazy" width="1600" height="900"><figcaption>The start screen: drop a file, pick languages, press start.</figcaption></figure>
+  <p>Drag your video onto the window. The spoken language is detected automatically. Then pick the subtitle languages you want. Fifteen common languages are selected by default, and there are buttons for "All core" (54 languages) and "All 100".</p>
+  <p>If your video has names or jargon the speech model might mishear, add them as a vocabulary hint. Then press start.</p>
+
+  <h2>Step 4: Check the result</h2>
+  <figure><img src="../../mlx-caption/subtitles.jpg" alt="A video playing with Hindi subtitles next to the transcript and processing stats" loading="lazy" width="1600" height="900"><figcaption>Switch the subtitle language while the video plays. Click any transcript line to jump to that moment.</figcaption></figure>
+  <p>When it finishes you can play the video with any subtitle language, read the transcript, and compare a translation side by side with the original. It is worth a quick read before you publish, especially for names and for the less common languages.</p>
+  <p>For a sense of speed: on an M3 Pro, a 28-second clip was transcribed in 5.2 seconds. Translating that same clip into all 100 languages, plus scene descriptions and a summary, took 6 minutes 35 seconds. Older Macs and 8 GB machines are slower.</p>
+
+  <h2>Step 5: Export and use the subtitles</h2>
+  <p>Each job produces a folder with:</p>
+  <ul>
+    <li><b>SRT and VTT files</b> for every language, the formats every platform and editor understands</li>
+    <li><b>An MP4 with every language embedded</b> as a selectable subtitle track, without re-encoding the video</li>
+    <li>Optionally, <b>a copy with one language burned in</b>, for social media where viewers don't turn captions on</li>
+    <li><b>A plain-text transcript</b>, plus a <b>summary with chapter timestamps</b> you can paste into a video description</li>
+  </ul>
+
+  <h3>YouTube</h3>
+  <p>In YouTube Studio, open <b>Subtitles</b>, choose your video, click <b>Add language</b>, then <b>Add</b> under Subtitles and choose <b>Upload file → With timing</b>. Select the matching <code>.srt</code> file. Repeat for each language. Viewers in other countries can then pick their own language.</p>
+
+  <h3>Premiere Pro</h3>
+  <p>Import the <code>.srt</code> file into your project like any other media, then drag it onto the timeline. It becomes a caption track you can restyle.</p>
+
+  <h3>Final Cut Pro</h3>
+  <p>Choose <b>File → Import → Captions</b> and pick the <code>.srt</code> file. Recent versions of Final Cut Pro import SRT directly.</p>
+
+  <h3>DaVinci Resolve</h3>
+  <p>Import the <code>.srt</code> file into the Media Pool, then drag it onto the timeline to create a subtitle track.</p>
+
+  <h2>What happens under the hood</h2>
+  <p>Everything runs on the Mac's GPU through <a href="https://github.com/ml-explore/mlx">MLX</a>, Apple's machine learning framework for Apple silicon. Four models do the work, one at a time so memory stays manageable:</p>
+  <div class="table-scroll"><table>
+    <tr><th>Job</th><th>Model</th></tr>
+    <tr><td>Speech to text</td><td>Whisper large-v3 turbo, with timing for every word</td></tr>
+    <tr><td>Translation and summary</td><td>Gemma 3 12B, 4-bit</td></tr>
+    <tr><td>Scene descriptions</td><td>Qwen3-VL, one keyframe per shot</td></tr>
+    <tr><td>Silence and shot detection</td><td>Small custom routines written directly in MLX</td></tr>
+  </table></div>
+  <p>The interesting trick is in translation. Generating text on a GPU is limited by memory bandwidth, not by raw compute, so translating into 16 languages in one batch costs little more than translating into one. The app reads the shared part of each prompt once, then decodes all the target languages together. That is why adding languages is cheap.</p>
+  <p>Two smaller details make the output usable. Silent stretches are skipped, because speech models tend to invent text in silence. And every translated line is checked for letters from the wrong writing system, for example Hindi script inside Urdu, and translated again if needed.</p>
+
+  <h2>Limits worth knowing</h2>
+  <ul>
+    <li>54 "core" languages translate at high quality. The other 46 are lower-resource languages where quality varies, so review them before publishing.</li>
+    <li>It needs an Apple silicon Mac. There is no Windows or Intel version.</li>
+    <li>Machine translation is a strong first draft, not a certified translation. For legal or medical content, have a native speaker check it.</li>
+  </ul>
+
+  <div class="note"><p><b>Disclosure:</b> I am the developer of MLX Caption. After the five free videos it costs $49 once, with a 14-day refund. There is no subscription.</p></div>
+
+  <div class="cta">
+    <h2>Try it on your own video</h2>
+    <p>Your first 5 videos are free, with every feature. Nothing is uploaded.</p>
+    <a class="btn primary" href="../../mlx-caption/">Download the free trial <span class="arr">↗</span></a>
+  </div>
+
+  <p style="margin-top:40px">Questions, or need something built? Email me at <a href="mailto:hello@tabishapps.com">hello@tabishapps.com</a>. I am Tabish Hassan, a software developer in Pakistan, and I <a href="../../websites/">build websites</a>, apps and business systems.</p>
+</div></main>
+
+<footer class="b-foot"><div class="wrap">
+  <span>© 2026 Tabish Hassan · tabishapps.com</span>
+  <span><a href="../">Blog</a> · <a href="../../">Main site</a> · <a href="mailto:hello@tabishapps.com">hello@tabishapps.com</a></span>
+</div></footer>
+</body>
+</html>
