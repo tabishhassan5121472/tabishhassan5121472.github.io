@@ -33,6 +33,10 @@ for f in list(out.rglob("*.html")) + list(out.rglob("*.txt")):
     t = s
     for icon in ("favicon.svg", "icon.svg"):
         t = t.replace(f'"/{icon}', f'"/demos/{slug}/{icon}').replace(f'\\"/{icon}', f'\\"/demos/{slug}/{icon}')
+    if f.suffix == ".html" and "cloudflareinsights" not in t:
+        i = t.lower().rfind("</body>")
+        if i >= 0:  # Cloudflare Web Analytics, same token as the rest of the site
+            t = t[:i] + """<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "baa3382c2e8f47f09e2a5a5f8474ebf0"}'></script><!-- End Cloudflare Web Analytics -->\n""" + t[i:]
     if t != s:
         f.write_text(t)
 PY
