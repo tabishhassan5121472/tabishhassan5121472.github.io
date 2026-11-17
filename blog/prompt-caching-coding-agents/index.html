@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why AI coding agents slow down in long sessions, and 5 prompt-caching mistakes to avoid</title>
+<meta name="description" content="Coding agents resend the whole conversation every turn. Prefix caching keeps them fast, but one timestamp or a changed setting can throw the cache away. What breaks it, with a test on a Mac.">
+<link rel="canonical" href="https://tabishapps.com/blog/prompt-caching-coding-agents/">
+<meta name="theme-color" content="#f5f4ef">
+<meta property="og:title" content="Why AI coding agents slow down in long sessions, and 5 prompt-caching mistakes to avoid">
+<meta property="og:description" content="One timestamp in a system prompt can make every turn reprocess the whole session. What breaks the prompt cache, and how to keep it.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://tabishapps.com/blog/prompt-caching-coding-agents/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../../assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/th.css">
+<link rel="stylesheet" href="../blog.css">
+<style>.article pre{overflow-x:auto;padding:16px 18px;border-radius:12px;background:var(--bone-2);font:13px/1.55 var(--mono)}.article pre code{padding:0;background:none}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Why AI coding agents slow down in long sessions, and 5 prompt-caching mistakes to avoid","datePublished":"2026-11-17","author":{"@type":"Person","name":"Tabish Hassan","url":"https://tabishapps.com/"},"mainEntityOfPage":"https://tabishapps.com/blog/prompt-caching-coding-agents/"}
+</script>
+</head>
+<body>
+<header class="nav"><div class="bar">
+  <a class="logo" href="../../" aria-label="Tabish Hassan, home"><span class="mark">TH</span>Tabish Hassan</a>
+  <ul><li><a href="../">Blog</a></li><li><a href="../../">Home</a></li></ul>
+</div></header>
+
+<main class="article"><div class="wrap">
+  <div class="meta mono"><span>Guide</span><span>17 November 2026</span><span>7 min read</span></div>
+  <h1>Why AI coding agents slow down in long sessions, and 5 prompt-caching mistakes to avoid</h1>
+  <p class="lede">If you use Claude Code, Codex or an open model through Ollama, you've probably seen an agent that was quick at the start get slower and more expensive as the session went on. Often the reason isn't the model. It's the prompt cache being thrown away, sometimes by something as small as a timestamp.</p>
+
+  <p>This week <a href="https://x.com/ollama/status/2122531964154712541">Ollama shared three lessons</a> on this, from a longer <a href="https://www.together.ai/blog/making-open-models-work-for-long-horizon-agentic-workloads">write-up by Together AI and Ollama</a>. I read it, then tested the main claim on my own Mac. Here's what's going on, in plain words, and what to do about it.</p>
+
+  <h2>Every turn, the agent sends everything again</h2>
+  <p>A coding agent doesn't "remember" your session the way a person does. On every step, the tool you use (the <em>harness</em>: Claude Code, Codex, Cursor, Pi and so on) sends the model the whole conversation again: the system prompt, every tool definition, your request, every file it has read and every command it has run. The model usually answers with a short tool call, like "read this file". Then the next turn sends all of that again, plus a bit more.</p>
+  <p>So for agents, the expensive part is reading the input, not writing the answer. Without help, turn 100 would mean re-reading 100 turns of history.</p>
+
+  <h2>Prefix caching: only read what's new</h2>
+  <p>Inference engines (Ollama, vLLM, MLX, and hosted APIs like Anthropic's and OpenAI's) keep the work they did on a prompt for a while. If the next request <b>starts with exactly the same tokens</b>, they reuse that work and only process the new part at the end.</p>
+  <p>The Together write-up gives the simple maths: if each turn adds about the same amount, ten turns without a cache process 1 + 2 + … + 10 = 55 units of prompt, and with a cache only 10. At a hundred turns it's 5,050 against 100.</p>
+  <p>But there's one rule that everything else follows from:</p>
+  <p><b>The cache matches from the very first token up to the first token that's different, and stops there.</b> Adding text at the end is cheap. Changing anything earlier, even one character, means everything after that point is processed again.</p>
+
+  <h2>I tested it on a Mac</h2>
+  <p>I wanted to see this rule in real numbers, so I ran a small test with Apple's MLX and Google's Gemma 3 12B (4-bit) on a MacBook Pro with an M3 Pro chip and 36 GB of memory. The script builds a fake agent session: a system prompt with tool definitions, then a few turns where the agent reads files. It then times how long the model takes to read the prompt for the next turn in three cases:</p>
+  <div class="table-scroll"><table>
+    <tr><th>Case</th><th>Tokens the model had to read</th><th>Time before the first word</th></tr>
+    <tr><td>No cache (fresh start)</td><td>10,275 (the whole prompt)</td><td>about 2–4 minutes</td></tr>
+    <tr><td>Cache kept, new turn added at the end</td><td>2,513 (only the new turn)</td><td>about 1 minute (66 s)</td></tr>
+    <tr><td>Cache kept, but the system prompt has a new timestamp</td><td>10,244 (only the first 32 tokens matched)</td><td>about 2–4 minutes</td></tr>
+  </table></div>
+  <p>The token counts are the important part, because they don't depend on what else the laptop was doing. With the cache kept, the model read 2,513 tokens instead of 10,275, about four times less, and that gap keeps growing as the session gets longer. With one changed timestamp near the top, only the first 32 tokens matched, so the cache saved almost nothing: the model read 10,244 tokens, the same as starting fresh. (The times are rough. My two full re-reads took 134 and 234 seconds because the Mac was busy with other apps, which is why I show a range.)</p>
+  <p>A cloud model on big GPUs is much faster than a laptop, but the shape is the same: a broken cache means paying again, in time and money, for the whole session.</p>
+  <p>The test script is short and at the end of this post if you want to try it.</p>
+
+  <h2>5 things that break the cache</h2>
+
+  <h3>1. Anything in the system prompt that changes each turn</h3>
+  <p>A current time, the <code>git status</code>, the current folder, "turn 14 of 40". It feels helpful to keep the model up to date, but the system prompt sits at the very top, so a new value there means the whole session is read again on every turn. That's the "timestamp" row in my test.</p>
+  <p><b>Fix:</b> keep the system prompt identical for the whole session (and ideally across sessions). Put changing information in a new message at the end instead. If you write your own agent or prompt templates, check for <code>datetime.now()</code> or similar in the system prompt first.</p>
+
+  <h3>2. Changing reasoning effort in the middle of a session</h3>
+  <p>For some open models, the chat template writes the reasoning-effort setting into the first system block. Ollama found this with GLM. So switching from "low" to "high" halfway through a long task changes the prompt almost at the first token, and the whole session is processed again.</p>
+  <p><b>Fix:</b> choose the effort level at the start and leave it. If you really need more thinking, it's often cheaper to start a fresh session (or compact the old one first) than to flip the setting on a long one.</p>
+
+  <h3>3. Adding tools near the top</h3>
+  <p>Newer harnesses load tools only when the agent searches for them, which saves context. But if the new tool definition is added to the tool list at the top, everything after it is re-read. The better place is the end of the conversation. Not every model's chat template accepts that, so this depends on the harness and model.</p>
+  <p><b>Fix (if you build tools or MCP servers):</b> avoid changing the tool list during a session, and prefer harnesses that add late-loaded tools at the end.</p>
+
+  <h3>4. Huge tool results</h3>
+  <p>A file the agent reads becomes part of every request after it. If it reads 3,000 lines when it needed 40, you carry those 3,000 lines for the rest of the session. Even cached, they fill the context window and memory.</p>
+  <p><b>Fix:</b> ask the agent to search before it reads, and to read line ranges. If you build tools, return less by default.</p>
+
+  <h3>5. Cutting output without saying so</h3>
+  <p>This one isn't about speed, but it's the third point in Ollama's post and it matters. Many tools trim long output. If a tool returns the first 100 lines of a 640-line file without saying it stopped, the model doesn't know the rest exists and will happily edit code it never saw.</p>
+  <p><b>Fix:</b> when output is cut, add one line like <code>[showing lines 1–100 of 640; search or ask for another range]</code>. With that hint, the model goes and reads the part it needs.</p>
+
+  <h2>A quick checklist</h2>
+  <ul>
+    <li>System prompt: no dates, times, git status or folder paths that change. Put those in the latest message.</li>
+    <li>Pick model, reasoning effort and tools at the start of a session and don't change them midway.</li>
+    <li>Long, messy session? Start fresh or compact, rather than changing settings.</li>
+    <li>Read files by searching and line ranges, not whole files.</li>
+    <li>Truncated output should always say it was truncated.</li>
+    <li>For subagents: give them a short brief instead of the whole history when they only need a few files. A cached prefix is cheap, but not free.</li>
+  </ul>
+
+  <h2>The test script</h2>
+  <p>It needs a Mac with Apple silicon and Python. Install <code>mlx-lm</code> with <code>pip install mlx-lm</code>; the first run downloads the model (about 8 GB for the 12B, under 1 GB for <code>mlx-community/gemma-3-1b-it-4bit</code>).</p>
+<pre><code>&quot;&quot;&quot;Measure how prefix caching behaves for an agent-style prompt with mlx_lm.
+
+Scenarios (all time only prefill + 1 token):
+  cold      : whole prompt for turn N+1, empty cache
+  append    : cache holds turn N, only the new turn is processed
+  timestamp : same as append, but the system prompt has a new timestamp -&gt; first
+              differing token is near the top, so nothing after it can be reused
+&quot;&quot;&quot;
+import sys, time, random
+from mlx_lm import load, stream_generate
+from mlx_lm.models.cache import make_prompt_cache
+
+MODEL = sys.argv[1] if len(sys.argv) &gt; 1 else &quot;mlx-community/gemma-3-1b-it-4bit&quot;
+TURNS = int(sys.argv[2]) if len(sys.argv) &gt; 2 else 12
+model, tok = load(MODEL)
+
+TOOLS = &quot;\n&quot;.join(
+    f&quot;- {n}(path: str, start: int = 1, end: int = 200): {d}&quot;
+    for n, d in [(&quot;read_file&quot;, &quot;Read part of a file and return numbered lines.&quot;),
+                 (&quot;search&quot;, &quot;Search the project for a string and return matching lines.&quot;),
+                 (&quot;run&quot;, &quot;Run a shell command and return stdout and stderr.&quot;),
+                 (&quot;edit_file&quot;, &quot;Replace an exact string in a file with new text.&quot;),
+                 (&quot;list_dir&quot;, &quot;List the files in a directory.&quot;)])
+
+random.seed(7)
+def fake_file(i):
+    rnd = random.Random(i)
+    lines = []
+    for j in range(60):
+        lines.append(f&quot;{j+1:4d}  def handler_{i}_{j}(event, tz=&#x27;UTC&#x27;):  # export step {j}&quot;)
+        lines.append(f&quot;      return convert(event[&#x27;start&#x27;], tz) + {rnd.randint(1, 999)}&quot;)
+    return &quot;\n&quot;.join(lines)
+
+def messages(turns, stamp):
+    sys_prompt = f&quot;You are a coding agent.\nCurrent time: {stamp}\nTools:\n{TOOLS}&quot;
+    msgs = [{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: sys_prompt + &quot;\n\nTask: fix the timezone bug in the calendar export.&quot;}]
+    for t in range(turns):
+        msgs.append({&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: f&#x27;read_file(path=&quot;src/module_{t}.py&quot;)&#x27;})
+        msgs.append({&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: f&quot;Tool result:\n{fake_file(t)}&quot;})
+    return msgs
+
+def ids(turns, stamp):
+    return tok.apply_chat_template(messages(turns, stamp), add_generation_prompt=True)
+
+def prefill(tokens, cache):
+    t0 = time.perf_counter()
+    for r in stream_generate(model, tok, prompt=tokens, max_tokens=1, prompt_cache=cache):
+        pass
+    return time.perf_counter() - t0
+
+def lcp(a, b):
+    n = 0
+    for x, y in zip(a, b):
+        if x != y: break
+        n += 1
+    return n
+
+# warm up the GPU kernels so the first timing is fair
+prefill(ids(1, &quot;warmup&quot;), make_prompt_cache(model))
+
+S1, S2 = &quot;2026-11-17 10:04:11&quot;, &quot;2026-11-17 10:04:52&quot;
+prev = ids(TURNS, S1)
+nxt_same = ids(TURNS + 1, S1)
+nxt_new_stamp = ids(TURNS + 1, S2)
+print(f&quot;model {MODEL}&quot;)
+print(f&quot;turn {TURNS} prompt: {len(prev)} tokens; turn {TURNS+1}: {len(nxt_same)} tokens&quot;)
+print(f&quot;shared prefix, same system prompt: {lcp(prev, nxt_same)} tokens&quot;)
+print(f&quot;shared prefix, new timestamp:      {lcp(prev, nxt_new_stamp)} tokens&quot;)
+
+# chat templates may re-render the end of the previous prompt (generation prompt),
+# so reuse exactly the shared prefix: prime the cache with it, then send the rest.
+def warm(prev_ids, new_ids):
+    n = lcp(prev_ids, new_ids)
+    c = make_prompt_cache(model)
+    if n &gt; 1:
+        prefill(new_ids[: n - 1], c)       # what the server already has from turn N
+        return prefill(new_ids[n - 1:], c), len(new_ids) - (n - 1)
+    return prefill(new_ids, c), len(new_ids)
+
+cold = prefill(nxt_same, make_prompt_cache(model))
+app, app_n = warm(prev, nxt_same)
+ts, ts_n = warm(prev, nxt_new_stamp)
+print(f&quot;cold      : {cold:6.2f}s  ({len(nxt_same)} tokens processed)&quot;)
+print(f&quot;append    : {app:6.2f}s  ({app_n} tokens processed)&quot;)
+print(f&quot;timestamp : {ts:6.2f}s  ({ts_n} tokens processed)&quot;)</code></pre>
+  <p>Run it with <code>python cache_test.py mlx-community/gemma-3-12b-it-4bit 3</code>. The last number is how many file-reading turns to put in the session.</p>
+
+  <h2>Sources</h2>
+  <ul>
+    <li>Ollama on X, 17 November 2026: <a href="https://x.com/ollama/status/2122531964154712541">lessons on keeping coding agents fast</a>.</li>
+    <li>Together AI and Ollama: <a href="https://www.together.ai/blog/making-open-models-work-for-long-horizon-agentic-workloads">Making open models work for long-horizon agentic workloads</a>.</li>
+    <li><a href="https://github.com/ml-explore/mlx-lm">mlx-lm</a>, used for the test.</li>
+  </ul>
+
+  <p style="margin-top:40px;color:var(--muted,#666)">Written by Tabish Hassan, a software developer. Found a mistake or got different numbers on your machine? Email <a href="mailto:hello@tabishapps.com">hello@tabishapps.com</a>.</p>
+</div></main>
+
+<footer class="b-foot"><div class="wrap">
+  <span>© 2026 Tabish Hassan · tabishapps.com</span>
+  <span><a href="../">Blog</a> · <a href="../../">Main site</a></span>
+</div></footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "baa3382c2e8f47f09e2a5a5f8474ebf0"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
