@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I tested 3 "anti AI slop" design skills on the same page. Only one changed the design</title>
+<meta name="description" content="One landing page, built 4 times by AI: a plain prompt, then with Anthropic's Frontend Design, Vercel's Web Design Guidelines and Emil Kowalski's design skill. Screenshots, a 10-point slop checklist and which 2 to install.">
+<link rel="canonical" href="https://tabishapps.com/blog/ai-slop-design-skills-test/">
+<meta name="theme-color" content="#f5f4ef">
+<meta property="og:title" content="I tested 3 &quot;anti AI slop&quot; design skills on the same page. Only one changed the design">
+<meta property="og:description" content="Same brief, 4 AI builds. Three looked almost identical. One skill took the AI-slop count from 5 to 0. Screenshots and verdict.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://tabishapps.com/blog/ai-slop-design-skills-test/">
+<meta property="og:image" content="https://tabishapps.com/blog/ai-slop-design-skills-test/comparison.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="1141">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tabishapps.com/blog/ai-slop-design-skills-test/comparison.jpg">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../../assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/th.css">
+<link rel="stylesheet" href="../blog.css">
+<style>.article figure img{height:auto}.article figcaption{font-size:14px;color:var(--muted,#666);margin-top:8px}.summary{border-left:4px solid var(--line);padding:4px 0 4px 16px;margin:22px 0}.summary li{margin:4px 0}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"I tested 3 \"anti AI slop\" design skills on the same page. Only one changed the design","datePublished":"2026-11-18","image":"https://tabishapps.com/blog/ai-slop-design-skills-test/comparison.jpg","author":{"@type":"Person","name":"Tabish Hassan","url":"https://tabishapps.com/"},"mainEntityOfPage":"https://tabishapps.com/blog/ai-slop-design-skills-test/"}
+</script>
+</head>
+<body>
+<header class="nav"><div class="bar">
+  <a class="logo" href="../../" aria-label="Tabish Hassan, home"><span class="mark">TH</span>Tabish Hassan</a>
+  <ul><li><a href="../">Blog</a></li><li><a href="../../">Home</a></li></ul>
+</div></header>
+
+<main class="article"><div class="wrap">
+  <div class="meta mono"><span>Test</span><span>18 November 2026</span><span>7 min read</span></div>
+  <h1>I tested 3 "anti AI slop" design skills on the same page. Only one changed the design</h1>
+  <ul class="summary">
+    <li><b>The test:</b> one landing page for a made-up coffee roaster, built 4 times by an AI agent: once with a plain prompt, and once with each of 3 popular design skills.</li>
+    <li><b>The result:</b> the plain prompt and two of the skills gave almost the same page: same fonts, same colours, same emoji cards. Only Anthropic's Frontend Design skill produced a different design, and it took our "AI slop" count from 5 out of 10 to 0.</li>
+    <li><b>The advice:</b> install one skill for the look (Frontend Design) and one for the details (Vercel's Web Design Guidelines). The other skill is good, but it is about animation, not looks.</li>
+  </ul>
+
+  <figure>
+    <img src="comparison.jpg" alt="Four screenshots of the same coffee roaster landing page. A, C and D share a cream background, a serif headline with an orange italic phrase and a picture of a cup. B has a dark teal hero, tall condensed type and a chalkboard list of this week's coffees." width="1600" height="1141">
+    <figcaption>The first screen of each version at 1440 px wide. Score = signs of AI slop out of 10.</figcaption>
+  </figure>
+
+  <p class="lede">You can usually tell when a website was made by AI. The same cream background, the same serif headline with one word in italics, the same row of cards with an emoji on top. People call it "AI slop". Skills are text files you give to a coding agent to change how it works, and some of them promise to fix exactly this. So I tested three.</p>
+
+  <p>The idea came from a post by <a href="https://x.com/BenjaminUIX/status/2122286309855338953">@BenjaminUIX on X</a> listing "10 skills that kill AI slop" (it has about 7,600 likes). The post ends with good advice: "Install 2 or 3, not all 10." But which 2 or 3? The post doesn't show what the skills actually do. So I picked three from the list that are plain text instructions and ran the same job with each.</p>
+
+  <h2>The test</h2>
+  <p>The brief was one sentence, the kind a busy person would really type: build a single-file HTML landing page for <i>Harbour Coffee Roasters</i>, a small local coffee roaster with a cafe and an online shop for beans. No details about colours, hours or prices. The AI had to decide everything.</p>
+  <p>I built it four times. Each version was made by a fresh agent (Claude Opus 5.5 in Claude Code) that saw only the brief, plus one skill file for B to D. No agent could see the others' work. The same rules applied to all four: one HTML file, no photos (only CSS, inline SVG or emoji), and Google Fonts allowed.</p>
+  <div class="table-scroll"><table>
+    <tr><th>Version</th><th>What the agent got</th><th>What the skill is about</th></tr>
+    <tr><td>A</td><td>The brief only</td><td>Nothing, this is the baseline</td></tr>
+    <tr><td>B</td><td>Brief + <a href="https://github.com/anthropics/skills">Anthropic's Frontend Design</a> skill</td><td>Making a distinct visual design. It even lists the looks AI tends to repeat and asks the agent to avoid them.</td></tr>
+    <tr><td>C</td><td>Brief + <a href="https://github.com/vercel-labs/agent-skills">Vercel's Web Design Guidelines</a></td><td>A long checklist of interface rules: accessibility, focus states, forms, typography details. It is written for reviewing code, so I asked the agent to follow it while building and then check its own file once.</td></tr>
+    <tr><td>D</td><td>Brief + <a href="https://github.com/emilkowalski/skills">Emil Kowalski's design engineering</a> skill</td><td>Mostly animation and interaction: easing curves, timing, press states, when not to animate.</td></tr>
+  </table></div>
+  <p>Then I took screenshots of every version with headless Chrome at desktop size (1440 px wide) and phone size (390 px wide), in light mode.</p>
+
+  <h2>The checklist (written before I saw any result)</h2>
+  <p>Before looking at the pages, I wrote down 10 signs of AI slop. Each sign present is one point. Lower is better.</p>
+  <ol>
+    <li>A gradient used as decoration in the hero</li>
+    <li>Emoji used as icons</li>
+    <li>Vague marketing copy ("elevate your experience", "more than just coffee")</li>
+    <li>Everything centered</li>
+    <li>A row of identical cards, each with an icon, a title and one line</li>
+    <li>Low-contrast text</li>
+    <li>No real details: missing at least two of opening hours, address and prices</li>
+    <li>Broken or cramped on a phone</li>
+    <li>Fade-in on every section, or every card lifting on hover</li>
+    <li>A small ALL-CAPS label above every section heading</li>
+  </ol>
+
+  <h2>The results</h2>
+  <div class="table-scroll"><table>
+    <tr><th>Sign</th><th>A: plain</th><th>B: Frontend Design</th><th>C: Vercel</th><th>D: Emil</th></tr>
+    <tr><td>Decorative gradient in hero</td><td>yes</td><td>no</td><td>yes</td><td>yes</td></tr>
+    <tr><td>Emoji as icons</td><td>yes</td><td>no</td><td>yes</td><td>yes</td></tr>
+    <tr><td>Vague marketing copy</td><td>no</td><td>no</td><td>no</td><td>no</td></tr>
+    <tr><td>Everything centered</td><td>no</td><td>no</td><td>no</td><td>no</td></tr>
+    <tr><td>Identical icon cards</td><td>yes (4)</td><td>no</td><td>yes (4)</td><td>yes (3)</td></tr>
+    <tr><td>Low-contrast text</td><td>no</td><td>no</td><td>no*</td><td>no</td></tr>
+    <tr><td>No hours, address or prices</td><td>no</td><td>no</td><td>no</td><td>no</td></tr>
+    <tr><td>Cramped on phone</td><td>no</td><td>no</td><td>yes</td><td>no</td></tr>
+    <tr><td>Motion or hover lift everywhere</td><td>yes</td><td>no</td><td>yes</td><td>yes</td></tr>
+    <tr><td>ALL-CAPS label on every section</td><td>yes</td><td>no</td><td>no</td><td>yes</td></tr>
+    <tr><td><b>Total (lower is better)</b></td><td><b>5</b></td><td><b>0</b></td><td><b>5</b></td><td><b>5</b></td></tr>
+  </table></div>
+  <p>* C has a dark mode. In dark mode, its cafe section turns light blue while the text stays near-white, which is very hard to read. I scored the light mode, which is what most visitors see.</p>
+  <p>Two things surprised me. First, the plain prompt was not bad. None of the four versions wrote anything like "elevate your experience", and all four invented useful details: opening hours, an address, prices per 250 g bag. The old slop signs are gone. New ones took their place.</p>
+  <p>Second, A, C and D are almost the same page. Look at the fonts: all three picked <b>Fraunces</b> for headings and <b>Inter</b> for text. All three have a cream background, a dark serif headline with an orange italic phrase, two rounded buttons and a row of three stats under them ("48h", "12 kg"). Here are their feature cards side by side:</p>
+
+  <figure>
+    <img src="feature-cards.jpg" alt="The feature card rows from versions A, C and D. All three use rounded cards on cream with a seedling, a flame and a box emoji in the same order, then a serif title and a short line of grey text." width="1220" height="830" loading="lazy">
+    <figcaption>A, C and D each built a row of emoji cards. Same seedling, flame and box, in the same order.</figcaption>
+  </figure>
+
+  <p>Three agents, three different skill files, no contact between them, and they all reached for 🌱 🔥 📦. That is what "AI slop" really is: not ugly, just the same.</p>
+
+  <h2>What each skill changed</h2>
+
+  <h3>A: plain prompt</h3>
+  <figure>
+    <img src="a-desktop-phone.jpg" alt="Version A on desktop and phone: cream page, serif headline 'Coffee roasted by the water, poured with care', orange circle with a coffee cup." width="1467" height="700" loading="lazy">
+  </figure>
+  <p>A clean, friendly page that would be fine for a real cafe. It has a menu with prices, opening hours and an address. But it uses the default kit: a gradient circle behind a cup, emoji icons, a small uppercase label above every heading, and cards that lift when you hover them.</p>
+
+  <h3>B: Anthropic Frontend Design</h3>
+  <figure>
+    <img src="b-desktop-phone.jpg" alt="Version B on desktop and phone: dark teal hero with very tall condensed headline 'Roasted on the quay, poured at the counter' and a chalkboard listing this week's roasts by day." width="1467" height="700" loading="lazy">
+  </figure>
+  <p>The only version that looks like someone made a choice. The agent picked a harbour-and-chalkboard idea and ran with it: tall condensed headings, a teal and yellow palette, and a "roasted this week" board with the day each coffee is roasted. The coffee bags are flat colour blocks, not emoji. The order steps are numbered 1 to 4 because they really are steps.</p>
+  <p>This makes sense when you read the skill. It asks the agent to start from the subject (a harbour, a roaster) instead of a template, to plan the colours and fonts first, and then to check that plan against a list of looks that AI repeats. That list describes A, C and D quite closely. It also asks for restraint: one bold idea, the rest quiet.</p>
+  <p>It isn't perfect. On a phone, the four coffee bags become very tall coloured blocks, which is a lot of scrolling. And there is a small bug: the empty "added to bag" message box peeks up from the bottom edge of the screen before you click anything.</p>
+
+  <h3>C: Vercel Web Design Guidelines</h3>
+  <figure>
+    <img src="c-desktop-phone.jpg" alt="Version C on desktop and phone: cream page with serif headline 'Small-Batch Coffee, Roasted by the Sea' and a sunset illustration of a cup by the sea." width="1467" height="700" loading="lazy">
+  </figure>
+  <p>Visually, almost the same as A. Under the hood, it's the most careful version. It is the only one with a "skip to content" link for keyboard users, balanced line breaks in headings, numbers formatted with the browser's own locale tools, and clear focus outlines. Following the guidelines' "Title Case" rule made the buttons read "Shop Fresh Beans" and "Add to Bag", which is fine but slightly stiff.</p>
+  <p>On a phone, the header is cramped: the shop name is cut off as "Harbour Coffee Ro…". And as noted above, its dark mode has a real contrast bug. So the checklist didn't catch everything, but that's expected: it's a list of rules, not a design brief.</p>
+
+  <h3>D: Emil Kowalski's design engineering</h3>
+  <figure>
+    <img src="d-desktop-phone.jpg" alt="Version D on desktop and phone: cream page with serif headline 'Small-batch coffee, roasted by the water' and a teal sea scene with a cup and a fresh-roast badge." width="1467" height="700" loading="lazy">
+  </figure>
+  <p>Again the same family as A. What changed is how it moves. Buttons shrink slightly when pressed, transitions use custom easing curves, hover effects only run on devices with a mouse, and motion is turned down for people who ask for less. There is also a filter for the bean list and a weekly / fortnightly / monthly switch for the subscription. Those details feel nice when you use the page, but they don't show in a screenshot.</p>
+  <p>It also fades in each section as you scroll, which is the one animation habit most likely to feel "AI". And a small layout slip: prices like "£11.50 / 250 g" break so the "g" lands on its own line.</p>
+
+  <h2>What you can't see in the screenshots</h2>
+  <p>I also searched each file for a few things the skills talk about. Numbers are how many times each appears in the code.</p>
+  <div class="table-scroll"><table>
+    <tr><th>Detail</th><th>A</th><th>B</th><th>C</th><th>D</th></tr>
+    <tr><td>"Skip to content" link</td><td>0</td><td>0</td><td>2</td><td>0</td></tr>
+    <tr><td>Visible keyboard focus styles</td><td>1</td><td>2</td><td>4</td><td>2</td></tr>
+    <tr><td>Respects "reduce motion"</td><td>yes</td><td>yes</td><td>yes</td><td>yes</td></tr>
+    <tr><td>Custom easing curves</td><td>0</td><td>0</td><td>0</td><td>3</td></tr>
+    <tr><td>Press feedback on buttons</td><td>0</td><td>0</td><td>1</td><td>4</td></tr>
+    <tr><td>Hover effects only on mouse devices</td><td>0</td><td>0</td><td>0</td><td>4</td></tr>
+    <tr><td>Even-width numbers for prices</td><td>0</td><td>1</td><td>4</td><td>1</td></tr>
+    <tr><td>Fonts</td><td>Fraunces + Inter</td><td>Big Shoulders + Source Serif</td><td>Fraunces + Inter</td><td>Fraunces + Inter</td></tr>
+  </table></div>
+  <p>So each skill did its own job. It's just that only one of them has "make it look different" as its job.</p>
+
+  <h2>Verdict: which 2 to install</h2>
+  <ol>
+    <li><b>Anthropic's Frontend Design</b>, if your problem is "it looks like every other AI site". In this test it was the only skill that changed the design, and it was the only page with zero slop signs.</li>
+    <li><b>Vercel's Web Design Guidelines</b>, as a second pass. Run it as it was meant to be used: ask the agent to review the finished page against it. It catches accessibility and detail problems that a design skill ignores.</li>
+  </ol>
+  <p>Emil Kowalski's skill is worth having when you build interactive parts: menus, drawers, toasts, anything that moves. For a mostly static landing page, it changes very little you can see.</p>
+
+  <h2>Limits of this test</h2>
+  <ul>
+    <li>One run per version. AI output varies, and a second run could look different. Treat this as one honest sample, not a benchmark.</li>
+    <li>I wrote the checklist and judged the pages myself. I wrote it before seeing any page, but some of my signs overlap with the list inside Anthropic's skill, which gives B an advantage on my scorecard.</li>
+    <li>Two of the skills are not designed to change visual style. Vercel's is a review checklist, and Emil's is mostly about motion. They did what they say; they just aren't "make it look different" tools.</li>
+    <li>One model (Claude Opus 5.5) and one kind of page. Other models, and apps instead of landing pages, may behave differently.</li>
+  </ul>
+
+  <h2>Sources</h2>
+  <ul>
+    <li>@BenjaminUIX on X, 16 November 2026: <a href="https://x.com/BenjaminUIX/status/2122286309855338953">10 skills that kill AI slop</a>.</li>
+    <li>Anthropic: <a href="https://github.com/anthropics/skills">anthropics/skills</a> (frontend-design).</li>
+    <li>Vercel: <a href="https://github.com/vercel-labs/agent-skills">vercel-labs/agent-skills</a> (web-design-guidelines) and the <a href="https://github.com/vercel-labs/web-interface-guidelines">Web Interface Guidelines</a> it reads.</li>
+    <li>Emil Kowalski: <a href="https://github.com/emilkowalski/skills">emilkowalski/skills</a> (emil-design-eng).</li>
+  </ul>
+
+  <p style="margin-top:40px;color:var(--muted,#666)">Written by Tabish Hassan, a software developer. Found a mistake? Email <a href="mailto:hello@tabishapps.com">hello@tabishapps.com</a>.</p>
+</div></main>
+
+<footer class="b-foot"><div class="wrap">
+  <span>© 2026 Tabish Hassan · tabishapps.com</span>
+  <span><a href="../">Blog</a> · <a href="../../">Main site</a></span>
+</div></footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "baa3382c2e8f47f09e2a5a5f8474ebf0"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
