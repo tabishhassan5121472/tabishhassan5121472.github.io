@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Code Mode tested: 11x fewer tokens, fewer wrong answers</title>
+<meta name="description" content="I tested the idea behind Claude Code's Code Mode with a local model: 3 tasks, 9 runs each way. Script mode read 11x fewer tokens and never miscounted.">
+<link rel="canonical" href="https://tabishapps.com/blog/code-mode-tool-calls-test/">
+<meta name="theme-color" content="#f5f4ef">
+<meta property="og:title" content="I tested the idea behind Claude Code's new Code Mode. The AI read 11x fewer tokens and stopped miscounting">
+<meta property="og:description" content="Same 3 coding tasks, same local model, 9 runs each way: one tool call per message vs one script that calls the tools. Tokens, turns and right answers.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://tabishapps.com/blog/code-mode-tool-calls-test/">
+<meta property="og:image" content="https://tabishapps.com/blog/code-mode-tool-calls-test/comparison.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tabishapps.com/blog/code-mode-tool-calls-test/comparison.jpg">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../../assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/th.css">
+<link rel="stylesheet" href="../blog.css">
+<style>.article figure img{height:auto}.article figcaption{font-size:14px;color:var(--muted,#666);margin-top:8px}.summary{border-left:4px solid var(--line);padding:4px 0 4px 16px;margin:22px 0}.summary li{margin:4px 0}.article pre{overflow-x:auto}</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"I tested the idea behind Claude Code's new Code Mode. The AI read 11x fewer tokens and stopped miscounting","datePublished":"2026-11-19","image":"https://tabishapps.com/blog/code-mode-tool-calls-test/comparison.jpg","author":{"@type":"Person","name":"Tabish Hassan","url":"https://tabishapps.com/"},"mainEntityOfPage":"https://tabishapps.com/blog/code-mode-tool-calls-test/"}
+</script>
+</head>
+<body>
+<header class="nav"><div class="bar">
+  <a class="logo" href="../../" aria-label="Tabish Hassan, home"><span class="mark">TH</span>Tabish Hassan</a>
+  <ul><li><a href="../">Blog</a></li><li><a href="../../">Home</a></li></ul>
+</div></header>
+
+<main class="article"><div class="wrap">
+  <div class="meta mono"><span>Test</span><span>19 November 2026</span><span>6 min read</span></div>
+  <h1>I tested the idea behind Claude Code's new Code Mode. The AI read 11x fewer tokens and stopped miscounting</h1>
+  <ul class="summary">
+    <li><b>The test:</b> the same 3 coding tasks, done by the same local AI model in two ways: one tool call per message (how most agents work today), or one short script that calls the tools (the Code Mode idea). 9 runs each way.</li>
+    <li><b>The result:</b> the script way read 11x fewer tokens (12,788 vs 140,809) and needed 6x fewer turns. It also got the counting task right every time. The classic way miscounted it in all 3 runs.</li>
+    <li><b>The advice:</b> Code Mode is worth trying for jobs with many similar steps: searching many files, counting, the same edit in many places. Keep the classic way for work where the AI must think about each result.</li>
+  </ul>
+
+  <figure>
+    <img src="comparison.jpg" alt="Bar chart. Tokens the model read: 140,809 for one tool call per message, 12,788 for writing a script. Model turns: 122 vs 20. Fully correct answers: 5 of 9 vs 8 of 9." width="1600" height="900">
+    <figcaption>All 9 runs added up. Orange: one tool call per message. Blue: the model writes a script that calls the tools.</figcaption>
+  </figure>
+
+  <p class="lede">When an AI coding agent works on your project, it uses tools: read a file, search, edit. Normally it asks for one tool, waits for the result, reads it, and then asks for the next one. Every step is a new turn, and every turn re-reads the whole conversation so far.</p>
+
+  <p>Yesterday the Claude Code team <a href="https://x.com/ClaudeDevs/status/2122801681939234950">posted on X</a> about an experimental feature called Code Mode (about 12,000 likes in a day). The idea: instead of asking for tools one by one, "Claude writes scripts that chain your tools together". One script can read 15 files, filter the results and send back only the part that matters. The <a href="https://code.claude.com/docs/en/code-mode">Code Mode docs</a> suggest it for tasks with many related tool calls.</p>
+
+  <p>That sounds good, but how much does it really save? And does the AI make more or fewer mistakes when it writes code instead of reading every result? I wanted numbers, so I built a small test on my Mac.</p>
+
+  <h2>What I tested (and what I didn't)</h2>
+  <p>To be clear first: I did <b>not</b> test Claude Code's own Code Mode. It only runs in an interactive terminal session, so I couldn't run it many times from a script and measure it fairly. Instead, I tested the <b>idea</b> behind it, with an open model running locally, so I could count every token.</p>
+  <ul>
+    <li><b>Model:</b> Qwen3.6-35B-A3B (4-bit), run with Apple's MLX on a MacBook Pro with an M3 Pro chip.</li>
+    <li><b>Tools:</b> five simple tools I wrote in Python: list files, read a file, check if a file exists, search with a pattern (grep), and edit a file. Both modes got the exact same tools.</li>
+    <li><b>Classic mode:</b> the model replies with one tool call as JSON. My code runs it and sends back the result. Repeat until the model gives an answer.</li>
+    <li><b>Script mode (the Code Mode idea):</b> the model replies with a short Python script that calls the same tools. My code runs it and sends back only what the script prints. Claude Code uses JavaScript for this; I used Python because that is what my harness was written in.</li>
+    <li><b>Project:</b> a small fake project made by a script, so I knew every right answer before the test: 15 Markdown docs, 18 source files and 10 JSON config files.</li>
+  </ul>
+
+  <h2>The three tasks</h2>
+  <ol>
+    <li><b>Broken links.</b> "Read every Markdown file in docs/ and find the links that point to local files that do not exist." This is the example the Code Mode docs use. There were 6 broken links, one of them an image in a subfolder.</li>
+    <li><b>Count TODOs.</b> "Count the TODO comments in src/ and name the 3 files with the most." There were 48 TODOs in 14 files.</li>
+    <li><b>Same edit in many files.</b> "In every JSON file in config/, change maxAttempts from 3 to 5. Leave other values alone." 8 files needed the change; 2 had other values and had to stay the same.</li>
+  </ol>
+  <p>Each task ran 3 times in each mode: once with no randomness (temperature 0), and twice with normal randomness (temperature 0.7). I checked the answers with code, not by eye. For the edit task, I checked the files on disk after the run.</p>
+
+  <h2>The results</h2>
+  <div class="table-scroll"><table>
+    <tr><th>Task (3 runs each)</th><th>Classic: right</th><th>Classic: turns</th><th>Classic: tokens read</th><th>Script: right</th><th>Script: turns</th><th>Script: tokens read</th></tr>
+    <tr><td>Broken links</td><td>2 of 3</td><td>59</td><td>87,790</td><td>2 of 3*</td><td>8</td><td>7,410</td></tr>
+    <tr><td>Count TODOs</td><td>0 of 3</td><td>9</td><td>7,491</td><td>3 of 3</td><td>6</td><td>2,952</td></tr>
+    <tr><td>Same edit in 10 files</td><td>3 of 3</td><td>54</td><td>45,528</td><td>3 of 3</td><td>6</td><td>2,426</td></tr>
+    <tr><td><b>Total</b></td><td><b>5 of 9</b></td><td><b>122</b></td><td><b>140,809</b></td><td><b>8 of 9</b></td><td><b>20</b></td><td><b>12,788</b></td></tr>
+  </table></div>
+  <p>* In one run, the script found all 6 broken links but wrote the paths in a different form than I asked for ("docs/auth-old.md" instead of "auth-old.md"). My checker counted it as wrong. A person would probably accept it.</p>
+  <p>"Tokens read" is the total size of everything the model had to read, added up over all turns. This is what most AI APIs charge you for as input.</p>
+
+  <h3>1. The token gap grows with every step</h3>
+  <figure>
+    <img src="tokens-per-turn.jpg" alt="Line chart of tokens read, added up per turn, for the broken links task. Classic mode climbs for 20 turns to 30,789 tokens. Script mode stops after 3 turns at 4,005 tokens." width="1400" height="720" loading="lazy">
+    <figcaption>Broken links task, first run. Classic mode reads one file per turn, and each turn re-reads everything before it.</figcaption>
+  </figure>
+  <p>In classic mode, the model read the 15 docs one at a time. That is 15 turns, plus a few more to list files and answer. Each new turn carries every file it has already read, so the cost does not grow in a straight line. It curves up.</p>
+  <p>In script mode, the model wrote one loop: read every file, pull out the links, check each one, print only the broken ones. The 15 files never entered the conversation at all. Only the 6 results did.</p>
+  <p>The edit task shows the same pattern even more clearly: 45,528 tokens vs 2,426, a 19x difference, with the same correct result in both modes.</p>
+
+  <h3>2. Counting is where classic mode fails</h3>
+  <p>This one surprised me. In classic mode, the model was smart: it used the search tool once and got back a list of all 48 TODO lines. Then it had to count them by reading. It got it wrong in all 3 runs:</p>
+  <div class="table-scroll"><table>
+    <tr><th>Run</th><th>Total TODOs</th><th>payments.ts</th><th>orders.ts</th></tr>
+    <tr><td>Right answer</td><td>48</td><td>9</td><td>7</td></tr>
+    <tr><td>Classic, run 1</td><td>49</td><td>10</td><td>7</td></tr>
+    <tr><td>Classic, run 2</td><td>50</td><td>11</td><td>8</td></tr>
+    <tr><td>Classic, run 3</td><td>49</td><td>10</td><td>7</td></tr>
+    <tr><td>Script, all 3 runs</td><td>48</td><td>9</td><td>7</td></tr>
+  </table></div>
+  <p>Language models are bad at counting long lists by eye. Code is not. In script mode the model simply wrote a loop that counts lines, and the computer did the counting:</p>
+<pre><code>for file_path in list_files("src"):
+    count = 0
+    for line in read_file(file_path).splitlines():
+        if "// TODO" in line:
+            count += 1
+    if count &gt; 0:
+        todo_counts[file_path] = count</code></pre>
+  <p>This is the part of Code Mode I find most useful. It's not only cheaper. For any job that needs exact numbers, it moves the work from the model's guess to real code.</p>
+
+  <h3>3. Scripts can fix themselves</h3>
+  <p>The first script for the links task had a bug. Its pattern grabbed a "(" as part of every link, so it reported every link as broken. The model saw the strange output, explained its own mistake, fixed the pattern and ran it again. The second run was correct. That cost one extra turn, and it was still 7x cheaper than classic mode.</p>
+  <p>Classic mode had its own slip on the same task: in one run it read all 15 files, then searched only for links ending in ".md", and missed the broken image link.</p>
+
+  <h3>4. Writing scripts costs more output</h3>
+  <p>It's not all savings. Script mode wrote <b>more</b> output: 5,211 tokens vs 4,170, because a script is longer than a short JSON tool call. Output tokens usually cost more than input tokens. But here the input savings (128,000 fewer tokens) are far bigger than the extra 1,041 output tokens.</p>
+  <p>On time, script mode took 229 seconds for all 9 runs and classic mode took 646 seconds. My Mac was busy with other work during the test, so treat those times as rough.</p>
+
+  <h2>When to use Code Mode, and when not to</h2>
+  <p>Based on this test, I would turn it on for:</p>
+  <ul>
+    <li>Jobs that touch many files the same way: renames, version bumps, config changes.</li>
+    <li>Anything that needs exact numbers: counting, totals, "which file has the most".</li>
+    <li>Searches where most results are noise and only a few matter.</li>
+  </ul>
+  <p>I would not expect much from it for:</p>
+  <ul>
+    <li>Work where the AI needs to understand each file before deciding what to do next, like debugging a strange error. There is no loop to write.</li>
+    <li>Small tasks with one or two tool calls. There is nothing to save.</li>
+  </ul>
+  <p>One more thing to know before you try it: when the AI runs a script, many actions happen in one step. The Code Mode docs say your permission rules still check each tool call inside the script, but in auto mode the safety check reviews the script as a whole, not each call. If you have hard rules (for example "never push to main"), keep them as deny rules or hooks, as the docs suggest.</p>
+
+  <p>If you want to try the real thing, the docs say you need Claude Code v2.1.323 or later, a supported model, and an interactive terminal session started with <code>CLAUDE_CODE_EXPERIMENTAL_CODE_MODE=1</code>. It is experimental and may change.</p>
+
+  <h2>Limits of this test</h2>
+  <ul>
+    <li>I tested the idea, not Claude Code's Code Mode itself. Claude models are much stronger than the local model I used, so they may make fewer counting mistakes in classic mode.</li>
+    <li>My tasks were chosen to have many similar steps, which is exactly where scripts should help. On other tasks the gap would be smaller, or zero.</li>
+    <li>3 runs per task and mode, one model, one small fake project. Treat this as one honest sample, not a benchmark.</li>
+    <li>I did not use prompt caching. With caching, re-reading old turns is cheaper (I tested that in <a href="../prompt-caching-coding-agents/">an earlier article</a>), so the money saved would be smaller than 11x. The turns, and the counting mistakes, would stay the same.</li>
+    <li>I also tried a second, smaller model (Gemma 3 12B). On this Mac it was too slow to finish the classic runs in a reasonable time, so I left it out rather than show half a result.</li>
+  </ul>
+
+  <h2>Sources</h2>
+  <ul>
+    <li>@ClaudeDevs on X, 18 November 2026: <a href="https://x.com/ClaudeDevs/status/2122801681939234950">Check out Code Mode, a new, experimental way for Claude Code to work with tools</a>.</li>
+    <li>Claude Code docs: <a href="https://code.claude.com/docs/en/code-mode">Run tool calls from code with Code Mode</a>.</li>
+    <li>Model: <a href="https://huggingface.co/mlx-community/Qwen3.6-35B-A3B-4bit">mlx-community/Qwen3.6-35B-A3B-4bit</a>, run with <a href="https://github.com/ml-explore/mlx-lm">mlx-lm</a> 0.32.2.</li>
+  </ul>
+
+  <p style="margin-top:40px;color:var(--muted,#666)">Written by Tabish Hassan, a software developer. Found a mistake? Email <a href="mailto:hello@tabishapps.com">hello@tabishapps.com</a>.</p>
+</div></main>
+
+<footer class="b-foot"><div class="wrap">
+  <span>© 2026 Tabish Hassan · tabishapps.com</span>
+  <span><a href="../">Blog</a> · <a href="../../">Main site</a></span>
+</div></footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "baa3382c2e8f47f09e2a5a5f8474ebf0"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
