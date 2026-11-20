@@ -207,7 +207,7 @@ page = f'''<!doctype html>
   <p class="lead reveal">Native SwiftUI apps across 15 categories, from finance and health to education and sport. Tap any app to open it on the App Store.</p></div>
   <div class="chips" id="chips"></div>
   <div class="apps" id="app-grid"></div>
-  <div class="apps-more"><button class="btn" id="more" type="button">Show all 71 apps</button><a class="btn" href="https://apps.apple.com/us/developer/tabish-hassan/id1885918100" target="_blank" rel="noopener">View on the App Store <span class="arr">↗</span></a></div>
+  <div class="apps-more"><button class="btn" id="more" type="button">Show all 71 apps</button><a class="btn" href="apps/">Browse all apps <span class="arr">→</span></a><a class="btn" href="https://apps.apple.com/us/developer/tabish-hassan/id1885918100" target="_blank" rel="noopener">View on the App Store <span class="arr">↗</span></a></div>
 </div></section>
 
 <section class="block" id="products" style="padding-top:40px"><div class="wrap">
@@ -231,7 +231,7 @@ page = f'''<!doctype html>
   </div>
   <footer>
     <span>© <span id="year">2026</span> Tabish Hassan</span>
-    <nav aria-label="Footer"><a href="websites/">Websites for businesses</a><a href="blog/">Blog</a><a href="mlx-caption/">MLX Caption</a><a href="{STORE}">Sass Products Hub</a><a href="privacy-policy.html">App privacy</a><a href="terms-of-service.html">App terms</a><a href="support.html">App support</a></nav>
+    <nav aria-label="Footer"><a href="websites/">Websites for businesses</a><a href="blog/">Blog</a><a href="apps/">iPhone apps</a><a href="mlx-caption/">MLX Caption</a><a href="{STORE}">Sass Products Hub</a><a href="privacy-policy.html">App privacy</a><a href="terms-of-service.html">App terms</a><a href="support.html">App support</a></nav>
   </footer>
 </div></section>
 
@@ -245,7 +245,7 @@ page = f'''<!doctype html>
 <script src="assets/vendor/SplitText.min.js" defer></script>
 <script src="assets/vendor/lenis.min.js" defer></script>
 <script src="assets/th.js" defer></script>
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "baa3382c2e8f47f09e2a5a5f8474ebf0"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "baa3382c2e8f47f09e2a5a5f8474ebf0"}}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
 '''
