@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iOS app developer: SwiftUI apps for iPhone and iPad</title>
+<meta name="description" content="Hire an iOS developer with 75 apps live on the App Store. SwiftUI, StoreKit 2 subscriptions, widgets and App Store submission handled for you.">
+<meta name="theme-color" content="#f5f4ef">
+<meta property="og:title" content="iOS app developer: SwiftUI apps for iPhone and iPad">
+<meta property="og:description" content="Hire an iOS developer with 75 apps live on the App Store. SwiftUI, StoreKit 2 subscriptions, widgets and App Store submission handled for you.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tabishapps.com/services/ios-app-development/">
+<meta property="og:image" content="https://tabishapps.com/assets/work/templates/forgeworks-manufacturing.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../../assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/th.css">
+<style>
+  .nav .bar { background: rgba(251, 250, 247, 0.86); border-color: var(--line); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+  .s-hero { padding: 150px 0 60px; }
+  .s-hero .eyebrow { margin-bottom: 22px; }
+  .s-hero h1 { margin: 0; max-width: 17ch; font: 700 clamp(42px, 6.4vw, 96px)/0.95 var(--display); letter-spacing: -0.05em; }
+  .s-hero h1 em { font-style: normal; color: var(--cobalt); }
+  .s-hero .sub { max-width: 660px; margin: 30px 0 0; font-size: 20px; color: var(--ink-2); }
+  .s-hero .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+  .crumbs { font: 500 13px/1.4 var(--mono); color: var(--muted); margin-bottom: 18px; }
+  .crumbs a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 64px; border-top: 1px solid var(--ink); }
+  .facts div { padding: 20px 20px 0 0; }
+  .facts div + div { padding-left: 20px; border-left: 1px solid var(--line); }
+  .facts b { display: block; font: 600 20px/1.2 var(--display); letter-spacing: -0.02em; }
+  .facts span { display: block; margin-top: 6px; font-size: 15px; color: var(--muted); }
+  section.block { padding: 90px 0; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 0; padding: 0; list-style: none; }
+  .cards li, .cards a.card { display: block; padding: 26px; border-radius: var(--r); background: var(--card); border: 1px solid var(--line); color: inherit; text-decoration: none; }
+  .cards a.card:hover { border-color: var(--cobalt); }
+  .cards h3 { margin: 0 0 10px; font: 600 22px/1.15 var(--display); letter-spacing: -0.02em; }
+  .cards p { margin: 0; font-size: 16px; color: var(--ink-2); }
+  .cards .go { display: inline-block; margin-top: 16px; font: 500 13px/1 var(--mono); color: var(--cobalt); }
+  .proof { display: grid; gap: 0; max-width: 900px; }
+  .proof div { display: grid; grid-template-columns: 1fr 1.4fr; gap: 24px; padding: 22px 0; border-top: 1px solid var(--line); }
+  .proof div:last-child { border-bottom: 1px solid var(--line); }
+  .proof b { font: 600 20px/1.25 var(--display); letter-spacing: -0.02em; }
+  .proof p { margin: 0; color: var(--ink-2); }
+  .proof a { color: var(--cobalt); text-decoration: underline; text-underline-offset: 3px; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 0; padding: 0; list-style: none; counter-reset: step; }
+  .steps li { padding: 26px; border-radius: var(--r); background: var(--card); border: 1px solid var(--line); counter-increment: step; }
+  .steps li::before { content: "0" counter(step); display: block; margin-bottom: 34px; font: 500 13px/1 var(--mono); color: var(--cobalt); }
+  .steps h3 { margin: 0 0 10px; font: 600 22px/1.15 var(--display); letter-spacing: -0.02em; }
+  .steps p { margin: 0; font-size: 16px; color: var(--ink-2); }
+  .faq { max-width: 860px; }
+  .faq details { border-top: 1px solid var(--line); }
+  .faq details:last-child { border-bottom: 1px solid var(--line); }
+  .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 20px; padding: 24px 0; font: 600 21px/1.3 var(--display); letter-spacing: -0.02em; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--cobalt); font-weight: 500; }
+  .faq details[open] summary::after { content: "–"; }
+  .faq p { margin: 0 0 24px; max-width: 720px; color: var(--ink-2); }
+  .others { display: flex; flex-wrap: wrap; gap: 10px; }
+  .others a { padding: 10px 16px; border: 1px solid var(--line); border-radius: 999px; font-size: 15px; color: var(--ink); text-decoration: none; background: var(--card); }
+  .others a:hover { border-color: var(--cobalt); color: var(--cobalt); }
+  .s-foot { padding: 28px 0 40px; background: var(--night); color: rgba(245, 244, 239, 0.55); font-size: 14px; }
+  .s-foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 24px; }
+  .s-foot a:hover { color: var(--bone); }
+  @media (max-width: 1080px) { .cards { grid-template-columns: 1fr 1fr; } .steps { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) {
+    .s-hero { padding: 120px 0 40px; }
+    .s-hero .sub { font-size: 18px; }
+    .facts { grid-template-columns: 1fr 1fr; }
+    .facts div:nth-child(3) { padding-left: 0; border-left: 0; }
+    .facts div:nth-child(n + 3) { margin-top: 20px; }
+    .cards, .steps { grid-template-columns: 1fr; }
+    .proof div { grid-template-columns: 1fr; gap: 6px; }
+    .nav .bar .btn { padding: 10px 14px; font-size: 13px; }
+    .logo .full { display: none; }
+  }
+</style>
+<link rel="canonical" href="https://tabishapps.com/services/ios-app-development/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "iOS app development", "serviceType": "iOS app development", "description": "Hire an iOS developer with 75 apps live on the App Store. SwiftUI, StoreKit 2 subscriptions, widgets and App Store submission handled for you.", "url": "https://tabishapps.com/services/ios-app-development/", "provider": {"@type": "Person", "@id": "https://tabishapps.com/#me", "name": "Tabish Hassan", "url": "https://tabishapps.com/", "jobTitle": "Software developer"}, "areaServed": "Worldwide", "hasOfferCatalog": {"@type": "OfferCatalog", "name": "iOS app development", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Business apps", "description": "Booking, ordering, loyalty, field-staff and customer apps that connect to your system."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Subscription apps", "description": "Paywalls, free trials and StoreKit 2 subscriptions done properly."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Utility and productivity apps", "description": "Trackers, planners, calculators, scanners and widgets."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Offline-first apps", "description": "SwiftData storage that keeps working without a connection and syncs later."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI features on device", "description": "Text, image and speech features that run on the phone, with no server bill."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "App Store launch", "description": "Icons, screenshots, keywords and the listing, plus answers to App Review."}}]}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does an iPhone app cost?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the screens, the backend and whether you need subscriptions. I send a fixed written quote after we agree on the feature list. A simple app can be ready in a few weeks."}}, {"@type": "Question", "name": "Do you build Android apps too?", "acceptedAnswer": {"@type": "Answer", "text": "My main focus is native iOS. For apps that must be on both, I can build with Expo (React Native) or pair the iOS app with a web app that works on Android."}}, {"@type": "Question", "name": "Will you publish the app for me?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. I prepare the screenshots, description and keywords and submit it to Apple. The app is published under your own Apple developer account, so you own it."}}, {"@type": "Question", "name": "Can you update or fix my existing app?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. I can take over an existing Swift or SwiftUI app, fix crashes, update it for the latest iOS and add features."}}, {"@type": "Question", "name": "Can the app connect to my website or system?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. I build the API too, so the app and your web system share the same data."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tabishapps.com/"}, {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://tabishapps.com/services/"}, {"@type": "ListItem", "position": 3, "name": "iOS app development", "item": "https://tabishapps.com/services/ios-app-development/"}]}]}</script>
+</head>
+<body>
+<header class="nav"><div class="bar">
+  <a class="logo" href="../../" aria-label="Tabish Hassan, home"><span class="mark">TH</span><span class="full">Tabish Hassan</span></a>
+  <ul>
+    <li><a href="../../services/">Services</a></li><li><a href="../../#work">Work</a></li><li><a href="../../apps/">Apps</a></li><li><a href="../../blog/">Blog</a></li>
+  </ul>
+  <div class="right"><a class="btn primary" href="mailto:hello@tabishapps.com?subject=iOS%20app%20project">Get a quote <span class="arr">↗</span></a></div>
+</div></header>
+
+<main id="top">
+<section class="s-hero"><div class="wrap">
+  <p class="crumbs"><a href="../../">Home</a> / <a href="../">Services</a> / iOS app development</p>
+  <p class="eyebrow mono">iOS app development</p>
+  <h1>iPhone and iPad apps, <em>from idea to the App Store.</em></h1>
+  <p class="sub">I design and build native iOS apps in SwiftUI, set up in-app purchases and subscriptions, and handle App Store submission. 75 of my own apps are live on the App Store today.</p>
+  <div class="cta">
+    <a class="btn primary" href="mailto:hello@tabishapps.com?subject=iOS%20app%20project">Get a fixed quote <span class="arr">↗</span></a>
+    <a class="btn" href="#work">See the work</a>
+  </div>
+  <div class="facts">
+    <div><b>75 apps live</b><span>Published under my own developer account.</span></div>
+    <div><b>SwiftUI</b><span>Native, fast apps that feel right on iPhone and iPad.</span></div>
+    <div><b>Subscriptions</b><span>StoreKit 2 in-app purchases and paywalls.</span></div>
+    <div><b>Submission handled</b><span>Screenshots, listing text and App Review.</span></div>
+  </div>
+</div></section>
+
+<section class="block" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div><p class="eyebrow mono">What I build</p><h2 class="title">Things I can build <em>for you.</em></h2></div>
+  <p class="lead">Not on the list? Ask anyway. If it runs in a browser, on an iPhone or on a server, I can most likely build it.</p></div>
+  <ul class="cards">
+    <li><h3>Business apps</h3><p>Booking, ordering, loyalty, field-staff and customer apps that connect to your system.</p></li>
+    <li><h3>Subscription apps</h3><p>Paywalls, free trials and StoreKit 2 subscriptions done properly.</p></li>
+    <li><h3>Utility and productivity apps</h3><p>Trackers, planners, calculators, scanners and widgets.</p></li>
+    <li><h3>Offline-first apps</h3><p>SwiftData storage that keeps working without a connection and syncs later.</p></li>
+    <li><h3>AI features on device</h3><p>Text, image and speech features that run on the phone, with no server bill.</p></li>
+    <li><h3>App Store launch</h3><p>Icons, screenshots, keywords and the listing, plus answers to App Review.</p></li>
+  </ul>
+</div></section>
+
+<section class="block" id="work" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div><p class="eyebrow mono">Proof</p><h2 class="title">Work you can <em>check.</em></h2></div></div>
+  <div class="proof">
+    <div><b>75 iOS apps on the App Store</b><p>Every app has its own page with screenshots and a link to the App Store. <a href="https://tabishapps.com/apps/">See it</a></p></div>
+    <div><b>71 apps in six months</b><p>Built and shipped on my own account, so I know the App Review process well. <a href="https://apps.apple.com/us/developer/tabish-hassan/id1885918100">See it</a></p></div>
+  </div>
+</div></section>
+
+<section class="block" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div><p class="eyebrow mono">How it works</p><h2 class="title">Clear steps, <em>no surprises.</em></h2></div></div>
+  <ol class="steps">
+    <li><h3>Tell me the idea</h3><p>Email me what you need, in your own words. A rough list or a sketch is enough. I reply within one working day.</p></li>
+    <li><h3>Fixed quote</h3><p>I write down every feature, the price and the timeline. Nothing starts until you agree.</p></li>
+    <li><h3>Build with demos</h3><p>I build in small steps and send working demo links, so you see progress and steer it early.</p></li>
+    <li><h3>Launch and handover</h3><p>I deploy it, hand over the code and accounts, and fix anything that comes up after launch.</p></li>
+  </ol>
+</div></section>
+
+<section class="block" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div><p class="eyebrow mono">Questions</p><h2 class="title">Good to <em>know.</em></h2></div></div>
+  <div class="faq">
+    <details><summary>How much does an iPhone app cost?</summary><p>It depends on the screens, the backend and whether you need subscriptions. I send a fixed written quote after we agree on the feature list. A simple app can be ready in a few weeks.</p></details>
+    <details><summary>Do you build Android apps too?</summary><p>My main focus is native iOS. For apps that must be on both, I can build with Expo (React Native) or pair the iOS app with a web app that works on Android.</p></details>
+    <details><summary>Will you publish the app for me?</summary><p>Yes. I prepare the screenshots, description and keywords and submit it to Apple. The app is published under your own Apple developer account, so you own it.</p></details>
+    <details><summary>Can you update or fix my existing app?</summary><p>Yes. I can take over an existing Swift or SwiftUI app, fix crashes, update it for the latest iOS and add features.</p></details>
+    <details><summary>Can the app connect to my website or system?</summary><p>Yes. I build the API too, so the app and your web system share the same data.</p></details>
+  </div>
+</div></section>
+
+<section class="block" style="padding-top:20px"><div class="wrap">
+  <p class="eyebrow mono">Other services</p>
+  <div class="others"><a href="../web-app-development/">Web app development</a><a href="../custom-business-software/">Custom business software</a><a href="../ai-integration/">AI integration</a><a href="../white-label-development/">White-label development for agencies</a><a href="../../websites/">Websites for local businesses</a></div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+  <p class="eyebrow mono" style="color:var(--lime)">Get a quote</p>
+  <h2 class="big">Tell me what you <em>want to build.</em></h2>
+  <div class="row">
+    <p>Email me a few lines about your project: what it should do, who will use it, and any deadline. I reply within one working day with questions or a fixed quote. Small paid test jobs are welcome.</p>
+    <div>
+      <a class="btn primary" href="mailto:hello@tabishapps.com?subject=iOS%20app%20project">Email hello@tabishapps.com <span class="arr">↗</span></a><br>
+      <span class="mail">Tabish Hassan · Software developer</span>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer class="s-foot"><div class="wrap">
+  <span>© 2026 Tabish Hassan · Software developer · Rawalpindi, Pakistan · working worldwide</span>
+  <span><a href="../../">Main site</a> · <a href="../../services/">Services</a> · <a href="../../privacy-policy.html">Privacy</a> · <a href="mailto:hello@tabishapps.com">hello@tabishapps.com</a></span>
+</div></footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "baa3382c2e8f47f09e2a5a5f8474ebf0"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

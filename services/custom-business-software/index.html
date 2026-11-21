@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Custom business software: ERP, POS, CRM, inventory</title>
+<meta name="description" content="Custom ERP, POS, CRM, inventory, HR and billing software for your business. Try 17 live demo systems, then get one built around how you work.">
+<meta name="theme-color" content="#f5f4ef">
+<meta property="og:title" content="Custom business software: ERP, POS, CRM, inventory">
+<meta property="og:description" content="Custom ERP, POS, CRM, inventory, HR and billing software for your business. Try 17 live demo systems, then get one built around how you work.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tabishapps.com/services/custom-business-software/">
+<meta property="og:image" content="https://tabishapps.com/assets/work/templates/forgeworks-manufacturing.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../../assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/th.css">
+<style>
+  .nav .bar { background: rgba(251, 250, 247, 0.86); border-color: var(--line); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+  .s-hero { padding: 150px 0 60px; }
+  .s-hero .eyebrow { margin-bottom: 22px; }
+  .s-hero h1 { margin: 0; max-width: 17ch; font: 700 clamp(42px, 6.4vw, 96px)/0.95 var(--display); letter-spacing: -0.05em; }
+  .s-hero h1 em { font-style: normal; color: var(--cobalt); }
+  .s-hero .sub { max-width: 660px; margin: 30px 0 0; font-size: 20px; color: var(--ink-2); }
+  .s-hero .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+  .crumbs { font: 500 13px/1.4 var(--mono); color: var(--muted); margin-bottom: 18px; }
+  .crumbs a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 64px; border-top: 1px solid var(--ink); }
+  .facts div { padding: 20px 20px 0 0; }
+  .facts div + div { padding-left: 20px; border-left: 1px solid var(--line); }
+  .facts b { display: block; font: 600 20px/1.2 var(--display); letter-spacing: -0.02em; }
+  .facts span { display: block; margin-top: 6px; font-size: 15px; color: var(--muted); }
+  section.block { padding: 90px 0; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 0; padding: 0; list-style: none; }
+  .cards li, .cards a.card { display: block; padding: 26px; border-radius: var(--r); background: var(--card); border: 1px solid var(--line); color: inherit; text-decoration: none; }
+  .cards a.card:hover { border-color: var(--cobalt); }
+  .cards h3 { margin: 0 0 10px; font: 600 22px/1.15 var(--display); letter-spacing: -0.02em; }
+  .cards p { margin: 0; font-size: 16px; color: var(--ink-2); }
+  .cards .go { display: inline-block; margin-top: 16px; font: 500 13px/1 var(--mono); color: var(--cobalt); }
+  .proof { display: grid; gap: 0; max-width: 900px; }
+  .proof div { display: grid; grid-template-columns: 1fr 1.4fr; gap: 24px; padding: 22px 0; border-top: 1px solid var(--line); }
+  .proof div:last-child { border-bottom: 1px solid var(--line); }
+  .proof b { font: 600 20px/1.25 var(--display); letter-spacing: -0.02em; }
+  .proof p { margin: 0; color: var(--ink-2); }
+  .proof a { color: var(--cobalt); text-decoration: underline; text-underline-offset: 3px; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 0; padding: 0; list-style: none; counter-reset: step; }
+  .steps li { padding: 26px; border-radius: var(--r); background: var(--card); border: 1px solid var(--line); counter-increment: step; }
+  .steps li::before { content: "0" counter(step); display: block; margin-bottom: 34px; font: 500 13px/1 var(--mono); color: var(--cobalt); }
+  .steps h3 { margin: 0 0 10px; font: 600 22px/1.15 var(--display); letter-spacing: -0.02em; }
+  .steps p { margin: 0; font-size: 16px; color: var(--ink-2); }
+  .faq { max-width: 860px; }
+  .faq details { border-top: 1px solid var(--line); }
+  .faq details:last-child { border-bottom: 1px solid var(--line); }
+  .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 20px; padding: 24px 0; font: 600 21px/1.3 var(--display); letter-spacing: -0.02em; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--cobalt); font-weight: 500; }
+  .faq details[open] summary::after { content: "–"; }
+  .faq p { margin: 0 0 24px; max-width: 720px; color: var(--ink-2); }
+  .others { display: flex; flex-wrap: wrap; gap: 10px; }
+  .others a { padding: 10px 16px; border: 1px solid var(--line); border-radius: 999px; font-size: 15px; color: var(--ink); text-decoration: none; background: var(--card); }
+  .others a:hover { border-color: var(--cobalt); color: var(--cobalt); }
+  .s-foot { padding: 28px 0 40px; background: var(--night); color: rgba(245, 244, 239, 0.55); font-size: 14px; }
+  .s-foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 24px; }
+  .s-foot a:hover { color: var(--bone); }
+  @media (max-width: 1080px) { .cards { grid-template-columns: 1fr 1fr; } .steps { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) {
+    .s-hero { padding: 120px 0 40px; }
+    .s-hero .sub { font-size: 18px; }
+    .facts { grid-template-columns: 1fr 1fr; }
+    .facts div:nth-child(3) { padding-left: 0; border-left: 0; }
+    .facts div:nth-child(n + 3) { margin-top: 20px; }
+    .cards, .steps { grid-template-columns: 1fr; }
+    .proof div { grid-template-columns: 1fr; gap: 6px; }
+    .nav .bar .btn { padding: 10px 14px; font-size: 13px; }
+    .logo .full { display: none; }
+  }
+</style>
+<link rel="canonical" href="https://tabishapps.com/services/custom-business-software/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "Custom business software", "serviceType": "Custom business software", "description": "Custom ERP, POS, CRM, inventory, HR and billing software for your business. Try 17 live demo systems, then get one built around how you work.", "url": "https://tabishapps.com/services/custom-business-software/", "provider": {"@type": "Person", "@id": "https://tabishapps.com/#me", "name": "Tabish Hassan", "url": "https://tabishapps.com/", "jobTitle": "Software developer"}, "areaServed": "Worldwide", "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Custom business software", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "ERP for manufacturers", "description": "Orders, production, stock, purchasing, invoices and reports in one place."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Point of sale", "description": "Restaurant and retail POS with receipts, stock and daily reports."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Inventory and warehouse", "description": "Stock levels, transfers, barcodes, suppliers and low-stock alerts."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "CRM and sales", "description": "Leads, pipelines, quotes, follow-ups and sales team dashboards."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "HR and payroll records", "description": "Staff, attendance, leave, documents and approvals."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Booking and clinics", "description": "Appointments, patient or client records, invoices and reminders."}}]}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why custom software instead of an off-the-shelf tool?", "acceptedAnswer": {"@type": "Answer", "text": "Off-the-shelf tools make you change how you work and charge per user every month. Custom software follows your own process, has no per-user fee to me, and you own it."}}, {"@type": "Question", "name": "Can I start from one of your existing systems?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. That is the fastest and cheapest way. We pick the closest of the 17 systems, then I change it to fit your business."}}, {"@type": "Question", "name": "Can you move my data from spreadsheets or an old system?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. I import your existing customers, products, stock and history so you start with real data on day one."}}, {"@type": "Question", "name": "Where is the software hosted?", "acceptedAnswer": {"@type": "Answer", "text": "On low-cost cloud hosting in your own account, or on your own server. I set it up and show you how backups work."}}, {"@type": "Question", "name": "What happens after launch?", "acceptedAnswer": {"@type": "Answer", "text": "I fix any problems and add features as your business grows. Ongoing support is optional and agreed in writing."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tabishapps.com/"}, {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://tabishapps.com/services/"}, {"@type": "ListItem", "position": 3, "name": "Custom business software", "item": "https://tabishapps.com/services/custom-business-software/"}]}]}</script>
+</head>
+<body>
+<header class="nav"><div class="bar">
+  <a class="logo" href="../../" aria-label="Tabish Hassan, home"><span class="mark">TH</span><span class="full">Tabish Hassan</span></a>
+  <ul>
+    <li><a href="../../services/">Services</a></li><li><a href="../../#work">Work</a></li><li><a href="../../apps/">Apps</a></li><li><a href="../../blog/">Blog</a></li>
+  </ul>
+  <div class="right"><a class="btn primary" href="mailto:hello@tabishapps.com?subject=Business%20software%20project">Get a quote <span class="arr">↗</span></a></div>
+</div></header>
+
+<main id="top">
+<section class="s-hero"><div class="wrap">
+  <p class="crumbs"><a href="../../">Home</a> / <a href="../">Services</a> / Custom business software</p>
+  <p class="eyebrow mono">Custom business software</p>
+  <h1>Software that runs your business, <em>built around how you work.</em></h1>
+  <p class="sub">ERP, point of sale, inventory, CRM, HR, billing and booking systems with roles, approvals, audit logs and reports. Start from one of my 17 working systems or build from scratch.</p>
+  <div class="cta">
+    <a class="btn primary" href="mailto:hello@tabishapps.com?subject=Business%20software%20project">Get a fixed quote <span class="arr">↗</span></a>
+    <a class="btn" href="#work">See the work</a>
+  </div>
+  <div class="facts">
+    <div><b>17 live demos</b><span>Click through a working system before you decide.</span></div>
+    <div><b>3 client systems</b><span>In daily use by real businesses.</span></div>
+    <div><b>Roles and audit logs</b><span>Who did what, and who is allowed to.</span></div>
+    <div><b>Web and phone</b><span>Works in the browser, with offline-ready phone apps.</span></div>
+  </div>
+</div></section>
+
+<section class="block" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div><p class="eyebrow mono">What I build</p><h2 class="title">Things I can build <em>for you.</em></h2></div>
+  <p class="lead">Not on the list? Ask anyway. If it runs in a browser, on an iPhone or on a server, I can most likely build it.</p></div>
+  <ul class="cards">
+    <li><h3>ERP for manufacturers</h3><p>Orders, production, stock, purchasing, invoices and reports in one place.</p></li>
+    <li><h3>Point of sale</h3><p>Restaurant and retail POS with receipts, stock and daily reports.</p></li>
+    <li><h3>Inventory and warehouse</h3><p>Stock levels, transfers, barcodes, suppliers and low-stock alerts.</p></li>
+    <li><h3>CRM and sales</h3><p>Leads, pipelines, quotes, follow-ups and sales team dashboards.</p></li>
+    <li><h3>HR and payroll records</h3><p>Staff, attendance, leave, documents and approvals.</p></li>
+    <li><h3>Booking and clinics</h3><p>Appointments, patient or client records, invoices and reminders.</p></li>
+  </ul>
+</div></section>
+
+<section class="block" id="work" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div><p class="eyebrow mono">Proof</p><h2 class="title">Work you can <em>check.</em></h2></div></div>
+  <div class="proof">
+    <div><b>Manufacturing ERP and company website</b><p>Client, AC-parts manufacturer in Pakistan. Next.js, Express and MongoDB.</p></div>
+    <div><b>Sales and distribution management</b><p>Client, distribution business in Pakistan. React, Node.js and an installable phone app (PWA).</p></div>
+    <div><b>17 business management systems</b><p>Gym, clinic, restaurant POS, inventory, hotel, school, HR, CRM, accounting, LMS, property, salon, fleet and more, each with a live demo. <a href="https://tabishapps.com/#systems">See it</a></p></div>
+  </div>
+</div></section>
+
+<section class="block" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div><p class="eyebrow mono">How it works</p><h2 class="title">Clear steps, <em>no surprises.</em></h2></div></div>
+  <ol class="steps">
+    <li><h3>Tell me the idea</h3><p>Email me what you need, in your own words. A rough list or a sketch is enough. I reply within one working day.</p></li>
+    <li><h3>Fixed quote</h3><p>I write down every feature, the price and the timeline. Nothing starts until you agree.</p></li>
+    <li><h3>Build with demos</h3><p>I build in small steps and send working demo links, so you see progress and steer it early.</p></li>
+    <li><h3>Launch and handover</h3><p>I deploy it, hand over the code and accounts, and fix anything that comes up after launch.</p></li>
+  </ol>
+</div></section>
+
+<section class="block" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div><p class="eyebrow mono">Questions</p><h2 class="title">Good to <em>know.</em></h2></div></div>
+  <div class="faq">
+    <details><summary>Why custom software instead of an off-the-shelf tool?</summary><p>Off-the-shelf tools make you change how you work and charge per user every month. Custom software follows your own process, has no per-user fee to me, and you own it.</p></details>
+    <details><summary>Can I start from one of your existing systems?</summary><p>Yes. That is the fastest and cheapest way. We pick the closest of the 17 systems, then I change it to fit your business.</p></details>
+    <details><summary>Can you move my data from spreadsheets or an old system?</summary><p>Yes. I import your existing customers, products, stock and history so you start with real data on day one.</p></details>
+    <details><summary>Where is the software hosted?</summary><p>On low-cost cloud hosting in your own account, or on your own server. I set it up and show you how backups work.</p></details>
+    <details><summary>What happens after launch?</summary><p>I fix any problems and add features as your business grows. Ongoing support is optional and agreed in writing.</p></details>
+  </div>
+</div></section>
+
+<section class="block" style="padding-top:20px"><div class="wrap">
+  <p class="eyebrow mono">Other services</p>
+  <div class="others"><a href="../web-app-development/">Web app development</a><a href="../ios-app-development/">iOS app development</a><a href="../ai-integration/">AI integration</a><a href="../white-label-development/">White-label development for agencies</a><a href="../../websites/">Websites for local businesses</a></div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+  <p class="eyebrow mono" style="color:var(--lime)">Get a quote</p>
+  <h2 class="big">Tell me what you <em>want to build.</em></h2>
+  <div class="row">
+    <p>Email me a few lines about your project: what it should do, who will use it, and any deadline. I reply within one working day with questions or a fixed quote. Small paid test jobs are welcome.</p>
+    <div>
+      <a class="btn primary" href="mailto:hello@tabishapps.com?subject=Business%20software%20project">Email hello@tabishapps.com <span class="arr">↗</span></a><br>
+      <span class="mail">Tabish Hassan · Software developer</span>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer class="s-foot"><div class="wrap">
+  <span>© 2026 Tabish Hassan · Software developer · Rawalpindi, Pakistan · working worldwide</span>
+  <span><a href="../../">Main site</a> · <a href="../../services/">Services</a> · <a href="../../privacy-policy.html">Privacy</a> · <a href="mailto:hello@tabishapps.com">hello@tabishapps.com</a></span>
+</div></footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "baa3382c2e8f47f09e2a5a5f8474ebf0"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

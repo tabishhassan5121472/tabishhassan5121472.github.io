@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>White-label web development for agencies</title>
+<meta name="description" content="A reliable white-label developer for web agencies: Figma to React, Next.js or HTML, web apps and iOS apps, built under your brand at a fixed price.">
+<meta name="theme-color" content="#f5f4ef">
+<meta property="og:title" content="White-label web development for agencies">
+<meta property="og:description" content="A reliable white-label developer for web agencies: Figma to React, Next.js or HTML, web apps and iOS apps, built under your brand at a fixed price.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tabishapps.com/services/white-label-development/">
+<meta property="og:image" content="https://tabishapps.com/assets/work/templates/forgeworks-manufacturing.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../../assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/th.css">
+<style>
+  .nav .bar { background: rgba(251, 250, 247, 0.86); border-color: var(--line); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+  .s-hero { padding: 150px 0 60px; }
+  .s-hero .eyebrow { margin-bottom: 22px; }
+  .s-hero h1 { margin: 0; max-width: 17ch; font: 700 clamp(42px, 6.4vw, 96px)/0.95 var(--display); letter-spacing: -0.05em; }
+  .s-hero h1 em { font-style: normal; color: var(--cobalt); }
+  .s-hero .sub { max-width: 660px; margin: 30px 0 0; font-size: 20px; color: var(--ink-2); }
+  .s-hero .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+  .crumbs { font: 500 13px/1.4 var(--mono); color: var(--muted); margin-bottom: 18px; }
+  .crumbs a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 64px; border-top: 1px solid var(--ink); }
+  .facts div { padding: 20px 20px 0 0; }
+  .facts div + div { padding-left: 20px; border-left: 1px solid var(--line); }
+  .facts b { display: block; font: 600 20px/1.2 var(--display); letter-spacing: -0.02em; }
+  .facts span { display: block; margin-top: 6px; font-size: 15px; color: var(--muted); }
+  section.block { padding: 90px 0; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 0; padding: 0; list-style: none; }
+  .cards li, .cards a.card { display: block; padding: 26px; border-radius: var(--r); background: var(--card); border: 1px solid var(--line); color: inherit; text-decoration: none; }
+  .cards a.card:hover { border-color: var(--cobalt); }
+  .cards h3 { margin: 0 0 10px; font: 600 22px/1.15 var(--display); letter-spacing: -0.02em; }
+  .cards p { margin: 0; font-size: 16px; color: var(--ink-2); }
+  .cards .go { display: inline-block; margin-top: 16px; font: 500 13px/1 var(--mono); color: var(--cobalt); }
+  .proof { display: grid; gap: 0; max-width: 900px; }
+  .proof div { display: grid; grid-template-columns: 1fr 1.4fr; gap: 24px; padding: 22px 0; border-top: 1px solid var(--line); }
+  .proof div:last-child { border-bottom: 1px solid var(--line); }
+  .proof b { font: 600 20px/1.25 var(--display); letter-spacing: -0.02em; }
+  .proof p { margin: 0; color: var(--ink-2); }
+  .proof a { color: var(--cobalt); text-decoration: underline; text-underline-offset: 3px; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 0; padding: 0; list-style: none; counter-reset: step; }
+  .steps li { padding: 26px; border-radius: var(--r); background: var(--card); border: 1px solid var(--line); counter-increment: step; }
+  .steps li::before { content: "0" counter(step); display: block; margin-bottom: 34px; font: 500 13px/1 var(--mono); color: var(--cobalt); }
+  .steps h3 { margin: 0 0 10px; font: 600 22px/1.15 var(--display); letter-spacing: -0.02em; }
+  .steps p { margin: 0; font-size: 16px; color: var(--ink-2); }
+  .faq { max-width: 860px; }
+  .faq details { border-top: 1px solid var(--line); }
+  .faq details:last-child { border-bottom: 1px solid var(--line); }
+  .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 20px; padding: 24px 0; font: 600 21px/1.3 var(--display); letter-spacing: -0.02em; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--cobalt); font-weight: 500; }
+  .faq details[open] summary::after { content: "–"; }
+  .faq p { margin: 0 0 24px; max-width: 720px; color: var(--ink-2); }
+  .others { display: flex; flex-wrap: wrap; gap: 10px; }
+  .others a { padding: 10px 16px; border: 1px solid var(--line); border-radius: 999px; font-size: 15px; color: var(--ink); text-decoration: none; background: var(--card); }
+  .others a:hover { border-color: var(--cobalt); color: var(--cobalt); }
+  .s-foot { padding: 28px 0 40px; background: var(--night); color: rgba(245, 244, 239, 0.55); font-size: 14px; }
+  .s-foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 24px; }
+  .s-foot a:hover { color: var(--bone); }
+  @media (max-width: 1080px) { .cards { grid-template-columns: 1fr 1fr; } .steps { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) {
+    .s-hero { padding: 120px 0 40px; }
+    .s-hero .sub { font-size: 18px; }
+    .facts { grid-template-columns: 1fr 1fr; }
+    .facts div:nth-child(3) { padding-left: 0; border-left: 0; }
+    .facts div:nth-child(n + 3) { margin-top: 20px; }
+    .cards, .steps { grid-template-columns: 1fr; }
+    .proof div { grid-template-columns: 1fr; gap: 6px; }
+    .nav .bar .btn { padding: 10px 14px; font-size: 13px; }
+    .logo .full { display: none; }
+  }
+</style>
+<link rel="canonical" href="https://tabishapps.com/services/white-label-development/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "White-label development for agencies", "serviceType": "White-label development for agencies", "description": "A reliable white-label developer for web agencies: Figma to React, Next.js or HTML, web apps and iOS apps, built under your brand at a fixed price.", "url": "https://tabishapps.com/services/white-label-development/", "provider": {"@type": "Person", "@id": "https://tabishapps.com/#me", "name": "Tabish Hassan", "url": "https://tabishapps.com/", "jobTitle": "Software developer"}, "areaServed": "Worldwide", "hasOfferCatalog": {"@type": "OfferCatalog", "name": "White-label development for agencies", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Design to website", "description": "Figma, Adobe XD or a sketch to a responsive site in Next.js, React or HTML/CSS."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Landing pages", "description": "Fast campaign pages with animation, forms and tracking."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Web apps and portals", "description": "Dashboards, client portals and booking systems in React and Node.js."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "iOS apps", "description": "Native SwiftUI apps for your clients, submitted to the App Store."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Fixes and speed-ups", "description": "Performance, accessibility and bug-fix work on existing sites."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Overflow and deadlines", "description": "An extra pair of hands for busy months, without hiring."}}]}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Will you contact our clients?", "acceptedAnswer": {"@type": "Answer", "text": "No. I work only with your team, under your brand, and can sign an NDA."}}, {"@type": "Question", "name": "What time zones do you cover?", "acceptedAnswer": {"@type": "Answer", "text": "I am in Pakistan (UTC+5). I start work during the afternoon in Australia and New Zealand and overlap with mornings in the UK and Europe, so work often moves forward overnight for you."}}, {"@type": "Question", "name": "How do you price work?", "acceptedAnswer": {"@type": "Answer", "text": "A fixed price per job, agreed in writing before I start. For ongoing work we can agree a monthly block of hours."}}, {"@type": "Question", "name": "Do you work with WordPress?", "acceptedAnswer": {"@type": "Answer", "text": "My strength is React, Next.js and hand-written HTML/CSS, plus Node.js, Python and Swift. For WordPress-heavy jobs I will tell you honestly if I am not the right fit."}}, {"@type": "Question", "name": "Can we start small?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, please do. A small paid test job is the best way to see how I work."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tabishapps.com/"}, {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://tabishapps.com/services/"}, {"@type": "ListItem", "position": 3, "name": "White-label development for agencies", "item": "https://tabishapps.com/services/white-label-development/"}]}]}</script>
+</head>
+<body>
+<header class="nav"><div class="bar">
+  <a class="logo" href="../../" aria-label="Tabish Hassan, home"><span class="mark">TH</span><span class="full">Tabish Hassan</span></a>
+  <ul>
+    <li><a href="../../services/">Services</a></li><li><a href="../../#work">Work</a></li><li><a href="../../apps/">Apps</a></li><li><a href="../../blog/">Blog</a></li>
+  </ul>
+  <div class="right"><a class="btn primary" href="mailto:hello@tabishapps.com?subject=White-label%20development">Get a quote <span class="arr">↗</span></a></div>
+</div></header>
+
+<main id="top">
+<section class="s-hero"><div class="wrap">
+  <p class="crumbs"><a href="../../">Home</a> / <a href="../">Services</a> / White-label development for agencies</p>
+  <p class="eyebrow mono">White-label development for agencies</p>
+  <h1>Extra development help <em>when you have more work than people.</em></h1>
+  <p class="sub">I build websites, web apps and iOS apps for agencies, under your brand. You keep the client relationship; I deliver clean, tested work on time, and I never contact your clients.</p>
+  <div class="cta">
+    <a class="btn primary" href="mailto:hello@tabishapps.com?subject=White-label%20development">Get a fixed quote <span class="arr">↗</span></a>
+    <a class="btn" href="#work">See the work</a>
+  </div>
+  <div class="facts">
+    <div><b>Under your brand</b><span>No credit, no contact with your clients.</span></div>
+    <div><b>Figma to code</b><span>Pixel-accurate, fast, mobile-friendly builds.</span></div>
+    <div><b>Fixed price</b><span>Agreed per job before I start.</span></div>
+    <div><b>Try me first</b><span>Start with one small paid job.</span></div>
+  </div>
+</div></section>
+
+<section class="block" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div><p class="eyebrow mono">What I build</p><h2 class="title">Things I can build <em>for you.</em></h2></div>
+  <p class="lead">Not on the list? Ask anyway. If it runs in a browser, on an iPhone or on a server, I can most likely build it.</p></div>
+  <ul class="cards">
+    <li><h3>Design to website</h3><p>Figma, Adobe XD or a sketch to a responsive site in Next.js, React or HTML/CSS.</p></li>
+    <li><h3>Landing pages</h3><p>Fast campaign pages with animation, forms and tracking.</p></li>
+    <li><h3>Web apps and portals</h3><p>Dashboards, client portals and booking systems in React and Node.js.</p></li>
+    <li><h3>iOS apps</h3><p>Native SwiftUI apps for your clients, submitted to the App Store.</p></li>
+    <li><h3>Fixes and speed-ups</h3><p>Performance, accessibility and bug-fix work on existing sites.</p></li>
+    <li><h3>Overflow and deadlines</h3><p>An extra pair of hands for busy months, without hiring.</p></li>
+  </ul>
+</div></section>
+
+<section class="block" id="work" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div><p class="eyebrow mono">Proof</p><h2 class="title">Work you can <em>check.</em></h2></div></div>
+  <div class="proof">
+    <div><b>18 animated website templates</b><p>Next.js, GSAP and Lenis sites you can open and try. <a href="https://tabishapps.com/#templates">See it</a></p></div>
+    <div><b>17 business systems</b><p>Full web apps with live demos, from POS to CRM. <a href="https://tabishapps.com/#systems">See it</a></p></div>
+    <div><b>75 iOS apps</b><p>Live on the App Store under my developer account. <a href="https://tabishapps.com/apps/">See it</a></p></div>
+  </div>
+</div></section>
+
+<section class="block" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div><p class="eyebrow mono">How it works</p><h2 class="title">Clear steps, <em>no surprises.</em></h2></div></div>
+  <ol class="steps">
+    <li><h3>Tell me the idea</h3><p>Email me what you need, in your own words. A rough list or a sketch is enough. I reply within one working day.</p></li>
+    <li><h3>Fixed quote</h3><p>I write down every feature, the price and the timeline. Nothing starts until you agree.</p></li>
+    <li><h3>Build with demos</h3><p>I build in small steps and send working demo links, so you see progress and steer it early.</p></li>
+    <li><h3>Launch and handover</h3><p>I deploy it, hand over the code and accounts, and fix anything that comes up after launch.</p></li>
+  </ol>
+</div></section>
+
+<section class="block" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div><p class="eyebrow mono">Questions</p><h2 class="title">Good to <em>know.</em></h2></div></div>
+  <div class="faq">
+    <details><summary>Will you contact our clients?</summary><p>No. I work only with your team, under your brand, and can sign an NDA.</p></details>
+    <details><summary>What time zones do you cover?</summary><p>I am in Pakistan (UTC+5). I start work during the afternoon in Australia and New Zealand and overlap with mornings in the UK and Europe, so work often moves forward overnight for you.</p></details>
+    <details><summary>How do you price work?</summary><p>A fixed price per job, agreed in writing before I start. For ongoing work we can agree a monthly block of hours.</p></details>
+    <details><summary>Do you work with WordPress?</summary><p>My strength is React, Next.js and hand-written HTML/CSS, plus Node.js, Python and Swift. For WordPress-heavy jobs I will tell you honestly if I am not the right fit.</p></details>
+    <details><summary>Can we start small?</summary><p>Yes, please do. A small paid test job is the best way to see how I work.</p></details>
+  </div>
+</div></section>
+
+<section class="block" style="padding-top:20px"><div class="wrap">
+  <p class="eyebrow mono">Other services</p>
+  <div class="others"><a href="../web-app-development/">Web app development</a><a href="../ios-app-development/">iOS app development</a><a href="../custom-business-software/">Custom business software</a><a href="../ai-integration/">AI integration</a><a href="../../websites/">Websites for local businesses</a></div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+  <p class="eyebrow mono" style="color:var(--lime)">Get a quote</p>
+  <h2 class="big">Tell me what you <em>want to build.</em></h2>
+  <div class="row">
+    <p>Email me a few lines about your project: what it should do, who will use it, and any deadline. I reply within one working day with questions or a fixed quote. Small paid test jobs are welcome.</p>
+    <div>
+      <a class="btn primary" href="mailto:hello@tabishapps.com?subject=White-label%20development">Email hello@tabishapps.com <span class="arr">↗</span></a><br>
+      <span class="mail">Tabish Hassan · Software developer</span>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer class="s-foot"><div class="wrap">
+  <span>© 2026 Tabish Hassan · Software developer · Rawalpindi, Pakistan · working worldwide</span>
+  <span><a href="../../">Main site</a> · <a href="../../services/">Services</a> · <a href="../../privacy-policy.html">Privacy</a> · <a href="mailto:hello@tabishapps.com">hello@tabishapps.com</a></span>
+</div></footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "baa3382c2e8f47f09e2a5a5f8474ebf0"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

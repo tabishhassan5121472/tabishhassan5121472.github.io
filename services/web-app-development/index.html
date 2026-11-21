@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Custom web app development: React, Next.js, Node</title>
+<meta name="description" content="Hire a React and Next.js developer for your web app, SaaS or dashboard. Fixed quote before work starts, small paid test job welcome.">
+<meta name="theme-color" content="#f5f4ef">
+<meta property="og:title" content="Custom web app development: React, Next.js, Node">
+<meta property="og:description" content="Hire a React and Next.js developer for your web app, SaaS or dashboard. Fixed quote before work starts, small paid test job welcome.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tabishapps.com/services/web-app-development/">
+<meta property="og:image" content="https://tabishapps.com/assets/work/templates/forgeworks-manufacturing.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../../assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/th.css">
+<style>
+  .nav .bar { background: rgba(251, 250, 247, 0.86); border-color: var(--line); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+  .s-hero { padding: 150px 0 60px; }
+  .s-hero .eyebrow { margin-bottom: 22px; }
+  .s-hero h1 { margin: 0; max-width: 17ch; font: 700 clamp(42px, 6.4vw, 96px)/0.95 var(--display); letter-spacing: -0.05em; }
+  .s-hero h1 em { font-style: normal; color: var(--cobalt); }
+  .s-hero .sub { max-width: 660px; margin: 30px 0 0; font-size: 20px; color: var(--ink-2); }
+  .s-hero .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+  .crumbs { font: 500 13px/1.4 var(--mono); color: var(--muted); margin-bottom: 18px; }
+  .crumbs a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 64px; border-top: 1px solid var(--ink); }
+  .facts div { padding: 20px 20px 0 0; }
+  .facts div + div { padding-left: 20px; border-left: 1px solid var(--line); }
+  .facts b { display: block; font: 600 20px/1.2 var(--display); letter-spacing: -0.02em; }
+  .facts span { display: block; margin-top: 6px; font-size: 15px; color: var(--muted); }
+  section.block { padding: 90px 0; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 0; padding: 0; list-style: none; }
+  .cards li, .cards a.card { display: block; padding: 26px; border-radius: var(--r); background: var(--card); border: 1px solid var(--line); color: inherit; text-decoration: none; }
+  .cards a.card:hover { border-color: var(--cobalt); }
+  .cards h3 { margin: 0 0 10px; font: 600 22px/1.15 var(--display); letter-spacing: -0.02em; }
+  .cards p { margin: 0; font-size: 16px; color: var(--ink-2); }
+  .cards .go { display: inline-block; margin-top: 16px; font: 500 13px/1 var(--mono); color: var(--cobalt); }
+  .proof { display: grid; gap: 0; max-width: 900px; }
+  .proof div { display: grid; grid-template-columns: 1fr 1.4fr; gap: 24px; padding: 22px 0; border-top: 1px solid var(--line); }
+  .proof div:last-child { border-bottom: 1px solid var(--line); }
+  .proof b { font: 600 20px/1.25 var(--display); letter-spacing: -0.02em; }
+  .proof p { margin: 0; color: var(--ink-2); }
+  .proof a { color: var(--cobalt); text-decoration: underline; text-underline-offset: 3px; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 0; padding: 0; list-style: none; counter-reset: step; }
+  .steps li { padding: 26px; border-radius: var(--r); background: var(--card); border: 1px solid var(--line); counter-increment: step; }
+  .steps li::before { content: "0" counter(step); display: block; margin-bottom: 34px; font: 500 13px/1 var(--mono); color: var(--cobalt); }
+  .steps h3 { margin: 0 0 10px; font: 600 22px/1.15 var(--display); letter-spacing: -0.02em; }
+  .steps p { margin: 0; font-size: 16px; color: var(--ink-2); }
+  .faq { max-width: 860px; }
+  .faq details { border-top: 1px solid var(--line); }
+  .faq details:last-child { border-bottom: 1px solid var(--line); }
+  .faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 20px; padding: 24px 0; font: 600 21px/1.3 var(--display); letter-spacing: -0.02em; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--cobalt); font-weight: 500; }
+  .faq details[open] summary::after { content: "–"; }
+  .faq p { margin: 0 0 24px; max-width: 720px; color: var(--ink-2); }
+  .others { display: flex; flex-wrap: wrap; gap: 10px; }
+  .others a { padding: 10px 16px; border: 1px solid var(--line); border-radius: 999px; font-size: 15px; color: var(--ink); text-decoration: none; background: var(--card); }
+  .others a:hover { border-color: var(--cobalt); color: var(--cobalt); }
+  .s-foot { padding: 28px 0 40px; background: var(--night); color: rgba(245, 244, 239, 0.55); font-size: 14px; }
+  .s-foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 24px; }
+  .s-foot a:hover { color: var(--bone); }
+  @media (max-width: 1080px) { .cards { grid-template-columns: 1fr 1fr; } .steps { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) {
+    .s-hero { padding: 120px 0 40px; }
+    .s-hero .sub { font-size: 18px; }
+    .facts { grid-template-columns: 1fr 1fr; }
+    .facts div:nth-child(3) { padding-left: 0; border-left: 0; }
+    .facts div:nth-child(n + 3) { margin-top: 20px; }
+    .cards, .steps { grid-template-columns: 1fr; }
+    .proof div { grid-template-columns: 1fr; gap: 6px; }
+    .nav .bar .btn { padding: 10px 14px; font-size: 13px; }
+    .logo .full { display: none; }
+  }
+</style>
+<link rel="canonical" href="https://tabishapps.com/services/web-app-development/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Service", "name": "Web app development", "serviceType": "Web app development", "description": "Hire a React and Next.js developer for your web app, SaaS or dashboard. Fixed quote before work starts, small paid test job welcome.", "url": "https://tabishapps.com/services/web-app-development/", "provider": {"@type": "Person", "@id": "https://tabishapps.com/#me", "name": "Tabish Hassan", "url": "https://tabishapps.com/", "jobTitle": "Software developer"}, "areaServed": "Worldwide", "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Web app development", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": "SaaS products", "description": "Multi-tenant apps with sign-in, roles, billing, dashboards and an admin area."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Customer portals", "description": "Places where your customers log in to see orders, bookings, documents or reports."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Internal dashboards", "description": "Replace spreadsheets with a web app your team can use on any device."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Online ordering and booking", "description": "Menus, carts, time slots, payments and email or SMS confirmations."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "APIs and integrations", "description": "Connect your app to Stripe, Google, Shopify, HubSpot or any REST API."}}, {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Rescue and speed-up", "description": "Fix a slow or half-finished React app, add tests and make it ready to grow."}}]}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does a web app cost?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the screens and features. After a short call or email about what you need, I send a written fixed quote with a list of every feature, so you know the full price before I start. Small apps and MVPs are usually a few weeks of work."}}, {"@type": "Question", "name": "Can you work with my existing code?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. I often join existing React, Next.js and Node projects. I read the code first and tell you honestly what is good, what is risky and what I would change."}}, {"@type": "Question", "name": "Who owns the code?", "acceptedAnswer": {"@type": "Answer", "text": "You do. The code lives in your own GitHub account and hosting, and you get everything at handover."}}, {"@type": "Question", "name": "How do we work together?", "acceptedAnswer": {"@type": "Answer", "text": "By email, chat and short calls. I share a working demo link as I build, so you can click through it and give feedback early."}}, {"@type": "Question", "name": "Can you also build the mobile app?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. I build native iOS apps in SwiftUI and can share one backend between the web app and the phone app."}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tabishapps.com/"}, {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://tabishapps.com/services/"}, {"@type": "ListItem", "position": 3, "name": "Web app development", "item": "https://tabishapps.com/services/web-app-development/"}]}]}</script>
+</head>
+<body>
+<header class="nav"><div class="bar">
+  <a class="logo" href="../../" aria-label="Tabish Hassan, home"><span class="mark">TH</span><span class="full">Tabish Hassan</span></a>
+  <ul>
+    <li><a href="../../services/">Services</a></li><li><a href="../../#work">Work</a></li><li><a href="../../apps/">Apps</a></li><li><a href="../../blog/">Blog</a></li>
+  </ul>
+  <div class="right"><a class="btn primary" href="mailto:hello@tabishapps.com?subject=Web%20app%20project">Get a quote <span class="arr">↗</span></a></div>
+</div></header>
+
+<main id="top">
+<section class="s-hero"><div class="wrap">
+  <p class="crumbs"><a href="../../">Home</a> / <a href="../">Services</a> / Web app development</p>
+  <p class="eyebrow mono">Web app development</p>
+  <h1>Custom web apps, <em>built with React, Next.js and Node.</em></h1>
+  <p class="sub">Dashboards, portals, SaaS products, booking and ordering systems. I build the whole thing: screens, API, database, sign-in, payments and deployment, and I hand over clean code you own.</p>
+  <div class="cta">
+    <a class="btn primary" href="mailto:hello@tabishapps.com?subject=Web%20app%20project">Get a fixed quote <span class="arr">↗</span></a>
+    <a class="btn" href="#work">See the work</a>
+  </div>
+  <div class="facts">
+    <div><b>React &amp; Next.js</b><span>4+ years building production React and TypeScript at a US software company.</span></div>
+    <div><b>Full stack</b><span>Node.js, Express, Python, MongoDB and PostgreSQL APIs.</span></div>
+    <div><b>Fast and accessible</b><span>Performance and WCAG 2.1 AA work on real client products.</span></div>
+    <div><b>Fixed quote</b><span>Agreed in writing before any code.</span></div>
+  </div>
+</div></section>
+
+<section class="block" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div><p class="eyebrow mono">What I build</p><h2 class="title">Things I can build <em>for you.</em></h2></div>
+  <p class="lead">Not on the list? Ask anyway. If it runs in a browser, on an iPhone or on a server, I can most likely build it.</p></div>
+  <ul class="cards">
+    <li><h3>SaaS products</h3><p>Multi-tenant apps with sign-in, roles, billing, dashboards and an admin area.</p></li>
+    <li><h3>Customer portals</h3><p>Places where your customers log in to see orders, bookings, documents or reports.</p></li>
+    <li><h3>Internal dashboards</h3><p>Replace spreadsheets with a web app your team can use on any device.</p></li>
+    <li><h3>Online ordering and booking</h3><p>Menus, carts, time slots, payments and email or SMS confirmations.</p></li>
+    <li><h3>APIs and integrations</h3><p>Connect your app to Stripe, Google, Shopify, HubSpot or any REST API.</p></li>
+    <li><h3>Rescue and speed-up</h3><p>Fix a slow or half-finished React app, add tests and make it ready to grow.</p></li>
+  </ul>
+</div></section>
+
+<section class="block" id="work" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div><p class="eyebrow mono">Proof</p><h2 class="title">Work you can <em>check.</em></h2></div></div>
+  <div class="proof">
+    <div><b>Volunteer matchmaking platform</b><p>Client, non-profit in the United States. React, Express, hosted on Render. <a href="https://volumpact.com">See it</a></p></div>
+    <div><b>17 business management systems</b><p>Multi-tenant SaaS with live demos: gym, clinic, POS, inventory, hotel, school, HR, CRM and more. <a href="https://tabishapps.com/#systems">See it</a></p></div>
+    <div><b>Online ordering for a US restaurant chain</b><p>Front-end work at my employer: 40% faster page loads and passed ADA audits.</p></div>
+    <div><b>AR healthcare platform</b><p>React and TypeScript across five portals for a US healthcare product, led the accessibility work.</p></div>
+  </div>
+</div></section>
+
+<section class="block" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div><p class="eyebrow mono">How it works</p><h2 class="title">Clear steps, <em>no surprises.</em></h2></div></div>
+  <ol class="steps">
+    <li><h3>Tell me the idea</h3><p>Email me what you need, in your own words. A rough list or a sketch is enough. I reply within one working day.</p></li>
+    <li><h3>Fixed quote</h3><p>I write down every feature, the price and the timeline. Nothing starts until you agree.</p></li>
+    <li><h3>Build with demos</h3><p>I build in small steps and send working demo links, so you see progress and steer it early.</p></li>
+    <li><h3>Launch and handover</h3><p>I deploy it, hand over the code and accounts, and fix anything that comes up after launch.</p></li>
+  </ol>
+</div></section>
+
+<section class="block" style="padding-top:40px"><div class="wrap">
+  <div class="head"><div><p class="eyebrow mono">Questions</p><h2 class="title">Good to <em>know.</em></h2></div></div>
+  <div class="faq">
+    <details><summary>How much does a web app cost?</summary><p>It depends on the screens and features. After a short call or email about what you need, I send a written fixed quote with a list of every feature, so you know the full price before I start. Small apps and MVPs are usually a few weeks of work.</p></details>
+    <details><summary>Can you work with my existing code?</summary><p>Yes. I often join existing React, Next.js and Node projects. I read the code first and tell you honestly what is good, what is risky and what I would change.</p></details>
+    <details><summary>Who owns the code?</summary><p>You do. The code lives in your own GitHub account and hosting, and you get everything at handover.</p></details>
+    <details><summary>How do we work together?</summary><p>By email, chat and short calls. I share a working demo link as I build, so you can click through it and give feedback early.</p></details>
+    <details><summary>Can you also build the mobile app?</summary><p>Yes. I build native iOS apps in SwiftUI and can share one backend between the web app and the phone app.</p></details>
+  </div>
+</div></section>
+
+<section class="block" style="padding-top:20px"><div class="wrap">
+  <p class="eyebrow mono">Other services</p>
+  <div class="others"><a href="../ios-app-development/">iOS app development</a><a href="../custom-business-software/">Custom business software</a><a href="../ai-integration/">AI integration</a><a href="../white-label-development/">White-label development for agencies</a><a href="../../websites/">Websites for local businesses</a></div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+  <p class="eyebrow mono" style="color:var(--lime)">Get a quote</p>
+  <h2 class="big">Tell me what you <em>want to build.</em></h2>
+  <div class="row">
+    <p>Email me a few lines about your project: what it should do, who will use it, and any deadline. I reply within one working day with questions or a fixed quote. Small paid test jobs are welcome.</p>
+    <div>
+      <a class="btn primary" href="mailto:hello@tabishapps.com?subject=Web%20app%20project">Email hello@tabishapps.com <span class="arr">↗</span></a><br>
+      <span class="mail">Tabish Hassan · Software developer</span>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<footer class="s-foot"><div class="wrap">
+  <span>© 2026 Tabish Hassan · Software developer · Rawalpindi, Pakistan · working worldwide</span>
+  <span><a href="../../">Main site</a> · <a href="../../services/">Services</a> · <a href="../../privacy-policy.html">Privacy</a> · <a href="mailto:hello@tabishapps.com">hello@tabishapps.com</a></span>
+</div></footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "baa3382c2e8f47f09e2a5a5f8474ebf0"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

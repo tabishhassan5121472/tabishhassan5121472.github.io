@@ -132,14 +132,14 @@ page = f'''<!doctype html>
   <a class="logo" href="#top" aria-label="Tabish Hassan, home"><span class="mark">TH</span>Tabish Hassan</a>
   <ul>
     <li><a href="#work">Work</a></li><li><a href="#systems">Systems</a></li><li><a href="#templates">Templates</a></li>
-    <li><a href="#apps">Apps</a></li><li><a href="websites/">Websites</a></li><li><a href="blog/">Blog</a></li><li><a href="{STORE}">Store</a></li>
+    <li><a href="#apps">Apps</a></li><li><a href="services/">Services</a></li><li><a href="websites/">Websites</a></li><li><a href="blog/">Blog</a></li><li><a href="{STORE}">Store</a></li>
   </ul>
   <div class="right"><span class="avail"><span class="dot"></span>Available for projects</span>
   <a class="btn primary hire" href="{MAIL}">Hire me <span class="arr">↗</span></a>
   <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button></div>
 </div></header>
 <nav class="mobile-menu" aria-label="Mobile">
-  <a href="#work">Work</a><a href="#systems">Systems</a><a href="#templates">Templates</a><a href="#apps">Apps</a><a href="websites/">Websites</a><a href="blog/">Blog</a><a href="{STORE}">Store</a><a href="#contact">Contact</a>
+  <a href="#work">Work</a><a href="#systems">Systems</a><a href="#templates">Templates</a><a href="#apps">Apps</a><a href="services/">Services</a><a href="websites/">Websites</a><a href="blog/">Blog</a><a href="{STORE}">Store</a><a href="#contact">Contact</a>
   <a class="btn primary" href="{MAIL}">Hire me ↗</a>
 </nav>
 
@@ -175,7 +175,7 @@ page = f'''<!doctype html>
 
 <section class="block" id="services" style="padding-top:40px"><div class="wrap">
   <div class="head"><div><p class="eyebrow mono">What I build</p><h2 class="title" data-split>From idea to the App Store, <em>or to your team's daily workflow.</em></h2></div>
-  <p class="lead reveal">One person from first sketch to production, so nothing gets lost between a designer, a developer and an ops team.</p></div>
+  <p class="lead reveal">One person from first sketch to production, so nothing gets lost between a designer, a developer and an ops team. <a href="services/" style="color:var(--cobalt);text-decoration:underline;text-underline-offset:3px">See all services →</a></p></div>
   <div class="services">
 {"".join(f'<div class="svc"><div class="num">{i:02d}</div><h3>{E(t)}</h3><p>{E(p)}</p><div class="tags">{"".join(f"<span>{E(x)}</span>" for x in tags)}</div></div>' for i, (t, p, tags) in enumerate(services, 1))}
   </div>
@@ -231,7 +231,7 @@ page = f'''<!doctype html>
   </div>
   <footer>
     <span>© <span id="year">2026</span> Tabish Hassan</span>
-    <nav aria-label="Footer"><a href="websites/">Websites for businesses</a><a href="blog/">Blog</a><a href="apps/">iPhone apps</a><a href="mlx-caption/">MLX Caption</a><a href="{STORE}">Sass Products Hub</a><a href="privacy-policy.html">App privacy</a><a href="terms-of-service.html">App terms</a><a href="support.html">App support</a></nav>
+    <nav aria-label="Footer"><a href="services/">Services</a><a href="websites/">Websites for businesses</a><a href="blog/">Blog</a><a href="apps/">iPhone apps</a><a href="mlx-caption/">MLX Caption</a><a href="{STORE}">Sass Products Hub</a><a href="privacy-policy.html">App privacy</a><a href="terms-of-service.html">App terms</a><a href="support.html">App support</a></nav>
   </footer>
 </div></section>
 
