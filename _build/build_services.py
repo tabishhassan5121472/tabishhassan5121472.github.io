@@ -26,7 +26,7 @@ PAGES = [
     "facts": [("React &amp; Next.js", "4+ years building production React and TypeScript at a US software company."),
               ("Full stack", "Node.js, Express, Python, MongoDB and PostgreSQL APIs."),
               ("Fast and accessible", "Performance and WCAG 2.1 AA work on real client products."),
-              ("Fixed quote", "Agreed in writing before any code.")],
+              ("From $1,000", "Fixed quote, agreed in writing before any code.")],
     "build": [("SaaS products", "Multi-tenant apps with sign-in, roles, billing, dashboards and an admin area."),
               ("Customer portals", "Places where your customers log in to see orders, bookings, documents or reports."),
               ("Internal dashboards", "Replace spreadsheets with a web app your team can use on any device."),
@@ -37,7 +37,7 @@ PAGES = [
               ("17 business management systems", "Multi-tenant SaaS with live demos: gym, clinic, POS, inventory, hotel, school, HR, CRM and more.", SYSTEMS),
               ("Online ordering for a US restaurant chain", "Front-end work at my employer: 40% faster page loads and passed ADA audits.", ""),
               ("AR healthcare platform", "React and TypeScript across five portals for a US healthcare product, led the accessibility work.", "")],
-    "faq": [("How much does a web app cost?", "It depends on the screens and features. After a short call or email about what you need, I send a written fixed quote with a list of every feature, so you know the full price before I start. Small apps and MVPs are usually a few weeks of work."),
+    "faq": [("How much does a web app cost?", "It depends on the screens and features. After a short call or email about what you need, I send a written fixed quote with a list of every feature, so you know the full price before I start. Projects start from $1,000, and small apps and MVPs are usually a few weeks of work."),
             ("Can you work with my existing code?", "Yes. I often join existing React, Next.js and Node projects. I read the code first and tell you honestly what is good, what is risky and what I would change."),
             ("Who owns the code?", "You do. The code lives in your own GitHub account and hosting, and you get everything at handover."),
             ("How do we work together?", "By email, chat and short calls. I share a working demo link as I build, so you can click through it and give feedback early."),
@@ -64,7 +64,7 @@ PAGES = [
               ("App Store launch", "Icons, screenshots, keywords and the listing, plus answers to App Review.")],
     "proof": [("75 iOS apps on the App Store", "Every app has its own page with screenshots and a link to the App Store.", "https://tabishapps.com/apps/"),
               ("71 apps in six months", "Built and shipped on my own account, so I know the App Review process well.", "https://apps.apple.com/us/developer/tabish-hassan/id1885918100")],
-    "faq": [("How much does an iPhone app cost?", "It depends on the screens, the backend and whether you need subscriptions. I send a fixed written quote after we agree on the feature list. A simple app can be ready in a few weeks."),
+    "faq": [("How much does an iPhone app cost?", "It depends on the screens, the backend and whether you need subscriptions. I send a fixed written quote after we agree on the feature list. Apps start from $1,000, and a simple app can be ready in a few weeks."),
             ("Do you build Android apps too?", "My main focus is native iOS. For apps that must be on both, I can build with Expo (React Native) or pair the iOS app with a web app that works on Android."),
             ("Will you publish the app for me?", "Yes. I prepare the screenshots, description and keywords and submit it to Apple. The app is published under your own Apple developer account, so you own it."),
             ("Can you update or fix my existing app?", "Yes. I can take over an existing Swift or SwiftUI app, fix crashes, update it for the latest iOS and add features."),
@@ -92,7 +92,7 @@ PAGES = [
     "proof": [("Manufacturing ERP and company website", "Client, AC-parts manufacturer in Pakistan. Next.js, Express and MongoDB.", ""),
               ("Sales and distribution management", "Client, distribution business in Pakistan. React, Node.js and an installable phone app (PWA).", ""),
               ("17 business management systems", "Gym, clinic, restaurant POS, inventory, hotel, school, HR, CRM, accounting, LMS, property, salon, fleet and more, each with a live demo.", SYSTEMS)],
-    "faq": [("Why custom software instead of an off-the-shelf tool?", "Off-the-shelf tools make you change how you work and charge per user every month. Custom software follows your own process, has no per-user fee to me, and you own it."),
+    "faq": [("Why custom software instead of an off-the-shelf tool?", "Off-the-shelf tools make you change how you work and charge per user every month. Custom software follows your own process, has no per-user fee to me, and you own it. Projects start from $1,000."),
             ("Can I start from one of your existing systems?", "Yes. That is the fastest and cheapest way. We pick the closest of the 17 systems, then I change it to fit your business."),
             ("Can you move my data from spreadsheets or an old system?", "Yes. I import your existing customers, products, stock and history so you start with real data on day one."),
             ("Where is the software hosted?", "On low-cost cloud hosting in your own account, or on your own server. I set it up and show you how backups work."),
@@ -123,7 +123,7 @@ PAGES = [
             ("Is my data safe?", "If the data is sensitive, I can use models that run on your own hardware, so nothing is sent outside. For cloud models, I use the providers' business APIs, which do not train on your data by default."),
             ("Can you add AI to my existing app?", "Yes. Most AI features are an API plus a few screens, so they fit into an existing web or iOS app without a rebuild."),
             ("How do you stop the AI making things up?", "By grounding answers in your own data, showing sources, checking outputs with rules, and testing on real cases before launch."),
-            ("What does it cost to run?", "I estimate the monthly model cost up front from your expected usage, and design it to stay low, for example with caching and smaller models where they are good enough.")],
+            ("What does it cost?", "Building an AI feature starts from $1,000, as a fixed quote. I also estimate the monthly model cost up front from your expected usage, and design it to stay low, for example with caching and smaller models where they are good enough.")],
     "mail_subject": "AI project",
   },
   {
@@ -386,7 +386,7 @@ def hub():
     items = [(p["slug"] + "/", strip(p["eyebrow"]), p["desc"]) for p in PAGES] + [(u, n, d) for _, n, d, u in HUB_EXTRA]
     jsonld = {"@context": "https://schema.org", "@graph": [
         {"@type": "ProfessionalService", "name": "Tabish Hassan, software development", "url": url, "email": MAIL,
-         "address": {"@type": "PostalAddress", "addressLocality": "Rawalpindi", "addressCountry": "PK"}, "areaServed": "Worldwide",
+         "address": {"@type": "PostalAddress", "addressLocality": "Rawalpindi", "addressCountry": "PK"}, "areaServed": "Worldwide", "priceRange": "$1,000+",
          "founder": PERSON, "knowsAbout": ["React", "Next.js", "TypeScript", "Node.js", "Python", "Swift", "SwiftUI", "MongoDB", "AI integration", "Claude API", "OpenAI API", "MLX"]},
         {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n, "url": SITE + "/services/" + u if not u.startswith("..") else SITE + "/websites/"} for i, (u, n, _) in enumerate(items)]},
     ]}
@@ -407,7 +407,7 @@ def hub():
     <div><b>4+ years</b><span>Production React and TypeScript for a US software company.</span></div>
     <div><b>75 iOS apps</b><span>Live on the App Store.</span></div>
     <div><b>17 systems</b><span>Business software with live demos.</span></div>
-    <div><b>Fixed quotes</b><span>Price agreed in writing before any code.</span></div>
+    <div><b>From $1,000</b><span>Fixed quotes, agreed in writing before any code. Local business websites $499.</span></div>
   </div>
 </div></section>
 
