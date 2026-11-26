@@ -3,23 +3,31 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Why AI coding agents slow down: 5 prompt-caching mistakes</title>
-<meta name="description" content="Coding agents resend the whole conversation every turn. Prefix caching keeps them fast, but one timestamp or a changed setting can throw the cache away. What breaks it, with a test on a Mac.">
+<title>Prompt caching: why AI coding agents slow down</title>
+<meta name="description" content="AI coding agents resend the whole chat every turn. Prompt caching keeps them fast, but one changed timestamp breaks it. 5 mistakes to avoid, tested on a Mac.">
 <link rel="canonical" href="https://tabishapps.com/blog/prompt-caching-coding-agents/">
 <meta name="theme-color" content="#f5f4ef">
-<meta property="og:title" content="Why AI coding agents slow down in long sessions, and 5 prompt-caching mistakes to avoid">
+<meta property="og:title" content="Why AI coding agents slow down in long sessions, and 5 prompt caching mistakes to avoid">
 <meta property="og:description" content="One timestamp in a system prompt can make every turn reprocess the whole session. What breaks the prompt cache, and how to keep it.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://tabishapps.com/blog/prompt-caching-coding-agents/">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://tabishapps.com/blog/prompt-caching-coding-agents/card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://tabishapps.com/blog/prompt-caching-coding-agents/card.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="../../assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../../assets/th.css">
 <link rel="stylesheet" href="../blog.css">
 <style>.article pre{overflow-x:auto;padding:16px 18px;border-radius:12px;background:var(--bone-2);font:13px/1.55 var(--mono)}.article pre code{padding:0;background:none}</style>
+<!--seo:head-->
+<link rel="alternate" type="application/rss+xml" title="Tabish Hassan's blog" href="/blog/feed.xml">
+<style>.crumbs{display:flex;gap:8px;flex-wrap:wrap;font-size:14px;color:var(--muted);margin-bottom:14px}.crumbs a{color:var(--muted);text-decoration:none}.author-box{display:flex;gap:16px;align-items:flex-start;margin:50px 0 0;padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--card)}.author-box .av{flex:0 0 52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--bone);font:700 18px var(--display)}.author-box p{margin:0 0 6px;font-size:16px}.related{margin:34px 0 0}.related h2{font-size:24px;margin:0 0 12px}.related a.r{display:block;padding:14px 0;border-top:1px solid var(--line);text-decoration:none;color:inherit}.related a.r b{display:block;font-size:17px}.related a.r span{font-size:14px;color:var(--muted)}</style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"Why AI coding agents slow down in long sessions, and 5 prompt-caching mistakes to avoid","datePublished":"2026-11-17","author":{"@type":"Person","name":"Tabish Hassan","url":"https://tabishapps.com/"},"mainEntityOfPage":"https://tabishapps.com/blog/prompt-caching-coding-agents/"}
+{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "@id": "https://tabishapps.com/blog/prompt-caching-coding-agents/#article", "headline": "Why AI coding agents slow down in long sessions, and 5 prompt caching mistakes to avoid", "description": "AI coding agents resend the whole chat every turn. Prompt caching keeps them fast, but one changed timestamp breaks it. 5 mistakes to avoid, tested on a Mac.", "datePublished": "2026-11-17", "dateModified": "2026-11-19", "author": {"@id": "https://tabishapps.com/#me"}, "publisher": {"@id": "https://tabishapps.com/#me"}, "mainEntityOfPage": "https://tabishapps.com/blog/prompt-caching-coding-agents/", "inLanguage": "en", "articleSection": "AI coding agents", "image": "https://tabishapps.com/blog/prompt-caching-coding-agents/card.jpg"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tabishapps.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://tabishapps.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "Why AI coding agents slow down in long sessions, and 5 prompt caching mistakes t", "item": "https://tabishapps.com/blog/prompt-caching-coding-agents/"}]}, {"@type": "Person", "@id": "https://tabishapps.com/#me", "name": "Tabish Hassan", "url": "https://tabishapps.com/about/", "jobTitle": "Software developer", "sameAs": ["https://github.com/tabishhassan5121472", "https://x.com/TabishHassanDev", "https://dev.to/tabishhassan5121472", "https://tabishhassan.hashnode.dev", "https://apps.apple.com/us/developer/tabish-hassan/id1885918100"]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is prompt caching?", "acceptedAnswer": {"@type": "Answer", "text": "Inference engines keep the work they did on a prompt for a while. If the next request starts with exactly the same tokens, they reuse that work. They only process the new part at the end."}}, {"@type": "Question", "name": "Why does prompt caching matter for coding agents?", "acceptedAnswer": {"@type": "Answer", "text": "An agent sends the whole conversation again on every turn. Ten turns without a cache process 55 units of prompt, and with a cache only 10. At a hundred turns it is 5,050 against 100."}}, {"@type": "Question", "name": "What breaks prompt caching?", "acceptedAnswer": {"@type": "Answer", "text": "Any change before the end of the prompt. The cache matches up to the first token that is different and stops there. A timestamp in the system prompt, a new reasoning-effort setting or a tool added near the top all do this."}}, {"@type": "Question", "name": "How much does prompt caching save?", "acceptedAnswer": {"@type": "Answer", "text": "In the Mac test, the model read 2,513 tokens instead of 10,275, about four times less. The gap keeps growing as the session gets longer. With one changed timestamp, only the first 32 tokens matched."}}, {"@type": "Question", "name": "Does prompt caching work with Claude, OpenAI and Ollama?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Ollama, vLLM, MLX and hosted APIs like Anthropic's and OpenAI's all keep the work on a prompt for a while. The same rule applies to all of them: keep the start of the prompt the same."}}]}]}
 </script>
+<!--/seo:head-->
 </head>
 <body>
 <header class="nav"><div class="bar">
@@ -28,14 +36,17 @@
 </div></header>
 
 <main class="article"><div class="wrap">
+  <!--seo:crumb--><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/blog/">Blog</a><span>›</span><span>AI coding agents</span></nav><!--/seo:crumb-->
   <div class="meta mono"><span>Guide</span><span>17 November 2026</span><span>7 min read</span></div>
-  <h1>Why AI coding agents slow down in long sessions, and 5 prompt-caching mistakes to avoid</h1>
+  <h1>Why AI coding agents slow down in long sessions, and 5 prompt caching mistakes to avoid</h1>
   <p class="lede">If you use Claude Code, Codex or an open model through Ollama, you've probably seen an agent that was quick at the start get slower and more expensive as the session went on. Often the reason isn't the model. It's the prompt cache being thrown away, sometimes by something as small as a timestamp.</p>
+
+  <figure><img src="card.jpg" alt="Result card: one timestamp made the AI re-read 10,244 tokens instead of 2,513. Why coding agents slow down in long sessions, and 5 prompt caching mistakes." width="1200" height="630" loading="eager"><figcaption>One changed timestamp at the top of the prompt: 10,244 tokens to read instead of 2,513.</figcaption></figure>
 
   <p>This week <a href="https://x.com/ollama/status/2122531964154712541">Ollama shared three lessons</a> on this, from a longer <a href="https://www.together.ai/blog/making-open-models-work-for-long-horizon-agentic-workloads">write-up by Together AI and Ollama</a>. I read it, then tested the main claim on my own Mac. Here's what's going on, in plain words, and what to do about it.</p>
 
   <h2>Every turn, the agent sends everything again</h2>
-  <p>A coding agent doesn't "remember" your session the way a person does. On every step, the tool you use (the <em>harness</em>: Claude Code, Codex, Cursor, Pi and so on) sends the model the whole conversation again: the system prompt, every tool definition, your request, every file it has read and every command it has run. The model usually answers with a short tool call, like "read this file". Then the next turn sends all of that again, plus a bit more.</p>
+  <p>A coding agent doesn't "remember" your session the way a person does. On every step, the tool you use (the <em>harness</em>: Claude Code, Codex, Cursor, Pi and so on) sends the model the whole conversation again. That includes the system prompt, every tool definition, your request, every file it has read and every command it has run. The model usually answers with a short tool call, like "read this file". Then the next turn sends all of that again, plus a bit more.</p>
   <p>So for agents, the expensive part is reading the input, not writing the answer. Without help, turn 100 would mean re-reading 100 turns of history.</p>
 
   <h2>Prefix caching: only read what's new</h2>
@@ -45,21 +56,21 @@
   <p><b>The cache matches from the very first token up to the first token that's different, and stops there.</b> Adding text at the end is cheap. Changing anything earlier, even one character, means everything after that point is processed again.</p>
 
   <h2>I tested it on a Mac</h2>
-  <p>I wanted to see this rule in real numbers, so I ran a small test with Apple's MLX and Google's Gemma 3 12B (4-bit) on a MacBook Pro with an M3 Pro chip and 36 GB of memory. The script builds a fake agent session: a system prompt with tool definitions, then a few turns where the agent reads files. It then times how long the model takes to read the prompt for the next turn in three cases:</p>
+  <p>I wanted to see this rule in real numbers. So I ran a small test with Apple's MLX and Google's Gemma 3 12B (4-bit) on a MacBook Pro with an M3 Pro chip and 36 GB of memory. The script builds a fake agent session: a system prompt with tool definitions, then a few turns where the agent reads files. It then times how long the model takes to read the prompt for the next turn in three cases:</p>
   <div class="table-scroll"><table>
     <tr><th>Case</th><th>Tokens the model had to read</th><th>Time before the first word</th></tr>
     <tr><td>No cache (fresh start)</td><td>10,275 (the whole prompt)</td><td>about 2–4 minutes</td></tr>
     <tr><td>Cache kept, new turn added at the end</td><td>2,513 (only the new turn)</td><td>about 1 minute (66 s)</td></tr>
     <tr><td>Cache kept, but the system prompt has a new timestamp</td><td>10,244 (only the first 32 tokens matched)</td><td>about 2–4 minutes</td></tr>
   </table></div>
-  <p>The token counts are the important part, because they don't depend on what else the laptop was doing. With the cache kept, the model read 2,513 tokens instead of 10,275, about four times less, and that gap keeps growing as the session gets longer. With one changed timestamp near the top, only the first 32 tokens matched, so the cache saved almost nothing: the model read 10,244 tokens, the same as starting fresh. (The times are rough. My two full re-reads took 134 and 234 seconds because the Mac was busy with other apps, which is why I show a range.)</p>
-  <p>A cloud model on big GPUs is much faster than a laptop, but the shape is the same: a broken cache means paying again, in time and money, for the whole session.</p>
+  <p>The token counts are the important part, because they don't depend on what else the laptop was doing. With the cache kept, the model read 2,513 tokens instead of 10,275, about four times less. That gap keeps growing as the session gets longer. With one changed timestamp near the top, only the first 32 tokens matched. So the cache saved almost nothing: the model read 10,244 tokens, the same as starting fresh. (The times are rough. My two full re-reads took 134 and 234 seconds because the Mac was busy with other apps. That is why I show a range.)</p>
+  <p>A cloud model on big GPUs is much faster than a laptop. But the shape is the same: a broken cache means paying again, in time and money, for the whole session.</p>
   <p>The test script is short and at the end of this post if you want to try it.</p>
 
-  <h2>5 things that break the cache</h2>
+  <h2>5 things that break prompt caching</h2>
 
   <h3>1. Anything in the system prompt that changes each turn</h3>
-  <p>A current time, the <code>git status</code>, the current folder, "turn 14 of 40". It feels helpful to keep the model up to date, but the system prompt sits at the very top, so a new value there means the whole session is read again on every turn. That's the "timestamp" row in my test.</p>
+  <p>A current time, the <code>git status</code>, the current folder, "turn 14 of 40". It feels helpful to keep the model up to date. But the system prompt sits at the very top, so a new value there means the whole session is read again on every turn. That's the "timestamp" row in my test.</p>
   <p><b>Fix:</b> keep the system prompt identical for the whole session (and ideally across sessions). Put changing information in a new message at the end instead. If you write your own agent or prompt templates, check for <code>datetime.now()</code> or similar in the system prompt first.</p>
 
   <h3>2. Changing reasoning effort in the middle of a session</h3>
@@ -75,7 +86,7 @@
   <p><b>Fix:</b> ask the agent to search before it reads, and to read line ranges. If you build tools, return less by default.</p>
 
   <h3>5. Cutting output without saying so</h3>
-  <p>This one isn't about speed, but it's the third point in Ollama's post and it matters. Many tools trim long output. If a tool returns the first 100 lines of a 640-line file without saying it stopped, the model doesn't know the rest exists and will happily edit code it never saw.</p>
+  <p>This one isn't about speed, but it's the third point in Ollama's post and it matters. Many tools trim long output. If a tool returns the first 100 lines of a 640-line file without saying it stopped, the model doesn't know the rest exists. It will happily edit code it never saw.</p>
   <p><b>Fix:</b> when output is cut, add one line like <code>[showing lines 1–100 of 640; search or ask for another range]</code>. With that hint, the model goes and reads the part it needs.</p>
 
   <h2>A quick checklist</h2>
@@ -177,14 +188,15 @@ print(f&quot;append    : {app:6.2f}s  ({app_n} tokens processed)&quot;)
 print(f&quot;timestamp : {ts:6.2f}s  ({ts_n} tokens processed)&quot;)</code></pre>
   <p>Run it with <code>python cache_test.py mlx-community/gemma-3-12b-it-4bit 3</code>. The last number is how many file-reading turns to put in the session.</p>
 
+  <h2>FAQ</h2><section class="faq"><h3>What is prompt caching?</h3><p>Inference engines keep the work they did on a prompt for a while. If the next request starts with exactly the same tokens, they reuse that work. They only process the new part at the end.</p><h3>Why does prompt caching matter for coding agents?</h3><p>An agent sends the whole conversation again on every turn. Ten turns without a cache process 55 units of prompt, and with a cache only 10. At a hundred turns it is 5,050 against 100.</p><h3>What breaks prompt caching?</h3><p>Any change before the end of the prompt. The cache matches up to the first token that is different and stops there. A timestamp in the system prompt, a new reasoning-effort setting or a tool added near the top all do this.</p><h3>How much does prompt caching save?</h3><p>In the Mac test, the model read 2,513 tokens instead of 10,275, about four times less. The gap keeps growing as the session gets longer. With one changed timestamp, only the first 32 tokens matched.</p><h3>Does prompt caching work with Claude, OpenAI and Ollama?</h3><p>Yes. Ollama, vLLM, MLX and hosted APIs like Anthropic's and OpenAI's all keep the work on a prompt for a while. The same rule applies to all of them: keep the start of the prompt the same.</p></section>
+
   <h2>Sources</h2>
   <ul>
     <li>Ollama on X, 17 November 2026: <a href="https://x.com/ollama/status/2122531964154712541">lessons on keeping coding agents fast</a>.</li>
     <li>Together AI and Ollama: <a href="https://www.together.ai/blog/making-open-models-work-for-long-horizon-agentic-workloads">Making open models work for long-horizon agentic workloads</a>.</li>
     <li><a href="https://github.com/ml-explore/mlx-lm">mlx-lm</a>, used for the test.</li>
   </ul>
-
-  <p style="margin-top:40px;color:var(--muted,#666)">Written by Tabish Hassan, a software developer. Found a mistake or got different numbers on your machine? Email <a href="mailto:hello@tabishapps.com">hello@tabishapps.com</a>.</p>
+  <!--seo:foot--><div class="author-box"><div class="av">TH</div><div><p><b>Written by <a href="/about/">Tabish Hassan</a></b>, a software developer in Pakistan. 4+ years of production React and TypeScript, 75 iOS apps on the App Store. The tests on this blog run on my own Mac, with the method and limits shown.</p><p>Found a mistake or got different numbers? Email <a href="mailto:hello@tabishapps.com">hello@tabishapps.com</a>. Published 2026-11-17, updated 2026-11-19.</p></div></div><section class="related"><h2>Read next</h2><a class="r" href="/blog/ai-agents-business-apps-test/"><b>I gave 4 AI coding agents one sentence each. They built 4 business apps that passed 792 checks, and the checks still missed a security leak</b><span>Test · AI coding agents</span></a><a class="r" href="/blog/code-mode-tool-calls-test/"><b>I tested the idea behind Claude Code&#x27;s new Code Mode. The AI read 11x fewer tokens and stopped miscounting</b><span>Test · AI coding agents</span></a><a class="r" href="/blog/ai-slop-design-skills-test/"><b>I tested 3 anti AI slop design skills on the same page. Only one changed the design</b><span>Test · AI coding agents</span></a></section><!--/seo:foot-->
 </div></main>
 
 <footer class="b-foot"><div class="wrap">

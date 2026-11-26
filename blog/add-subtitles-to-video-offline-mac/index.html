@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How to add subtitles to a video on your Mac, offline, in 100 languages</title>
-<meta name="description" content="A step-by-step guide to transcribing a video, translating its subtitles into up to 100 languages and exporting SRT files on an Apple silicon Mac, with nothing uploaded.">
+<title>Add subtitles to a video on Mac, offline, in 100 languages</title>
+<meta name="description" content="Add subtitles to a video on an Apple silicon Mac with nothing uploaded: transcribe, translate into up to 100 languages and export SRT files for YouTube.">
 <link rel="canonical" href="https://tabishapps.com/blog/add-subtitles-to-video-offline-mac/">
 <meta name="theme-color" content="#f5f4ef">
 <meta property="og:title" content="How to add subtitles to a video on your Mac, offline, in 100 languages">
@@ -17,9 +17,13 @@
 <link rel="preload" href="../../assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../../assets/th.css">
 <link rel="stylesheet" href="../blog.css">
+<!--seo:head-->
+<link rel="alternate" type="application/rss+xml" title="Tabish Hassan's blog" href="/blog/feed.xml">
+<style>.crumbs{display:flex;gap:8px;flex-wrap:wrap;font-size:14px;color:var(--muted);margin-bottom:14px}.crumbs a{color:var(--muted);text-decoration:none}.author-box{display:flex;gap:16px;align-items:flex-start;margin:50px 0 0;padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--card)}.author-box .av{flex:0 0 52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--bone);font:700 18px var(--display)}.author-box p{margin:0 0 6px;font-size:16px}.related{margin:34px 0 0}.related h2{font-size:24px;margin:0 0 12px}.related a.r{display:block;padding:14px 0;border-top:1px solid var(--line);text-decoration:none;color:inherit}.related a.r b{display:block;font-size:17px}.related a.r span{font-size:14px;color:var(--muted)}</style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"How to add subtitles to a video on your Mac, offline, in 100 languages","datePublished":"2026-11-16","author":{"@type":"Person","name":"Tabish Hassan","url":"https://tabishapps.com/"},"image":"https://tabishapps.com/mlx-caption/subtitles.jpg","mainEntityOfPage":"https://tabishapps.com/blog/add-subtitles-to-video-offline-mac/"}
+{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "@id": "https://tabishapps.com/blog/add-subtitles-to-video-offline-mac/#article", "headline": "How to add subtitles to a video on your Mac, offline, in 100 languages", "description": "Add subtitles to a video on an Apple silicon Mac with nothing uploaded: transcribe, translate into up to 100 languages and export SRT files for YouTube.", "datePublished": "2026-11-16", "dateModified": "2026-11-17", "author": {"@id": "https://tabishapps.com/#me"}, "publisher": {"@id": "https://tabishapps.com/#me"}, "mainEntityOfPage": "https://tabishapps.com/blog/add-subtitles-to-video-offline-mac/", "inLanguage": "en", "articleSection": "Local AI on the Mac", "image": "https://tabishapps.com/mlx-caption/subtitles.jpg"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tabishapps.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://tabishapps.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "How to add subtitles to a video on your Mac, offline, in 100 languages", "item": "https://tabishapps.com/blog/add-subtitles-to-video-offline-mac/"}]}, {"@type": "Person", "@id": "https://tabishapps.com/#me", "name": "Tabish Hassan", "url": "https://tabishapps.com/about/", "jobTitle": "Software developer", "sameAs": ["https://github.com/tabishhassan5121472", "https://x.com/TabishHassanDev", "https://dev.to/tabishhassan5121472", "https://tabishhassan.hashnode.dev", "https://apps.apple.com/us/developer/tabish-hassan/id1885918100"]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do you add subtitles to a video on a Mac?", "acceptedAnswer": {"@type": "Answer", "text": "Transcribe the speech, split it into readable subtitles, translate them if you need other languages, and export SRT or VTT files. On an Apple silicon Mac all of this can run on your own machine, with nothing uploaded."}}, {"@type": "Question", "name": "How do I add subtitles to a video on YouTube?", "acceptedAnswer": {"@type": "Answer", "text": "In YouTube Studio, open Subtitles, choose your video and click Add language. Then click Add under Subtitles, choose Upload file → With timing and select the matching .srt file. Repeat for each language."}}, {"@type": "Question", "name": "Can I add subtitles to a video permanently?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Make a copy of the video with one language burned in. This suits social media, where viewers don't turn captions on."}}, {"@type": "Question", "name": "How do I add SRT subtitles in Final Cut Pro, Premiere Pro or DaVinci Resolve?", "acceptedAnswer": {"@type": "Answer", "text": "In Final Cut Pro, choose File → Import → Captions. In Premiere Pro, import the .srt file like any media and drag it onto the timeline. In DaVinci Resolve, import it into the Media Pool and drag it onto the timeline."}}]}]}
 </script>
+<!--/seo:head-->
 </head>
 <body>
 <header class="nav"><div class="bar">
@@ -29,13 +33,19 @@
 </div></header>
 
 <main class="article"><div class="wrap">
+  <!--seo:crumb--><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/blog/">Blog</a><span>›</span><span>Local AI on the Mac</span></nav><!--/seo:crumb-->
   <div class="meta mono"><span>Guide</span><span>16 November 2026</span><span>8 min read</span></div>
   <h1>How to add subtitles to a video on your Mac, offline, in 100 languages</h1>
+  <ul class="summary">
+    <li><b>The short answer:</b> on an Apple silicon Mac you can transcribe the speech, translate the subtitles and export SRT and VTT files without uploading anything.</li>
+    <li><b>What you need:</b> an M1 or newer Mac with macOS 14 Sonoma or newer, and 8 to 15 GB free for AI models you download once.</li>
+    <li><b>Then:</b> upload the <code>.srt</code> file to YouTube Studio, or import it into Premiere Pro, Final Cut Pro or DaVinci Resolve.</li>
+  </ul>
   <p class="lede">Most subtitle tools upload your video to a server and charge by the minute. If you have an Apple silicon Mac, you can do the whole job on your own machine instead: transcribe the speech, split it into readable subtitles, translate them, and export files that YouTube and every major editor accept.</p>
 
   <p>This guide walks through that process with <a href="../../mlx-caption/">MLX Caption</a>, a Mac app I built for exactly this job. The first five videos are free, so you can follow along without paying. Near the end I also explain what happens under the hood, for anyone curious about running AI models locally.</p>
 
-  <h2>Why do it offline?</h2>
+  <h2>Why add subtitles to a video offline?</h2>
   <ul>
     <li><b>Privacy.</b> Client footage, unreleased videos and internal recordings never leave your Mac.</li>
     <li><b>Cost.</b> Online services usually charge per minute of video, and translation into extra languages costs more again. A local tool costs the same whether you caption one video or a thousand.</li>
@@ -53,7 +63,7 @@
 
   <h2>Step 1: Download and open the app</h2>
   <p>Download the free trial from the <a href="../../mlx-caption/">MLX Caption page</a> and unzip it. No account, email address or card is needed.</p>
-  <p>Because the app is sold outside the Mac App Store, macOS asks you to confirm the first time you open it. Open <b>System Settings → Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b>. You only do this once, and the download includes a short guide with the exact steps.</p>
+  <p>Because the app is sold outside the Mac App Store, macOS asks you to confirm the first time you open it. Open <b>System Settings → Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b>. You only do this once, and the download includes a short guide with the exact steps. Apple explains this check in <a href="https://support.apple.com/en-us/102445">Safely open apps on your Mac</a>.</p>
 
   <h2>Step 2: Let it download the models</h2>
   <p>On first launch the app installs its components and downloads the AI models: about 6.5 GB on Macs with 8 to 16 GB of memory, and about 13 GB on Macs with 24 GB or more. This is the only step that needs the internet. After that, everything works offline.</p>
@@ -78,7 +88,7 @@
   </ul>
 
   <h3>YouTube</h3>
-  <p>In YouTube Studio, open <b>Subtitles</b>, choose your video, click <b>Add language</b>, then <b>Add</b> under Subtitles and choose <b>Upload file → With timing</b>. Select the matching <code>.srt</code> file. Repeat for each language. Viewers in other countries can then pick their own language.</p>
+  <p>In YouTube Studio, open <b>Subtitles</b>, choose your video, click <b>Add language</b>, then <b>Add</b> under Subtitles and choose <b>Upload file → With timing</b>. Select the matching <code>.srt</code> file. Repeat for each language. Viewers in other countries can then pick their own language. YouTube's own help page, <a href="https://support.google.com/youtube/answer/2734796">Add subtitles &amp; captions</a>, has the full steps.</p>
 
   <h3>Premiere Pro</h3>
   <p>Import the <code>.srt</code> file into your project like any other media, then drag it onto the timeline. It becomes a caption track you can restyle.</p>
@@ -93,9 +103,9 @@
   <p>Everything runs on the Mac's GPU through <a href="https://github.com/ml-explore/mlx">MLX</a>, Apple's machine learning framework for Apple silicon. Four models do the work, one at a time so memory stays manageable:</p>
   <div class="table-scroll"><table>
     <tr><th>Job</th><th>Model</th></tr>
-    <tr><td>Speech to text</td><td>Whisper large-v3 turbo, with timing for every word</td></tr>
-    <tr><td>Translation and summary</td><td>Gemma 3 12B, 4-bit</td></tr>
-    <tr><td>Scene descriptions</td><td>Qwen3-VL, one keyframe per shot</td></tr>
+    <tr><td>Speech to text</td><td><a href="https://github.com/openai/whisper">Whisper</a> large-v3 turbo, with timing for every word</td></tr>
+    <tr><td>Translation and summary</td><td><a href="https://ai.google.dev/gemma">Gemma 3</a> 12B, 4-bit</td></tr>
+    <tr><td>Scene descriptions</td><td><a href="https://github.com/QwenLM/Qwen3-VL">Qwen3-VL</a>, one keyframe per shot</td></tr>
     <tr><td>Silence and shot detection</td><td>Small custom routines written directly in MLX</td></tr>
   </table></div>
   <p>The interesting trick is in translation. Generating text on a GPU is limited by memory bandwidth, not by raw compute, so translating into 16 languages in one batch costs little more than translating into one. The app reads the shared part of each prompt once, then decodes all the target languages together. That is why adding languages is cheap.</p>
@@ -108,6 +118,8 @@
     <li>Machine translation is a strong first draft, not a certified translation. For legal or medical content, have a native speaker check it.</li>
   </ul>
 
+<h2>FAQ</h2><section class="faq"><h3>How do you add subtitles to a video on a Mac?</h3><p>Transcribe the speech, split it into readable subtitles, translate them if you need other languages, and export SRT or VTT files. On an Apple silicon Mac all of this can run on your own machine, with nothing uploaded.</p><h3>How do I add subtitles to a video on YouTube?</h3><p>In YouTube Studio, open Subtitles, choose your video and click Add language. Then click Add under Subtitles, choose Upload file → With timing and select the matching <code>.srt</code> file. Repeat for each language.</p><h3>Can I add subtitles to a video permanently?</h3><p>Yes. Make a copy of the video with one language burned in. This suits social media, where viewers don't turn captions on.</p><h3>How do I add SRT subtitles in Final Cut Pro, Premiere Pro or DaVinci Resolve?</h3><p>In Final Cut Pro, choose File → Import → Captions. In Premiere Pro, import the <code>.srt</code> file like any media and drag it onto the timeline. In DaVinci Resolve, import it into the Media Pool and drag it onto the timeline.</p></section>
+
   <div class="note"><p><b>Disclosure:</b> I am the developer of MLX Caption. After the five free videos it costs $49 once, with a 14-day refund. There is no subscription.</p></div>
 
   <div class="cta">
@@ -117,6 +129,7 @@
   </div>
 
   <p style="margin-top:40px">Questions, or need something built? Email me at <a href="mailto:hello@tabishapps.com">hello@tabishapps.com</a>. I am Tabish Hassan, a software developer in Pakistan, and I <a href="../../websites/">build websites</a>, apps and business systems.</p>
+  <!--seo:foot--><div class="author-box"><div class="av">TH</div><div><p><b>Written by <a href="/about/">Tabish Hassan</a></b>, a software developer in Pakistan. 4+ years of production React and TypeScript, 75 iOS apps on the App Store. The tests on this blog run on my own Mac, with the method and limits shown.</p><p>Found a mistake or got different numbers? Email <a href="mailto:hello@tabishapps.com">hello@tabishapps.com</a>. Published 2026-11-16, updated 2026-11-17.</p></div></div><section class="related"><h2>Read next</h2><a class="r" href="/blog/ai-agents-business-apps-test/"><b>I gave 4 AI coding agents one sentence each. They built 4 business apps that passed 792 checks, and the checks still missed a security leak</b><span>Test · AI coding agents</span></a><a class="r" href="/blog/code-mode-tool-calls-test/"><b>I tested the idea behind Claude Code&#x27;s new Code Mode. The AI read 11x fewer tokens and stopped miscounting</b><span>Test · AI coding agents</span></a><a class="r" href="/blog/ai-slop-design-skills-test/"><b>I tested 3 anti AI slop design skills on the same page. Only one changed the design</b><span>Test · AI coding agents</span></a></section><!--/seo:foot-->
 </div></main>
 
 <footer class="b-foot"><div class="wrap">
