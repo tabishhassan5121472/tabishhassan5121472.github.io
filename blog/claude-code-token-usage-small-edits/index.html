@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Code token usage: 58k tokens for a 1-word fix</title>
+<meta name="description" content="I gave Claude Code agents 4 tiny edits, 16 runs. A one-word typo fix used about 58,000 tokens, and a precise prompt saved only 2%. Numbers and advice.">
+<link rel="canonical" href="https://tabishapps.com/blog/claude-code-token-usage-small-edits/">
+<meta name="theme-color" content="#f5f4ef">
+<meta property="og:title" content="Claude Code token usage, tested: a one-word fix cost 58,000 tokens, and a precise prompt saved only 2%">
+<meta property="og:description" content="4 tiny edits, 16 fresh Claude Code agents, every token counted. Why a typo fix costs almost as much as a bigger change, and when to just edit by hand.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://tabishapps.com/blog/claude-code-token-usage-small-edits/">
+<meta property="og:image" content="https://tabishapps.com/blog/claude-code-token-usage-small-edits/result-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tabishapps.com/blog/claude-code-token-usage-small-edits/result-card.jpg">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../../assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/th.css">
+<link rel="stylesheet" href="../blog.css">
+<style>.article figure img{height:auto}.article figcaption{font-size:14px;color:var(--muted,#666);margin-top:8px}.summary{border-left:4px solid var(--line);padding:4px 0 4px 16px;margin:22px 0}.summary li{margin:4px 0}.article pre{overflow-x:auto}</style>
+<!--seo:head-->
+<link rel="alternate" type="application/rss+xml" title="Tabish Hassan's blog" href="/blog/feed.xml">
+<style>.crumbs{display:flex;gap:8px;flex-wrap:wrap;font-size:14px;color:var(--muted);margin-bottom:14px}.crumbs a{color:var(--muted);text-decoration:none}.author-box{display:flex;gap:16px;align-items:flex-start;margin:50px 0 0;padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--card)}.author-box .av{flex:0 0 52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--bone);font:700 18px var(--display)}.author-box p{margin:0 0 6px;font-size:16px}.related{margin:34px 0 0}.related h2{font-size:24px;margin:0 0 12px}.related a.r{display:block;padding:14px 0;border-top:1px solid var(--line);text-decoration:none;color:inherit}.related a.r b{display:block;font-size:17px}.related a.r span{font-size:14px;color:var(--muted)}</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "@id": "https://tabishapps.com/blog/claude-code-token-usage-small-edits/#article", "headline": "Claude Code token usage, tested: a one-word fix cost 58,000 tokens, and a precise prompt saved only 2%", "description": "I gave Claude Code agents 4 tiny edits, 16 runs. A one-word typo fix used about 58,000 tokens, and a precise prompt saved only 2%. Numbers and advice.", "datePublished": "2026-11-28", "dateModified": "2026-11-28", "author": {"@id": "https://tabishapps.com/#me"}, "publisher": {"@id": "https://tabishapps.com/#me"}, "mainEntityOfPage": "https://tabishapps.com/blog/claude-code-token-usage-small-edits/", "inLanguage": "en", "articleSection": "AI coding agents", "image": "https://tabishapps.com/blog/claude-code-token-usage-small-edits/result-card.jpg"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tabishapps.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://tabishapps.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "Claude Code token usage, tested: a one-word fix cost 58,000 tokens, and a precis", "item": "https://tabishapps.com/blog/claude-code-token-usage-small-edits/"}]}, {"@type": "Person", "@id": "https://tabishapps.com/#me", "name": "Tabish Hassan", "url": "https://tabishapps.com/about/", "jobTitle": "Software developer", "sameAs": ["https://github.com/tabishhassan5121472", "https://x.com/TabishHassanDev", "https://dev.to/tabishhassan5121472", "https://tabishhassan.hashnode.dev", "https://apps.apple.com/us/developer/tabish-hassan/id1885918100"]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many tokens does Claude Code use for a small edit?", "acceptedAnswer": {"@type": "Answer", "text": "In this test, a fresh Claude Code agent used between 57,711 and 60,714 tokens for one tiny edit, about 58,000 on average. The size of the edit barely changed the number."}}, {"@type": "Question", "name": "How do I check my Claude Code token usage?", "acceptedAnswer": {"@type": "Answer", "text": "Run /usage at the Claude Code prompt. The Claude Code docs say the Session block shows token usage per model, split into input, output, cache read and cache write. Run /context to see what fills the context window."}}, {"@type": "Question", "name": "Does a more specific prompt reduce Claude Code token usage?", "acceptedAnswer": {"@type": "Answer", "text": "A little. Precise prompts with the file and value saved about 2% of tokens in this test (57,898 vs 59,327 on average) and finished about 16% faster, mostly by skipping one search step."}}, {"@type": "Question", "name": "How can I reduce Claude Code token usage on small fixes?", "acceptedAnswer": {"@type": "Answer", "text": "Make changes you can already see by hand, batch many small fixes into one request, and clear the session between unrelated tasks so old context is not carried forward."}}]}]}
+</script>
+<!--/seo:head-->
+</head>
+<body>
+<header class="nav"><div class="bar">
+  <a class="logo" href="../../" aria-label="Tabish Hassan, home"><span class="mark">TH</span>Tabish Hassan</a>
+  <ul><li><a href="../">Blog</a></li><li><a href="../../">Home</a></li></ul>
+</div></header>
+
+<main class="article"><div class="wrap">
+  <!--seo:crumb--><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/blog/">Blog</a><span>›</span><span>AI coding agents</span></nav><!--/seo:crumb-->
+  <div class="meta mono"><span>AI Lab</span><span>28 November 2026</span><span>6 min read</span></div>
+  <h1>Claude Code token usage, tested: a one-word fix cost 58,000 tokens, and a precise prompt saved only 2%</h1>
+  <ul class="summary">
+    <li><b>The test:</b> 4 tiny edits in a small website project (a typo, a color, a number, a year), each asked 2 ways, vague and precise. 16 runs, each by a fresh Claude Code agent.</li>
+    <li><b>The result:</b> every run landed between 57,711 and 60,714 tokens. A one-word typo fix cost about as much as editing 4 files. Telling the agent the exact file and value saved only about 2% of tokens, but made runs about 16% faster.</li>
+    <li><b>The advice:</b> for a change you can already see, edit the file yourself: it costs 0 tokens. Save the agent for work where finding the place is the hard part, and batch small fixes into one request.</li>
+  </ul>
+
+  <figure>
+    <img src="result-card.jpg" alt="Bar chart. Tokens used by a Claude Code agent for one tiny edit: 59,327 with a vague prompt, 57,898 with a precise prompt, average of 8 runs each. Editing by hand: 0." width="1200" height="675">
+    <figcaption>Average Claude Code token usage per tiny edit, 8 runs per prompt style. All 16 edits were correct.</figcaption>
+  </figure>
+
+  <p class="lede">This test started with a joke. A post on X with about 46,000 likes said that vibe coders had found out you can edit files by hand "without burning any tokens". It's funny because it's true. But it made me ask a real question about Claude Code token usage: how many tokens does an agent actually spend on a change that takes a person five seconds?</p>
+
+  <p>I could not find a real number for this. The top search results explain how to check usage (the <code>/usage</code> command) and list tools that cut token use. None of them measure one small edit. So I measured it.</p>
+
+  <h2>How I tested a one-word edit</h2>
+  <p>I wrote the test rules down before running anything.</p>
+  <ul>
+    <li><b>The project:</b> a small static shop website for a made-up coffee roaster. 8 files and 343 lines in total: 4 HTML pages, 1 CSS file, 2 JavaScript files and a README. It is 9,668 characters, which is roughly 2,400 tokens by the usual 4-characters-per-token rule.</li>
+    <li><b>The agents:</b> each run was a fresh Claude Code subagent (the built-in general-purpose type, on Claude Opus 5.5), started from my own Claude Code session. Each one got only the folder path and one short task. No memory of the other runs.</li>
+    <li><b>The edits:</b> 4 tiny changes, each asked 2 ways, each run twice. That is 16 runs. Every run started from a clean copy of the project in its own git repo.</li>
+    <li><b>What I measured:</b> the token total Claude Code reports when a subagent finishes, the number of tool calls, the time, and the git diff afterwards.</li>
+    <li><b>What counted as correct:</b> the change is made everywhere it is needed (for the year, all 4 page footers), and nothing unrelated is touched.</li>
+  </ul>
+
+  <div class="table-scroll"><table>
+    <tr><th>Edit</th><th>Vague prompt</th><th>Precise prompt</th></tr>
+    <tr><td>Typo</td><td>"There's a spelling mistake in the newsletter page heading. Fix it."</td><td>"In src/pages/signup.html, change Recieve to Receive in the h1."</td></tr>
+    <tr><td>Color</td><td>"Make the main buttons green instead of blue."</td><td>"In src/styles/main.css, change --color-primary from #2563eb to #16a34a."</td></tr>
+    <tr><td>Number</td><td>"Free shipping should start at $75, not $50."</td><td>"In src/js/cart.js, change FREE_SHIPPING_THRESHOLD from 50 to 75."</td></tr>
+    <tr><td>Year</td><td>"Update the copyright year in the footer to 2026."</td><td>"In all four HTML files in src/pages/, change &amp;copy; 2025 to &amp;copy; 2026."</td></tr>
+  </table></div>
+
+  <h2>How many tokens does Claude Code use for a tiny edit?</h2>
+  <p>About 58,000. Here is every run:</p>
+  <div class="table-scroll"><table>
+    <tr><th>Edit</th><th>Prompt</th><th>Tokens (run 1 / run 2)</th><th>Tool calls</th><th>Seconds</th><th>Lines changed</th></tr>
+    <tr><td>Typo</td><td>Vague</td><td>59,525 / 59,516</td><td>3 / 3</td><td>15.8 / 18.9</td><td>1</td></tr>
+    <tr><td>Typo</td><td>Precise</td><td>57,711 / 57,789</td><td>2 / 2</td><td>12.4 / 12.9</td><td>1</td></tr>
+    <tr><td>Color</td><td>Vague</td><td>60,714 / 60,696</td><td>3 / 3</td><td>19.0 / 18.1</td><td>2</td></tr>
+    <tr><td>Color</td><td>Precise</td><td>57,852 / 57,873</td><td>2 / 2</td><td>13.8 / 12.3</td><td>1</td></tr>
+    <tr><td>Number</td><td>Vague</td><td>59,400 / 58,355</td><td>2 / 2</td><td>14.1 / 15.3</td><td>1</td></tr>
+    <tr><td>Number</td><td>Precise</td><td>58,001 / 58,079</td><td>2 / 2</td><td>13.7 / 12.4</td><td>1</td></tr>
+    <tr><td>Year</td><td>Vague</td><td>58,316 / 58,097</td><td>2 / 2</td><td>13.5 / 12.5</td><td>4</td></tr>
+    <tr><td>Year</td><td>Precise</td><td>58,035 / 57,846</td><td>2 / 2</td><td>12.3 / 16.7</td><td>4</td></tr>
+    <tr><td><b>Average</b></td><td><b>Vague</b></td><td><b>59,327</b></td><td><b>2.5</b></td><td><b>15.9</b></td><td></td></tr>
+    <tr><td><b>Average</b></td><td><b>Precise</b></td><td><b>57,898</b></td><td><b>2</b></td><td><b>13.3</b></td><td></td></tr>
+  </table></div>
+  <p>All 16 runs made the right change. None touched a file or line it should not have. As a coding job, this was a clean pass.</p>
+  <p>The cost is the surprise. The cheapest run, fixing one misspelled word, used 57,711 tokens. The most expensive, changing two color values, used 60,714. The year change touched 4 files and still cost less than the vague typo fix.</p>
+
+  <h2>Why does a tiny edit use so many tokens?</h2>
+  <p>Look at the spread: 3,003 tokens between the cheapest and the most expensive run. The size of the task barely matters. The whole project is only about 2,400 tokens, and a 2-tool-call run reads just one file of it.</p>
+  <p>So most of those 58,000 tokens are not your code. My reading is that they are the agent's own starting context: its instructions, the tool definitions and the setup that every run loads before it even reads your request. The <a href="https://code.claude.com/docs/en/sub-agents">Claude Code subagent docs</a> say each subagent runs in its own context window with its own system prompt, and that its requests count toward the same usage limits as your main conversation.</p>
+  <p>A normal Claude Code session has a starting context too, and every message you send carries the conversation so far. One small fix in a fresh session is the worst case: you pay the full base for very little work.</p>
+  <p>One thing softens this. Much of that starting context is usually served from the prompt cache, and the <a href="https://code.claude.com/docs/en/costs">Claude Code cost docs</a> show <code>/usage</code> splitting tokens into input, output, cache read and cache write. Cache reads are cheaper than fresh input. I did not measure that split for these runs, so treat 58,000 as "tokens processed", not as a bill. I wrote more about caching in <a href="/blog/prompt-caching-coding-agents/">why agents slow down in long sessions</a>.</p>
+
+  <h2>Does a precise prompt reduce Claude Code token usage?</h2>
+  <p>A little. On average the precise prompts used 1,429 fewer tokens, about 2% less. They also finished faster: 13.3 seconds against 15.9 seconds on average.</p>
+  <p>Where the saving came from is easy to see in the tool calls. For the vague typo and color tasks, the agents made 3 tool calls: they first searched for the right file, then read it, then edited it. With a precise prompt they went straight to the file: 2 calls. One less search saved about 1,800 to 2,800 tokens.</p>
+  <p>For the number and year tasks, the vague prompts were already clear enough. "FREE_SHIPPING" is easy to find, and so is a copyright line. There the two styles cost almost the same.</p>
+  <p>So precision helps, but it does not change the big picture. You cannot prompt your way out of the base cost.</p>
+
+  <h2>The vague prompt gave the better result once</h2>
+  <figure>
+    <img src="color-diff.jpg" alt="Two git diffs of main.css side by side. Precise prompt: one line changed, the hover color stays blue. Vague prompt: two lines changed, both the button color and its hover color turn green." width="1200" height="560" loading="lazy">
+    <figcaption>The color task, run 1 of each prompt, from the git diff. Run 2 did the same in both cases.</figcaption>
+  </figure>
+  <p>This surprised me. The precise color prompt said: change <code>--color-primary</code> to green. Both agents did exactly that, and only that. But the buttons also have a hover color, <code>--color-primary-dark</code>, and it stayed blue. Hover over a green button and it turns dark blue.</p>
+  <p>Both precise agents noticed, and both said so in their reply. But both followed the instruction and left it alone. The vague prompt, "make the main buttons green", let the agents think about the goal, and both changed the hover color too.</p>
+  <p>The lesson is not "be vague". It is: a precise prompt is only as good as your own knowledge of the code. If you know the exact line, you can probably fix it yourself in less time than the agent takes.</p>
+
+  <h2>When should you edit by hand instead?</h2>
+  <p>Based on this test, I would skip the agent when:</p>
+  <ul>
+    <li><b>You can see the change.</b> A typo on screen, a color value you know, a number in a config. Open the file, change it, save. 0 tokens, and often faster than the 12 to 19 seconds the agents took.</li>
+    <li><b>You are on a plan with limits.</b> At about 58,000 tokens per tiny job, a day of "fix this word" requests uses up your limit on work you could do in seconds.</li>
+  </ul>
+  <p>And I would use the agent when:</p>
+  <ul>
+    <li><b>Finding the place is the hard part.</b> "Why is the total wrong in the cart?" is worth 58,000 tokens. "Change 50 to 75 on line 13" is not.</li>
+    <li><b>The change has ripple effects.</b> As the color test showed, an agent that understands the goal may catch the second line you forgot.</li>
+    <li><b>You can batch.</b> Ten small fixes in one request pay the base cost once. In the year task, 4 files cost about the same as 1. Keep a list and send it together.</li>
+  </ul>
+  <p>The Claude Code docs give similar advice for long sessions: run <code>/clear</code> between unrelated tasks, and run <code>/context</code> to see what is using space. For many small, similar steps, also see my test of <a href="/blog/code-mode-tool-calls-test/">the idea behind Code Mode</a>, where one script replaced many tool calls.</p>
+
+  <h2>Limits of this test</h2>
+  <ul>
+    <li>I measured Claude Code subagents, not a full interactive session. A main session can carry more context (your CLAUDE.md, MCP servers, earlier messages), so its base cost may be higher or lower than this.</li>
+    <li>One model (Claude Opus 5.5), one small project, 2 runs per prompt. Treat this as one honest sample, not a benchmark.</li>
+    <li>The token figure is the total Claude Code reports per subagent. I did not split it into cached and fresh tokens, and I did not turn it into dollars.</li>
+    <li>The "fixed starting context" explanation is my reading of the numbers, not something Claude Code reported directly.</li>
+    <li>AI agents did the edits, as the test requires. I wrote the project, the prompts and the scoring rules, and checked every diff myself.</li>
+  </ul>
+
+  <h2>FAQ</h2><section class="faq"><h3>How many tokens does Claude Code use for a small edit?</h3><p>In this test, a fresh Claude Code agent used between 57,711 and 60,714 tokens for one tiny edit, about 58,000 on average. The size of the edit barely changed the number.</p><h3>How do I check my Claude Code token usage?</h3><p>Run <code>/usage</code> at the Claude Code prompt. The Claude Code docs say the Session block shows token usage per model, split into input, output, cache read and cache write. Run <code>/context</code> to see what fills the context window.</p><h3>Does a more specific prompt reduce Claude Code token usage?</h3><p>A little. Precise prompts with the file and value saved about 2% of tokens in this test (57,898 vs 59,327 on average) and finished about 16% faster, mostly by skipping one search step.</p><h3>How can I reduce Claude Code token usage on small fixes?</h3><p>Make changes you can already see by hand, batch many small fixes into one request, and clear the session between unrelated tasks so old context is not carried forward.</p></section>
+
+  <h2>Sources</h2>
+  <ul>
+    <li>@CryptoCyberia on X, 27 November 2026: <a href="https://x.com/CryptoCyberia/status/2126268557902110875">the post about editing files by hand without burning tokens</a>.</li>
+    <li>Claude Code docs: <a href="https://code.claude.com/docs/en/costs">Manage costs effectively</a> (the <code>/usage</code> command and how to reduce token usage).</li>
+    <li>Claude Code docs: <a href="https://code.claude.com/docs/en/sub-agents">Subagents</a> (own context window and system prompt per subagent).</li>
+  </ul>
+  <!--seo:foot--><div class="author-box"><div class="av">TH</div><div><p><b>Written by <a href="/about/">Tabish Hassan</a></b>, a software developer in Pakistan. 4+ years of production React and TypeScript, 75 iOS apps on the App Store. The tests on this blog run on my own Mac, with the method and limits shown.</p><p>Found a mistake or got different numbers? Email <a href="mailto:hello@tabishapps.com">hello@tabishapps.com</a>. Published 2026-11-28.</p></div></div><section class="related"><h2>Read next</h2><a class="r" href="/blog/ai-agents-business-apps-test/"><b>I gave 4 AI coding agents one sentence each. They built 4 business apps that passed 792 checks, and the checks still missed a security leak</b><span>Test · AI coding agents</span></a><a class="r" href="/blog/code-mode-tool-calls-test/"><b>I tested the idea behind Claude Code&#x27;s new Code Mode. The AI read 11x fewer tokens and stopped miscounting</b><span>Test · AI coding agents</span></a><a class="r" href="/blog/ai-slop-design-skills-test/"><b>I tested 3 anti AI slop design skills on the same page. Only one changed the design</b><span>Test · AI coding agents</span></a></section><!--/seo:foot-->
+</div></main>
+
+<footer class="b-foot"><div class="wrap">
+  <span>© 2026 Tabish Hassan · tabishapps.com</span>
+  <span><a href="../">Blog</a> · <a href="../../">Main site</a></span>
+</div></footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "baa3382c2e8f47f09e2a5a5f8474ebf0"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
