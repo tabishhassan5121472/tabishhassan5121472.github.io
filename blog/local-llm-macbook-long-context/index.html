@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Local LLM on a MacBook: a long prompt took 17.7 GB of RAM</title>
+<meta name="description" content="I ran Gemma 3 12B on a MacBook Pro with prompts up to 65k tokens. Peak memory went from 8.4 GB to 17.7 GB. Every number, and what it means for RAM.">
+<link rel="canonical" href="https://tabishapps.com/blog/local-llm-macbook-long-context/">
+<meta name="theme-color" content="#f5f4ef">
+<meta property="og:title" content="Local LLM MacBook test: a long prompt more than doubled the RAM, from 8.4 GB to 17.7 GB">
+<meta property="og:description" content="Gemma 3 12B on a MacBook Pro, 6 prompt lengths, peak memory and recall measured. Why the context, not just the model, decides how much RAM you need.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://tabishapps.com/blog/local-llm-macbook-long-context/">
+<meta property="og:image" content="https://tabishapps.com/blog/local-llm-macbook-long-context/result-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://tabishapps.com/blog/local-llm-macbook-long-context/result-card.jpg">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="../../assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/th.css">
+<link rel="stylesheet" href="../blog.css">
+<style>.article figure img{height:auto}.article figcaption{font-size:14px;color:var(--muted,#666);margin-top:8px}.summary{border-left:4px solid var(--line);padding:4px 0 4px 16px;margin:22px 0}.summary li{margin:4px 0}.article pre{overflow-x:auto}</style>
+<!--seo:head-->
+<link rel="alternate" type="application/rss+xml" title="Tabish Hassan's blog" href="/blog/feed.xml">
+<style>.crumbs{display:flex;gap:8px;flex-wrap:wrap;font-size:14px;color:var(--muted);margin-bottom:14px}.crumbs a{color:var(--muted);text-decoration:none}.author-box{display:flex;gap:16px;align-items:flex-start;margin:50px 0 0;padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--card)}.author-box .av{flex:0 0 52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--bone);font:700 18px var(--display)}.author-box p{margin:0 0 6px;font-size:16px}.related{margin:34px 0 0}.related h2{font-size:24px;margin:0 0 12px}.related a.r{display:block;padding:14px 0;border-top:1px solid var(--line);text-decoration:none;color:inherit}.related a.r b{display:block;font-size:17px}.related a.r span{font-size:14px;color:var(--muted)}</style>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@graph": [{"@type": "BlogPosting", "@id": "https://tabishapps.com/blog/local-llm-macbook-long-context/#article", "headline": "Local LLM MacBook test: a long prompt more than doubled the RAM, from 8.4 GB to 17.7 GB", "description": "I ran Gemma 3 12B on a MacBook Pro with prompts up to 65k tokens. Peak memory went from 8.4 GB to 17.7 GB. Every number, and what it means for RAM.", "datePublished": "2026-11-28", "dateModified": "2026-11-28", "author": {"@id": "https://tabishapps.com/#me"}, "publisher": {"@id": "https://tabishapps.com/#me"}, "mainEntityOfPage": "https://tabishapps.com/blog/local-llm-macbook-long-context/", "inLanguage": "en", "articleSection": "Local AI on the Mac", "image": "https://tabishapps.com/blog/local-llm-macbook-long-context/result-card.jpg"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://tabishapps.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://tabishapps.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "Local LLM MacBook test: a long prompt more than doubled the RAM, from 8.4 GB to ", "item": "https://tabishapps.com/blog/local-llm-macbook-long-context/"}]}, {"@type": "Person", "@id": "https://tabishapps.com/#me", "name": "Tabish Hassan", "url": "https://tabishapps.com/about/", "jobTitle": "Software developer", "sameAs": ["https://github.com/tabishhassan5121472", "https://x.com/TabishHassanDev", "https://dev.to/tabishhassan5121472", "https://tabishhassan.hashnode.dev", "https://apps.apple.com/us/developer/tabish-hassan/id1885918100"]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I run a local LLM on a MacBook?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. In this test, Gemma 3 12B at 4-bit ran on a MacBook Pro M3 Pro with 36 GB. The model took 7.2 GB, a short prompt peaked at 8.4 GB, and a 64,798-token prompt peaked at 17.7 GB."}}, {"@type": "Question", "name": "How much RAM do I need for a local LLM on a Mac?", "acceptedAnswer": {"@type": "Answer", "text": "Count the model file, then add room for the context and for macOS. For Gemma 3 12B at 4-bit, peak memory was 8.4 GB for a short prompt, 13.1 GB at about 32,600 tokens and 17.7 GB at about 64,800 tokens."}}, {"@type": "Question", "name": "Does a longer prompt use more memory in a local LLM?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The KV cache grows with every token, and so does the temporary memory used while the model reads the prompt. In this test, going from about 1,300 to about 64,800 tokens added 9.3 GB of peak memory."}}, {"@type": "Question", "name": "Which MacBook is best for a local LLM?", "acceptedAnswer": {"@type": "Answer", "text": "Memory decides what you can run, so buy the most unified memory you can. Check the model size and your longest prompt: a 12B model at 4-bit fits on 16 GB for normal chats, but long documents need 24 GB or more."}}]}]}
+</script>
+<!--/seo:head-->
+</head>
+<body>
+<header class="nav"><div class="bar">
+  <a class="logo" href="../../" aria-label="Tabish Hassan, home"><span class="mark">TH</span>Tabish Hassan</a>
+  <ul><li><a href="../">Blog</a></li><li><a href="../../">Home</a></li></ul>
+</div></header>
+
+<main class="article"><div class="wrap">
+  <!--seo:crumb--><nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/blog/">Blog</a><span>›</span><span>Local AI on the Mac</span></nav><!--/seo:crumb-->
+    <div class="meta mono"><span>AI Lab</span><span>28 November 2026</span><span>7 min read</span></div>
+  <h1>Local LLM MacBook test: a long prompt more than doubled the RAM, from 8.4 GB to 17.7 GB</h1>
+  <ul class="summary">
+    <li><b>The test:</b> a local LLM MacBook test. I ran Gemma 3 12B (4-bit, with Apple's MLX) on my MacBook Pro and fed it prompts from about 1,300 to 65,000 tokens. A secret code was hidden in the middle of each prompt.</li>
+    <li><b>The result:</b> the model alone took 7.2 GB. A short prompt peaked at 8.4 GB of memory. The 65,000-token prompt peaked at 17.7 GB. The model still found the hidden code every time, 6 out of 6.</li>
+    <li><b>The advice:</b> when you work out how much RAM you need for a local LLM, add room for the context, not just the model file. Then check how the model stores its context, because that decides how fast the memory grows.</li>
+  </ul>
+
+  <figure>
+    <img src="result-card.jpg" alt="Bar chart of peak memory for Gemma 3 12B 4-bit on a MacBook Pro M3 Pro 36 GB: 8.4 GB at 1k tokens, 9.4 GB at 5k, 10.0 GB at 9k, 11.1 GB at 17k, 13.1 GB at 33k and 17.7 GB at 65k tokens. The model found the hidden fact in all 6 prompts." width="1200" height="675">
+    <figcaption>Peak memory of Gemma 3 12B (4-bit) on a MacBook Pro M3 Pro with 36 GB, by prompt length. One run per length. A tick means the model found the hidden code.</figcaption>
+  </figure>
+
+  <p class="lede">A post on X this week made me laugh. A customer at Best Buy asked if a Mac "would run a local model". The employee said he doesn't believe in AI, so he couldn't help. About 2,400 people liked it. The customer's question is a good one, though, and it deserves a real answer.</p>
+
+  <p>Most guides answer it with a table: 8 GB of RAM runs this model, 16 GB runs that one. Those tables look at the size of the model file. They skip the part that grows while you use it: the context. Every word of your chat, and every page you paste in, has to sit in memory too. So I measured how much.</p>
+
+  <h2>How I tested a local LLM on my MacBook</h2>
+  <p>I wrote the rules down before the first run.</p>
+  <ul>
+    <li><b>The Mac:</b> a MacBook Pro with an M3 Pro chip and 36 GB of unified memory, plugged in.</li>
+    <li><b>The model:</b> Gemma 3 12B instruction-tuned, 4-bit, from the mlx-community on Hugging Face. It is a popular size for 16 to 36 GB Macs. It was already on my disk; the folder is 7.5 GB.</li>
+    <li><b>The runner:</b> <a href="https://github.com/ml-explore/mlx-lm">mlx-lm</a> 0.29.1 on MLX 0.29.3, Apple's machine learning framework for Apple silicon. Greedy decoding, so the answer is the same every time for the same prompt.</li>
+    <li><b>The prompts:</b> a made-up warehouse log ("Log 812: Hana moved 14 boxes of paint tins from shelf C3 to shelf F22 at 9:41."), at 6 lengths from about 1,300 to about 65,000 tokens. In the middle of each log I hid one line: "Note: the code for the blue locker is 4592" (a different number each time). The last line asked for the code, number only.</li>
+    <li><b>What I measured:</b> peak memory as MLX reports it, the size of the context cache (the KV cache) after the answer, and whether the answer had the right code.</li>
+    <li><b>What I did not measure:</b> speed. I explain why in the limits section.</li>
+  </ul>
+  <p>The test script is about 80 lines of Python. It loads the model once, runs one warm-up prompt, then runs each length with a fresh cache.</p>
+
+  <h2>How much RAM does a local LLM need on a Mac?</h2>
+  <p>Here is every run:</p>
+  <div class="table-scroll"><table>
+    <tr><th>Prompt length</th><th>Peak memory</th><th>Context cache (KV)</th><th>Memory above the model</th><th>Found the code?</th></tr>
+    <tr><td>1,334 tokens</td><td>8.39 GB</td><td>0.42 GB</td><td>1.20 GB</td><td>Yes (4037)</td></tr>
+    <tr><td>4,565 tokens</td><td>9.41 GB</td><td>0.64 GB</td><td>2.22 GB</td><td>Yes (4148)</td></tr>
+    <tr><td>8,574 tokens</td><td>9.97 GB</td><td>0.90 GB</td><td>2.78 GB</td><td>Yes (4296)</td></tr>
+    <tr><td>16,584 tokens</td><td>11.06 GB</td><td>1.42 GB</td><td>3.87 GB</td><td>Yes (4592)</td></tr>
+    <tr><td>32,609 tokens</td><td>13.09 GB</td><td>2.47 GB</td><td>5.90 GB</td><td>Yes (5184)</td></tr>
+    <tr><td>64,798 tokens</td><td>17.72 GB</td><td>4.58 GB</td><td>10.53 GB</td><td>Yes (6368)</td></tr>
+  </table></div>
+  <figure>
+    <img src="log.jpg" alt="Terminal-style output of the test script, one line per prompt length with peak memory, KV cache size, the model's answer and whether it was correct." width="1200" height="324" loading="lazy">
+    <figcaption>The raw numbers from the test script (results.csv), shown as the script printed them.</figcaption>
+  </figure>
+  <p>The model weights took 7.19 GB as soon as they loaded. That number never changed. Everything above it is the cost of the prompt.</p>
+  <p>Memory grew with every step. Going from about 1,300 to about 16,600 tokens added 2.7 GB. Doubling to about 32,600 tokens added 2 GB more. Doubling again to about 64,800 tokens added 4.6 GB more. At the longest prompt, the memory above the model (10.5 GB) was bigger than the model itself (7.2 GB).</p>
+  <p>So for this model, the rule of thumb is simple. Count the model file, add about 1 to 2 GB for short chats, and add more for long documents. At the long end of my runs, every extra 1,000 tokens of prompt cost about 0.14 GB.</p>
+
+  <h2>Why does memory grow with a longer prompt?</h2>
+  <p>Two things grow.</p>
+  <p>The first is the <b>KV cache</b>. For every token in the prompt, the model keeps a "key" and a "value" in each attention layer, so it does not have to redo that work for the next word. This is the memory of the conversation, and it grows with every token.</p>
+  <p>The second is <b>working memory</b> while the model reads the prompt. mlx-lm reads a long prompt in chunks, and each chunk has to look back at everything before it. That temporary space also grows with the length. In my runs it was 0.8 GB for the shortest prompt and 6 GB for the longest. At the longest prompt it was bigger than the KV cache itself (4.6 GB), which I did not expect.</p>
+  <p>This is why a "16 GB runs 12B models" table can be right and still leave you stuck. The model fits. A long chat on top of it may not, and macOS needs its own share of the same memory.</p>
+
+  <h2>Why Gemma 3's cache stays small: the sliding window</h2>
+  <p>The KV cache numbers surprised me. They were much smaller than I expected for a 12B model.</p>
+  <p>The reason is in the model design. Gemma 3 has 48 layers, but only 1 in every 6 looks at the whole prompt. The other 40 layers only look at the last 1,024 tokens: a "sliding window". The <a href="https://arxiv.org/abs/2503.19786">Gemma 3 technical report</a> says Google designed it this way to cut KV cache memory at long context.</p>
+  <p>The numbers I measured match that design exactly. The 40 sliding layers use a fixed 0.34 GB, however long the prompt is. The 8 full layers add 64 KB for every token. (That is 8 layers, times a key and a value, times 8 heads of 256 numbers, at 2 bytes each.) For the 64,798-token prompt: 0.34 GB + 64,798 × 64 KB = 4.58 GB. That is the exact size I measured.</p>
+  <p>Now the comparison. If all 48 layers looked at the whole prompt, the same 65,000-token cache would need about 25.5 GB by the same math. That is my calculation, not a run, but it shows why the model design matters as much as the model size. With the sliding window, the cache was 4.58 GB.</p>
+  <p>Not every model works like this. Many models keep the full context in every layer. Before you trust a "fits in 16 GB" claim for long documents, check the model card for a sliding window, grouped-query attention, or a smaller KV cache, and test with your own longest prompt.</p>
+
+  <h2>Can a 12B local LLM still find a fact in a long prompt?</h2>
+  <p>Yes, in this test. The model gave the right code at every length, 6 out of 6, from about 1,300 to about 64,800 tokens. Each answer was just the number, as asked.</p>
+  <p>This is an easy test, to be fair. The hidden line looks different from the log lines around it, and the question names it exactly. A real document with many similar facts is harder. But it does show that the long context is usable, not just loaded.</p>
+
+  <h2>Which MacBook do you need for a local LLM?</h2>
+  <p>From this one model, here is how I would think about it. These are my estimates from the numbers above, not runs on other Macs.</p>
+  <ul>
+    <li><b>8 GB:</b> a 12B model at 4-bit does not fit with room for macOS. Look at models of about 4B and smaller.</li>
+    <li><b>16 GB:</b> a 12B model at 4-bit fits for normal chats (8 to 10 GB at peak in my runs). Long documents can push you into swap, because macOS needs its own share of the same memory.</li>
+    <li><b>24 GB:</b> a 12B model with long documents. About 32,000 tokens (13.1 GB at peak in my runs) leaves room for a browser and an editor. About 65,000 tokens (17.7 GB) is tight.</li>
+    <li><b>36 GB and up:</b> the full 65,000 tokens fit for this model. Larger models become possible too.</li>
+  </ul>
+  <p>Memory decides what runs. Speed depends on the chip's memory bandwidth, which is a separate question. For a related test, see <a href="/blog/prompt-caching-coding-agents/">how prompt caching helps a local model in long agent sessions</a>.</p>
+
+  <h2>Limits of this test</h2>
+  <ul>
+    <li><b>No speed numbers.</b> While I ran the test, a video job from another program was using the Mac's GPU for hours. The memory numbers and the answers are not affected by that: memory is what this process allocated, and greedy decoding gives the same answer either way. Speed is affected, so I left it out rather than publish wrong numbers.</li>
+    <li><b>No 128k run.</b> Gemma 3 supports up to 128k tokens. I planned a 128k run, but with the GPU shared it would have taken an hour, so I stopped at about 65,000.</li>
+    <li><b>One model, one Mac, one run per length.</b> The memory numbers are repeatable for the same prompt; I checked the 1k run twice and got the same 8.39 GB. Other models and other runners (Ollama, LM Studio, llama.cpp) will use different amounts.</li>
+    <li><b>Peak memory is what MLX reports</b> for this process. Activity Monitor will show a bit more, because Python and the tokenizer use memory too.</li>
+    <li><b>The recall test is simple.</b> One clear fact in synthetic text. It is not a full long-context benchmark.</li>
+    <li>I wrote the test script and the scoring rules myself, with help from an AI coding assistant, and checked every number against the raw output.</li>
+  </ul>
+
+  <h2>FAQ</h2><section class="faq"><h3>Can I run a local LLM on a MacBook?</h3><p>Yes. In this test, Gemma 3 12B at 4-bit ran on a MacBook Pro M3 Pro with 36 GB. The model took 7.2 GB, a short prompt peaked at 8.4 GB, and a 64,798-token prompt peaked at 17.7 GB.</p><h3>How much RAM do I need for a local LLM on a Mac?</h3><p>Count the model file, then add room for the context and for macOS. For Gemma 3 12B at 4-bit, peak memory was 8.4 GB for a short prompt, 13.1 GB at about 32,600 tokens and 17.7 GB at about 64,800 tokens.</p><h3>Does a longer prompt use more memory in a local LLM?</h3><p>Yes. The KV cache grows with every token, and so does the temporary memory used while the model reads the prompt. In this test, going from about 1,300 to about 64,800 tokens added 9.3 GB of peak memory.</p><h3>Which MacBook is best for a local LLM?</h3><p>Memory decides what you can run, so buy the most unified memory you can. Check the model size and your longest prompt: a 12B model at 4-bit fits on 16 GB for normal chats, but long documents need 24 GB or more.</p></section>
+
+  <h2>Sources</h2>
+  <ul>
+    <li>@SullyBusiness on X, 27 November 2026: <a href="https://x.com/SullyBusiness/status/2126400702431825939">the Best Buy "would this Mac run a local model" post</a>.</li>
+    <li>Gemma Team, Google: <a href="https://arxiv.org/abs/2503.19786">Gemma 3 Technical Report</a> (local and global attention layers, KV cache at long context).</li>
+    <li><a href="https://github.com/ml-explore/mlx-lm">mlx-lm on GitHub</a> (the runner used in this test) and <a href="https://huggingface.co/mlx-community/gemma-3-12b-it-4bit">mlx-community/gemma-3-12b-it-4bit</a> (the model).</li>
+  </ul>
+  <!--seo:foot--><div class="author-box"><div class="av">TH</div><div><p><b>Written by <a href="/about/">Tabish Hassan</a></b>, a software developer in Pakistan. 4+ years of production React and TypeScript, 75 iOS apps on the App Store. The tests on this blog run on my own Mac, with the method and limits shown.</p><p>Found a mistake or got different numbers? Email <a href="mailto:hello@tabishapps.com">hello@tabishapps.com</a>. Published 2026-11-28.</p></div></div><section class="related"><h2>Read next</h2><a class="r" href="/blog/add-subtitles-to-video-offline-mac/"><b>How to add subtitles to a video on your Mac, offline, in 100 languages</b><span>Guide · Local AI on the Mac</span></a><a class="r" href="/blog/claude-code-token-usage-small-edits/"><b>Claude Code token usage, tested: a one-word fix cost 58,000 tokens, and a precise prompt saved only 2%</b><span>AI Lab · AI coding agents</span></a><a class="r" href="/blog/ai-agents-business-apps-test/"><b>I gave 4 AI coding agents one sentence each. They built 4 business apps that passed 792 checks, and the checks still missed a security leak</b><span>Test · AI coding agents</span></a></section><!--/seo:foot-->
+</div></main>
+
+<footer class="b-foot"><div class="wrap">
+  <span>© 2026 Tabish Hassan · tabishapps.com</span>
+  <span><a href="../">Blog</a> · <a href="../../">Main site</a></span>
+</div></footer>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "baa3382c2e8f47f09e2a5a5f8474ebf0"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

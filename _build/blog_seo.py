@@ -32,7 +32,7 @@ CLUSTER = {
     "prompt-caching-coding-agents": "ai-coding", "code-mode-tool-calls-test": "ai-coding",
     "ai-slop-design-skills-test": "ai-coding", "ai-agents-business-apps-test": "ai-coding",
     "claude-code-token-usage-small-edits": "ai-coding",
-    "add-subtitles-to-video-offline-mac": "local-ai",
+    "add-subtitles-to-video-offline-mac": "local-ai", "local-llm-macbook-long-context": "local-ai",
     "small-business-website-cost": "business",
 }
 CLUSTER_NAME = {"ai-coding": "AI coding agents", "local-ai": "Local AI on the Mac",
